@@ -1,1 +1,1 @@
-# terraform-ibm-is
+# terraform-ibm-vpc
