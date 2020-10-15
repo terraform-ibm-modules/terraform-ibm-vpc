@@ -8,9 +8,13 @@ variable "name" {
   type        = string
 }
 
+#####################################################
+# Optional Parameters
+#####################################################
+
 variable "resource_group_id" {
-    description = "ID of resource group."
-    type        = string
+  description = "ID of resource group."
+  type        = string
 }
 
 variable "classic_access" {

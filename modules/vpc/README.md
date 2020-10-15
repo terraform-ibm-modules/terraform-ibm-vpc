@@ -5,7 +5,7 @@ This module is used to create a VPC
 ## Example Usage
 ```
 data "ibm_resource_group" "resource_group" {
-  name = var.resource_group
+  name = (var.resource_group != null ? var.resource_group : "default")
 }
 
 module "vpc" {
@@ -20,17 +20,22 @@ module "vpc" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-## Inputs
 
 ## Inputs
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
 | name | Name of the vpc | string | n/a | yes |
-| resource\_group | ID of the resource group | string | n/a | no |
-| classic\_access | Indicates whether this VPC should be connected to Classic Infrastructure. | Boolean | false | no |
+| resource\_group | Name of the resource group | string | default | no |
+| classic\_access | Indicates whether this VPC should be connected to Classic Infrastructure. | bool | false | no |
 | default\_prefix\_management | Indicates whether a default address prefix should be automatically created for each zone in this VPC.  | string | auto | no |
-| tags | List of tags to attach  | List | n/a | no |
+| tags | List of tags to attach  | list(string) | n/a | no |
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| vpc\_id | The ID of the VPC |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

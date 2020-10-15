@@ -7,7 +7,7 @@ provider "ibm" {
 }
 
 data "ibm_resource_group" "resource_group" {
-  name = var.resource_group
+  name = (var.resource_group != null ? var.resource_group : "default")
 }
 
 module "vpc" {
