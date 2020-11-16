@@ -8,8 +8,8 @@ This example illustrates how to use the [floatingIP](../../modules/floatingIP) m
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| name | Name of the Floating IP | string | n/a | yes |
 | resource\_group | Name of the resource group | string | default | no |
+| name | Name of the Floating IP | string | n/a | yes |
 | location | Floating IP Zone. Either `location` or `target` input parameters must be provided in the module | string | n/a | no |
 | target | Target Interface ID for this Floating IP. Either `location` or `target` input parameters must be provided in the module| string | n/a | no |
 | tags | List of tags to attach  | list(string) | n/a | no |

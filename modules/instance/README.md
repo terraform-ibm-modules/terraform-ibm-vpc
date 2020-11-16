@@ -44,7 +44,7 @@ module "instance" {
 | profile | Profile type for the Instance  | string | n/a | yes |
 | ssh\_keys | List of ssh key IDs to the instance  | list(string) | n/a | yes |
 | primary\_network\_interface | List of primary_network_interface that are to be attached to the instance  | object | n/a | yes |
-| resource\_group | Name of the resource group | string | default | no |
+| resource\_group\_id | ID of the resource group | string | n/a | no |
 | user\_data | User Data for the instance  | string | n/a | no |
 | boot\_volume | List of boot volume that are to be attached to the instance| object | n/a | no |
 | network\_interfaces | List of network_interfaces that are to be attached to the instance  | object | n/a | no |

@@ -29,7 +29,7 @@ module "security_group" {
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
 | name | Name of the Security Group | string | n/a | yes |
 | vpc | Name of the VPC | string | n/a | yes |
-| resource\_group | Name of the resource group | string | default | no |
+| resource\_group\_id | ID of the resource group | string | n/a | no |
 
 ## Outputs
 

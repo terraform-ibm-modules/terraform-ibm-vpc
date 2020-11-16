@@ -10,9 +10,9 @@ This example illustrates how to use the [security-group](./../modules/security-g
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+| resource\_group | Name of the resource group | string | default | no |
 | name | Name of the Security Group | string | n/a | yes |
 | vpc | Name of the VPC | string | n/a | yes |
-| resource\_group | Name of the resource group | string | default | no |
 
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
