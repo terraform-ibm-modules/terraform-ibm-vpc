@@ -26,7 +26,7 @@ module "vpc" {
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
 | name | Name of the vpc | string | n/a | yes |
-| resource\_group | Name of the resource group | string | default | no |
+| resource\_group\_id | ID of the resource group | string | n/a | no |
 | classic\_access | Indicates whether this VPC should be connected to Classic Infrastructure. | bool | false | no |
 | default\_prefix\_management | Indicates whether a default address prefix should be automatically created for each zone in this VPC.  | string | auto | no |
 | tags | List of tags to attach  | list(string) | n/a | no |

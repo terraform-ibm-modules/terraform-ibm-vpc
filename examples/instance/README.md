@@ -8,6 +8,7 @@ This example illustrates how to use the [instance](../../modules/instance) modul
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+| resource\_group | Name of the resource group | string | default | no |
 | name | Name of the Subnet | string | n/a | yes |
 | vpc | Name of the VPC | string | n/a | yes |
 | location | Zone of the subnet  | string | n/a | yes |
@@ -15,7 +16,6 @@ This example illustrates how to use the [instance](../../modules/instance) modul
 | profile | Profile type for the Instance  | string | n/a | yes |
 | ssh\_keys | List of ssh key IDs to the instance  | list(string) | n/a | yes |
 | primary\_network\_interface | List of primary_network_interface that are to be attached to the instance  | object | n/a | yes |
-| resource\_group | Name of the resource group | string | default | no |
 | user\_data | User Data for the instance  | string | n/a | no |
 | boot\_volume | List of boot volume that are to be attached to the instance| object | n/a | no |
 | network\_interfaces | List of network_interfaces that are to be attached to the instance  | object | n/a | no |

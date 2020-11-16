@@ -35,7 +35,7 @@ module "subnet" {
 | name | Name of the Subnet | string | n/a | yes |
 | vpc | Name of the VPC | string | n/a | yes |
 | location | Zone of the subnet  | string | n/a | yes |
-| resource\_group | Name of the resource group | string | default | no |
+| resource\_group\_id | ID of the resource group | string | n/a | no |
 | ip\_range | IP range/CIDR block of the Subnet. Either `ip_range` or `number_of_addresses` input parameters must be provided in the module| string | n/a | no |
 | number\_of\_addresses | The total number of IPv4 addresses. Either `ip_range` or `number_of_addresses` input parameters must be provided in the module | number | n/a | no |
 | subnet\_access\_control\_list | Network ACL ID  | string | n/a | no |
