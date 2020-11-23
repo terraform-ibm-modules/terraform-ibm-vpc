@@ -15,7 +15,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "security_group" {
-  source = "../../modules/security-group"
+  source = "terraform-ibm-modules/vpc/ibm//modules/security-group"
 
   name                       = var.name
   vpc_id                     = data.ibm_is_vpc.testacc_vpc.id

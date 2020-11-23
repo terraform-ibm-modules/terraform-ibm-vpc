@@ -15,7 +15,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "subnet" {
-  source = "../../modules/subnet"
+  source = ".terraform-ibm-modules/vpc/ibm//modules/subnet"
 
   name                       = var.name
   vpc_id                     = data.ibm_is_vpc.testacc_vpc.id

@@ -4,7 +4,7 @@
 #####################################################
 
 variable "name" {
-  description = "Name of the vpc"
+  description = "Name of the subnet"
   type        = string
 }
 
