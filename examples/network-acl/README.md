@@ -18,6 +18,12 @@ This example illustrates how to use the [network_acl](./../modules/network-acl) 
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
+NOTE: We can configure the rules to be attached to the network_acl by entering respective details in input.tfvars.
+
+## Usage
+
+terraform apply -var-file="input.tfvars"
+
 ## Note
 
 For all optional fields, default values (Eg: `null`) are given in varaible.tf file. User can configure the same by overwriting with appropriate values.

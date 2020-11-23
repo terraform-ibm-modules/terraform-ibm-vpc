@@ -36,11 +36,3 @@ module "vpc" {
 | Name | Description |
 |------|-------------|
 | vpc\_id | The ID of the VPC |
-
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
-NOTE: We can configure the list of tags to be attached to a VPC by entering respective details in input.tfvars.
-
-## Usage
-
-terraform apply -var-file="input.tfvars"
