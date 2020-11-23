@@ -1,13 +1,16 @@
 # IBM VPC Terraform Module
 
 This is a collection of modules that make it easier to provision a cluster on IBM Cloud Platform:
-* [vpc](terraform-ibm-modules/vpc/ibm//modules/vpc)
-* [vpc-address-prefix](terraform-ibm-modules/vpc/ibm//modules/configure-vpc/vpc-address-prefix)
-* [vpc-route](terraform-ibm-modules/vpc/ibm//modules/configure-vpc/vpc-route)
-* [subnet](terraform-ibm-modules/vpc/ibm//modules/subnet)
-* [security-group](terraform-ibm-modules/vpc/ibm//modules/security-group)
-* [floatingIP](terraform-ibm-modules/vpc/ibm//modules/floatingIP)
-* [instance](terraform-ibm-modules/vpc/ibm//modules/instance)
+* [vpc](modules/vpc)
+* [vpc-address-prefix](modules/configure-vpc/vpc-address-prefix)
+* [vpc-route](modules/configure-vpc/vpc-route)
+* [subnet](modules/subnet)
+* [security-group](modules/security-group)
+* [floatingIP](modules/floatingIP)
+* [instance](modules/instance)
+* [network-acl](modules/network-acl)
+* [public-gateway](modules/public-gateway)
+* [volume](modules/volume)
 
 ## Compatibility
 
