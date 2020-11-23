@@ -9,7 +9,7 @@ data "ibm_is_vpc" "testacc_vpc" {
 }
 
 module "vpc-address-prefix" {
-  source = "../../modules/configure-vpc/vpc-address-prefix"
+  source = "terraform-ibm-modules/vpc/ibm//modules/configure-vpc/vpc-address-prefix"
 
   name     = var.name
   vpc_id   = data.ibm_is_vpc.testacc_vpc.id

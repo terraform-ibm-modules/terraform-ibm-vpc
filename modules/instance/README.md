@@ -13,7 +13,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "instance" {
-  source = "../../modules/instance"
+  source = "terraform-ibm-modules/vpc/ibm//modules/instance"
 
   name                      = var.name
   vpc_id                    = data.ibm_is_vpc.testacc_vpc.id
