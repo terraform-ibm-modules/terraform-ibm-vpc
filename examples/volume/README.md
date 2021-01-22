@@ -1,6 +1,6 @@
 # VPC Block Storage Module Example
 
-This example illustrates how to use the [volume](../../modules/volume) module
+This example illustrates how to use the `volume` module
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

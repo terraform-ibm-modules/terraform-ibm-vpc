@@ -1,6 +1,6 @@
 # Instance Module Example
 
-This example illustrates how to use the [instance](../../modules/instance) module.
+This example illustrates how to use the `instance` module.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

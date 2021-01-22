@@ -2,7 +2,7 @@
 
 This module is used to create a Security Group
 
-This example illustrates how to use the [security-group](./../modules/security-group) module
+This example illustrates how to use the `security-group` module
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

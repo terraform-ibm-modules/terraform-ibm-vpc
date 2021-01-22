@@ -1,6 +1,6 @@
 # SUBNET Module Example
 
-This example illustrates how to use the [subnet](../../modules/subnet) module.
+This example illustrates how to use the `subnet` module.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

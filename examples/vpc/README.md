@@ -1,6 +1,6 @@
 # Module VPC
 
-This example illustrates how to use the [vpc](../../modules/vpc) module.
+This example illustrates how to use the `vpc` module.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
