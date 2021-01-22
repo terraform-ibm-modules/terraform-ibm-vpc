@@ -11,7 +11,7 @@ data "ibm_is_vpc" "testacc_vpc" {
 }
 
 module "vpc-route" {
-  source = "terraform-ibm-modules/vpc/ibm//modules/configure-vpc/vpc-route"
+  source = "terraform-ibm-modules/vpc/ibm//modules/vpc-route"
 
   name             = var.name
   vpc_id           = data.ibm_is_vpc.testacc_vpc.id

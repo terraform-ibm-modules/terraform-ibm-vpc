@@ -1,6 +1,6 @@
 # Public Gateway Module Example
 
-This example illustrates how to use the [public_gateway](../../modules/public-gateway) module.
+This example illustrates how to use the `public_gateway` module.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

@@ -1,6 +1,6 @@
 # Floating IP Module Example
 
-This example illustrates how to use the [floatingIP](../../modules/floatingIP) module
+This example illustrates how to use the `floatingIP` module
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

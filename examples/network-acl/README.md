@@ -2,7 +2,7 @@
 
 This module is used to create a Network ACL
 
-This example illustrates how to use the [network_acl](./../modules/network-acl) module
+This example illustrates how to use the `network_acl` module
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
