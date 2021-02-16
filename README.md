@@ -16,10 +16,7 @@ This is a collection of modules that make it easier to provision VPC Resources o
 
 ## Compatibility
 
-This module is meant for use with Terraform 0.12. If you haven't
-[upgraded][terraform-0.12-upgrade] and need a Terraform 0.11.x-compatible
-version of this module, the last released version intended for Terraform 0.11.x
-is [1.1.1][v1.1.1].
+This module is meant for use with Terraform 0.13.
 
 ## Usage
 
@@ -29,14 +26,14 @@ Full examples are in the [examples](./examples/) folder.
 
 ### Terraform plugins
 
-- [Terraform](https://www.terraform.io/downloads.html) 0.12
+- [Terraform](https://www.terraform.io/downloads.html) 0.13
 - [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm) 
 
 ## Install
 
 ### Terraform
 
-Be sure you have the correct Terraform version (0.12), you can choose the binary here:
+Be sure you have the correct Terraform version (0.13), you can choose the binary here:
 - https://releases.hashicorp.com/terraform/
 
 ### Terraform plugins
