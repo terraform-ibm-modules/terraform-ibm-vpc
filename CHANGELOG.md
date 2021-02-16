@@ -8,3 +8,7 @@ corresponding pull request appended.
 ## [1.0.0] - 2020-10-08
 
 This is the initial release of the module, with support for VPC resources creation.
+
+## [1.0.1] - 2021-02-17
+
+Upgrade module to Terraform v0.13
