@@ -3,7 +3,6 @@
 This is a collection of modules that make it easier to provision VPC Resources on IBM Cloud Platform:
 * [vpc](terraform-ibm-modules/vpc/ibm//modules/vpc)
 * [vpc-address-prefix](terraform-ibm-modules/vpc/ibm//modules/vpc-address-prefix)
-* [vpc-route](mterraform-ibm-modules/vpc/ibm//modules/vpc-route)
 * [subnet](terraform-ibm-modules/vpc/ibm//modules/subnet)
 * [security-group](terraform-ibm-modules/vpc/ibm//modules/security-group)
 * [floatingIP](terraform-ibm-modules/vpc/ibm//modules/floatingIP)
