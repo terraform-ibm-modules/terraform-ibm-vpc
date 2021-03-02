@@ -15,7 +15,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "public_gateway" {
-  source = "../../modules/public-gateway"
+  source = "terraform-ibm-modules/vpc/ibm//modules/public-gateway"
 
   name              = var.name
   vpc_id            = data.ibm_is_vpc.testacc_vpc.id
