@@ -15,7 +15,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "network_acl" {
-  source = "../../modules/network-acl"
+  source = "terraform-ibm-modules/vpc/ibm//modules/network-acl"
 
   name              = var.name
   vpc_id            = data.ibm_is_vpc.testacc_vpc.id
