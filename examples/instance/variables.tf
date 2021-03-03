@@ -50,7 +50,7 @@ variable "primary_network_interface" {
 variable "resource_group" {
   description = "Resource group name"
   type        = string
-  default     = "default"
+  default     = null
 }
 
 variable "user_data" {
@@ -88,5 +88,5 @@ variable "boot_volume" {
     name       = string
     encryption = string
   }))
-  default     = null
+  default = null
 }

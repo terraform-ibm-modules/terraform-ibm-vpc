@@ -26,12 +26,12 @@ variable "location" {
 variable "resource_group" {
   description = "Resource group name"
   type        = string
-  default     = "default"
+  default     = null
 }
 
 variable "floating_ip" {
   description = "Floating IP `id`'s or `address`'es that you want to assign to the public gateway"
-  type        = map(list(string))
+  type        = map
   default     = null
 }
 
