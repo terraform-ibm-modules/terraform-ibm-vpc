@@ -10,12 +10,21 @@ This example illustrates how to use the `security-group` module
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+| create\_security\_group | True to create new security group. False if security group is already existing and security group rules are to be added | bool | bool | n/a | yes |
 | resource\_group | Name of the resource group | string | default | no |
-| name | Name of the Security Group | string | n/a | yes |
-| vpc | Name of the VPC | string | n/a | yes |
+| name | Name of the new Security Group. Required if creating a new sg | string | n/a | no |
+| vpc | VPC Name of the new Security Group. Required if creating a new sg | string | n/a | no |
+| security\_group | Existing Security Group's ID to which rules are to be attached | string | n/a | no |
+| security\_group\_rules | Security Group rules | list | n/a | no |
 
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+NOTE: We can configure the list of security group rules to be attached to the security group by entering respective details in input.tfvars.
+
+## Usage
+
+terraform apply -var-file="input.tfvars"
 
 ## Note
 
