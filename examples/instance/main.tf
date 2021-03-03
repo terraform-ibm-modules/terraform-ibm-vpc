@@ -25,9 +25,9 @@ module "instance" {
   profile                   = var.profile
   ssh_keys                  = var.ssh_keys
   primary_network_interface = var.primary_network_interface
-  user_data                 = (var.user_data != null ? var.user_data : null)
-  boot_volume               = (var.boot_volume != null ? var.boot_volume : null)
-  network_interfaces        = (var.network_interfaces != null ? var.network_interfaces : null)
-  data_volumes              = (var.data_volumes != null ? var.data_volumes : [])
-  tags                      = (var.tags != null ? var.tags : [])
+  user_data                 = var.user_data
+  boot_volume               = var.boot_volume
+  network_interfaces        = var.network_interfaces
+  data_volumes              = var.data_volumes
+  tags                      = var.tags
 }

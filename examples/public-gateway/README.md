@@ -12,7 +12,7 @@ This example illustrates how to use the `public_gateway` module.
 | name | Name of the Public Gateway | string | n/a | yes |
 | vpc | Name of the VPC | string | n/a | yes |
 | location | Zone of the Public Gateway  | string | n/a | yes |
-| floating\_ip | Floating IP `id`'s or `address`'es that you want to assign to the public gateway | map | n/a | no |
+| floating\_ip | Floating IP `id` or `address` that you want to assign to the public gateway | map | n/a | no |
 | tags | List of tags to attach  | list(string) | n/a | no |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

@@ -15,14 +15,15 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "subnet" {
-  source = ".terraform-ibm-modules/vpc/ibm//modules/subnet"
+  source = "terraform-ibm-modules/vpc/ibm//modules/subnet"
 
   name                       = var.name
   vpc_id                     = data.ibm_is_vpc.testacc_vpc.id
   resource_group_id          = data.ibm_resource_group.resource_group.id
   location                   = var.location
-  ip_range                   = (var.ip_range != null ? var.ip_range : null)
-  number_of_addresses        = (var.number_of_addresses != null ? var.number_of_addresses : null)
-  subnet_access_control_list = (var.subnet_access_control_list != null ? var.subnet_access_control_list : null)
-  public_gateway             = (var.public_gateway != null ? var.public_gateway : null)
+  ip_range                   = var.ip_range
+  number_of_addresses        = var.number_of_addresses
+  subnet_access_control_list = var.subnet_access_control_list
+  public_gateway             = var.public_gateway
+  routing_table              = var.routing_table
 }

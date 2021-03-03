@@ -21,6 +21,6 @@ module "public_gateway" {
   vpc_id            = data.ibm_is_vpc.testacc_vpc.id
   resource_group_id = data.ibm_resource_group.resource_group.id
   location          = var.location
-  floating_ip       = (var.floating_ip != null ? var.floating_ip : null)
-  tags              = (var.tags != null ? var.tags : [])
+  floating_ip       = var.floating_ip
+  tags              = var.tags
 }

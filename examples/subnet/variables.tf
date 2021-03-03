@@ -26,7 +26,7 @@ variable "location" {
 variable "resource_group" {
   description = "Resource group name"
   type        = string
-  default     = "default"
+  default     = null
 }
 
 variable "ip_range" {
@@ -49,6 +49,12 @@ variable "subnet_access_control_list" {
 
 variable "public_gateway" {
   description = "Public Gateway ID"
+  type        = string
+  default     = null
+}
+
+variable "routing_table" {
+  description = "Routing Table ID"
   type        = string
   default     = null
 }

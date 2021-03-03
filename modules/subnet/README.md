@@ -19,10 +19,11 @@ module "subnet" {
   vpc_id                     = data.ibm_is_vpc.testacc_vpc.id
   resource_group_id          = data.ibm_resource_group.resource_group.id
   location                   = var.location
-  ip_range                   = (var.ip_range != null ? var.ip_range : null)
-  number_of_addresses        = (var.number_of_addresses != null ? var.number_of_addresses : null)
-  subnet_access_control_list = (var.subnet_access_control_list != null ? var.subnet_access_control_list : null)
-  public_gateway             = (var.public_gateway != null ? var.public_gateway : null)
+  ip_range                   = var.ip_range
+  number_of_addresses        = var.number_of_addresses
+  subnet_access_control_list = var.subnet_access_control_list
+  public_gateway             = var.public_gateway
+  routing_table              = var.routing_table
 }
 ```
 
@@ -40,6 +41,7 @@ module "subnet" {
 | number\_of\_addresses | The total number of IPv4 addresses. Either `ip_range` or `number_of_addresses` input parameters must be provided in the module | number | n/a | no |
 | subnet\_access\_control\_list | Network ACL ID  | string | n/a | no |
 | public\_gateway | Public Gateway ID  | string | n/a | no |
+| routing\_table | Routing Table ID  | string | n/a | no |
 
 ## Outputs
 

@@ -21,11 +21,13 @@ variable "location" {
 variable "resource_group_id" {
   description = "Resource group ID"
   type        = string
+  default     = null
 }
 
 variable "target" {
   description = "Target Interface ID for this Floating IP"
   type        = string
+  default     = null
 }
 
 variable "tags" {

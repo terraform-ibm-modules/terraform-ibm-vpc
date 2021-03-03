@@ -15,7 +15,7 @@ variable "name" {
 variable "resource_group" {
   description = "Resource group name"
   type        = string
-  default     = "default"
+  default     = null
 }
 
 variable "location" {

@@ -51,11 +51,13 @@ variable "primary_network_interface" {
 variable "resource_group_id" {
   description = "Resource group ID"
   type        = string
+  default     = null
 }
 
 variable "user_data" {
   description = "User Data for the instance"
   type        = string
+  default     = null
 }
 
 variable "data_volumes" {

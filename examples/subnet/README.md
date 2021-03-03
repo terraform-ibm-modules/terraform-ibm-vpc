@@ -16,6 +16,7 @@ This example illustrates how to use the `subnet` module.
 | number\_of\_addresses | The total number of IPv4 addresses. Either `ip_range` or `number_of_addresses` input parameters must be provided in the module | number | n/a | no |
 | subnet\_access\_control\_list | Network ACL ID  | string | n/a | no |
 | public\_gateway | Public Gateway ID  | string | n/a | no |
+| routing\_table | Routing Table ID  | string | n/a | no |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
