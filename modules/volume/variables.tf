@@ -26,21 +26,25 @@ variable "volume_profile" {
 variable "resource_group_id" {
   description = "Resource group ID"
   type        = string
+  default     = null
 }
 
 variable "iops" {
   description = "The total i/o operations per sec for the storage. This value is required for custom volume_profile only."
   type        = number
+  default     = null
 }
 
 variable "size" {
   description = "The capacity of the volume in gigabytes"
   type        = number
+  default     = null
 }
 
 variable "encryption" {
   description = "The encryption key to use for encrypting this volume"
   type        = string
+  default     = null
 }
 
 variable "tags" {

@@ -20,6 +20,7 @@ variable "subnet" {
 variable "resource_group_id" {
   description = "ID of resource group."
   type        = string
+  default     = null
 }
 
 variable "tags" {

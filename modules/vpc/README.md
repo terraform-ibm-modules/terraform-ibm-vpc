@@ -36,3 +36,6 @@ module "vpc" {
 | Name | Description |
 |------|-------------|
 | vpc\_id | The ID of the VPC |
+| vpc\_default\_security\_group |The ID of the vpc default security group |
+| vpc\_default\_network\_acl | The ID of the vpc default network acl |
+| vpc\_default\_routing\_table | The ID of the vpc default Routing Table |

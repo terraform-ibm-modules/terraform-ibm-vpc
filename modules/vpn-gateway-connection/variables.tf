@@ -41,29 +41,35 @@ variable "peer_cidrs" {
 variable "admin_state_up" {
   description = "The VPN gateway connection status"
   type        = bool
+  default     = null
 }
 
 variable "action" {
   description = "Dead peer detection actions"
   type        = string
+  default     = null
 }
 
 variable "interval" {
   description = "Dead peer detection interval in seconds"
   type        = number
+  default     = null
 }
 
 variable "timeout" {
   description = "Dead peer detection timeout in seconds"
   type        = number
+  default     = null
 }
 
 variable "ike_policy" {
   description = "The ID of the IKE policy"
   type        = string
+  default     = null
 }
 
 variable "ipsec_policy" {
   description = " The ID of the IPSec policy"
   type        = string
+  default     = null
 }

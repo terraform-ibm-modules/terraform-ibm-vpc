@@ -12,4 +12,4 @@ peer_cidrs = ["10.240.0.0/24"]
 ******************************************************/
 
 local_cidrs = ["<ipv4_cidr_block1>"]
-peer_cidrs = ["<ipv4_cidr_block2>"]
+peer_cidrs  = ["<ipv4_cidr_block2>"]

@@ -31,7 +31,7 @@ module "public_gateway" {
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
 | name | Name of the Public Gateway | string | n/a | yes |
-| vpc | Name of the VPC | string | n/a | yes |
+| vpc\_id | VPC ID | string | n/a | yes |
 | location | Zone of the Public Gateway  | string | n/a | yes |
 | resource\_group\_id | ID of the resource group | string | n/a | no |
 | floating\_ip | Floating IP `id` or `address` that you want to assign to the public gateway | map | n/a | no |
