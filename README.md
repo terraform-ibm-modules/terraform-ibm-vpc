@@ -1,17 +1,19 @@
 # IBM VPC Terraform Module
 
 This is a collection of modules that make it easier to provision VPC Resources on IBM Cloud Platform:
-* [vpc](terraform-ibm-modules/vpc/ibm//modules/vpc)
-* [vpc-address-prefix](terraform-ibm-modules/vpc/ibm//modules/vpc-address-prefix)
-* [subnet](terraform-ibm-modules/vpc/ibm//modules/subnet)
-* [security-group](terraform-ibm-modules/vpc/ibm//modules/security-group)
-* [floatingIP](terraform-ibm-modules/vpc/ibm//modules/floatingIP)
-* [instance](terraform-ibm-modules/vpc/ibm//modules/instance)
-* [network-acl](terraform-ibm-modules/vpc/ibm//modules/network-acl)
-* [public-gateway](terraform-ibm-modules/vpc/ibm//modules/public-gateway)
-* [volume](terraform-ibm-modules/vpc/ibm//modules/volume)
-* [vpn-gateway](terraform-ibm-modules/vpc/ibm//modules/vpn-gateway)
-* [vpn-gateway-connection](terraform-ibm-modules/vpc/ibm//modules/vpn-gateway-connection)
+* [vpc](./modules/vpc)
+* [vpc-address-prefix](./modules/vpc-address-prefix)
+* [subnet](./modules/subnet)
+* [security-group](./modules/security-group)
+* [floatingIP](./modules/floatingIP)
+* [instance](./modules/instance)
+* [network-acl](./modules/network-acl)
+* [public-gateway](./modules/public-gateway)
+* [volume](./modules/volume)
+* [vpn-gateway](./modules/vpn-gateway)
+* [vpn-gateway-connection](./modules/vpn-gateway-connection)
+* [load-balancer](./modules/load-balancer)
+* [vpe](./modules/vpe)
 
 ## Compatibility
 
