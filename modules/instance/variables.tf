@@ -67,7 +67,7 @@ variable "data_volumes" {
 }
 
 variable "tags" {
-  description = "List of Tags for the vpc"
+  description = "List of Tags for the Instance"
   type        = list(string)
   default     = []
 }
