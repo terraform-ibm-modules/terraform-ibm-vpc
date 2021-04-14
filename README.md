@@ -14,6 +14,8 @@ This is a collection of modules that make it easier to provision VPC Resources o
 * [vpn-gateway-connection](./modules/vpn-gateway-connection)
 * [load-balancer](./modules/load-balancer)
 * [vpe](./modules/vpe)
+* [ssh-key](./modules/ssh-key)
+* [image](./modules/image)
 
 ## Compatibility
 
