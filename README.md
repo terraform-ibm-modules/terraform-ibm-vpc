@@ -13,7 +13,7 @@ This is a collection of modules that make it easier to provision VPC Resources o
 * [vpn-gateway](terraform-ibm-modules/vpc/ibm//modules/vpn-gateway)
 * [vpn-gateway-connection](terraform-ibm-modules/vpc/ibm//modules/vpn-gateway-connection)
 
-## Compatibility
+## Compatibility 
 
 This module is meant for use with Terraform 0.13.
 
