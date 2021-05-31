@@ -3,7 +3,7 @@
 # Copyright 2020 IBM
 #####################################################
 
-resource "ibm_is_volume" "testacc_volume" {
+resource "ibm_is_volume" "volume" {
   name           = var.name
   resource_group = var.resource_group_id
   zone           = var.location

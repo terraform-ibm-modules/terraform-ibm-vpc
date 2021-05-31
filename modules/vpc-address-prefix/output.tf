@@ -5,5 +5,5 @@
 
 output "vpc_address_prefix_id" {
   description = "The ID of the vpc Address Prefix"
-  value       = ibm_is_vpc_address_prefix.testacc_vpc_address_prefix.id
+  value       = ibm_is_vpc_address_prefix.vpc_address_prefix.id
 }

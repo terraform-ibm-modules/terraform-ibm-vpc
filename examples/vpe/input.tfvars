@@ -4,9 +4,9 @@
 #####################################################
 
 /****************************************************
-Example Usage 
+Example Usage
 
-//mandatory variables 
+//mandatory variables
 
 target = [{
     resource_type = "provider_infrastructure_service"

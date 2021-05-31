@@ -3,7 +3,7 @@
 # Copyright 2020 IBM
 #####################################################
 
-resource "ibm_is_security_group" "testacc_sg" {
+resource "ibm_is_security_group" "sg" {
   count          = var.create_security_group ? 1 : 0
   name           = var.name
   vpc            = var.vpc_id
@@ -15,9 +15,9 @@ resource "ibm_is_security_group" "testacc_sg" {
 # Create security group rules resources
 #---------------------------------------------------------
 
-resource "ibm_is_security_group_rule" "testacc_sg_rules" {
+resource "ibm_is_security_group_rule" "sg_rules" {
   for_each   = { for r in var.security_group_rules : r.name => r }
-  group      = var.create_security_group ? ibm_is_security_group.testacc_sg[0].id : var.security_group
+  group      = var.create_security_group ? ibm_is_security_group.sg[0].id : var.security_group
   direction  = each.value.direction
   remote     = each.value.remote != "" ? each.value.remote : null
   ip_version = each.value.ip_version != "" ? each.value.ip_version : "ipv4"

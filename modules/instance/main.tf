@@ -3,7 +3,8 @@
 # Copyright 2020 IBM
 #####################################################
 
-resource "ibm_is_instance" "testacc_instance" {
+resource "ibm_is_instance" "instances" {
+  count          = var.no_of_instances
   name           = var.name
   vpc            = var.vpc_id
   zone           = var.location

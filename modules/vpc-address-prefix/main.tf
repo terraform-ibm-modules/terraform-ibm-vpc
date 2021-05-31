@@ -4,7 +4,7 @@
 #####################################################
 
 
-resource "ibm_is_vpc_address_prefix" "testacc_vpc_address_prefix" {
+resource "ibm_is_vpc_address_prefix" "vpc_address_prefix" {
   name = var.name
   vpc  = var.vpc_id
   zone = var.location

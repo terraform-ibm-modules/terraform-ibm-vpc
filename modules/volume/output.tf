@@ -5,5 +5,5 @@
 
 output "volume_id" {
   description = "The ID of the volume"
-  value       = ibm_is_volume.testacc_volume.id
+  value       = ibm_is_volume.volume.id
 }

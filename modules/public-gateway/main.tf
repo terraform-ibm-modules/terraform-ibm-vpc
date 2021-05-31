@@ -3,7 +3,7 @@
 # Copyright 2020 IBM
 #####################################################
 
-resource "ibm_is_public_gateway" "testacc_pgw" {
+resource "ibm_is_public_gateway" "pgw" {
   name           = var.name
   resource_group = var.resource_group_id
   vpc            = var.vpc_id

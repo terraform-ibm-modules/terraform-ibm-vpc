@@ -4,7 +4,7 @@ This module is used to create an Instance
 
 ## Example Usage
 ```
-data "ibm_is_vpc" "testacc_vpc" {
+data "ibm_is_vpc" "vpc" {
   name = var.vpc
 }
 
@@ -15,8 +15,9 @@ data "ibm_resource_group" "resource_group" {
 module "instance" {
   source = "terraform-ibm-modules/vpc/ibm//modules/instance"
 
+  no_of_instances           = var.no_of_instances
   name                      = var.name
-  vpc_id                    = data.ibm_is_vpc.testacc_vpc.id
+  vpc_id                    = data.ibm_is_vpc.vpc.id
   resource_group_id         = data.ibm_resource_group.resource_group.id
   location                  = var.location
   image                     = var.image
@@ -37,6 +38,7 @@ module "instance" {
 
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+| no\_of\_instances | Number of Instances | number | 1 | no |
 | name | Name of the Subnet | string | n/a | yes |
 | vpc | Name of the VPC | string | n/a | yes |
 | location | Zone of the subnet  | string | n/a | yes |
@@ -55,6 +57,7 @@ module "instance" {
 
 | Name | Description |
 |------|-------------|
-| instance\_id | The ID of the Instance |
+| instance\_ids | The ID of the Instances |
+| primary\_network\_interfaces | The primary_network_interface of the Instances |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

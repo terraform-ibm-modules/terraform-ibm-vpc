@@ -30,7 +30,7 @@ Full examples are in the [examples](./examples/) folder.
 ### Terraform plugins
 
 - [Terraform](https://www.terraform.io/downloads.html) 0.13
-- [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm) 
+- [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm)
 
 ## Install
 
@@ -43,7 +43,7 @@ Be sure you have the correct Terraform version (0.13), you can choose the binary
 
 Be sure you have the compiled plugins on $HOME/.terraform.d/plugins/
 
-- [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm) 
+- [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm)
 
 ## How to input varaible values through a file
 

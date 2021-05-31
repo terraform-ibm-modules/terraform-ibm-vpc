@@ -53,6 +53,12 @@ variable "resource_group" {
   default     = null
 }
 
+variable "no_of_instances" {
+  description = "number of Instances"
+  type        = number
+  default     = 1
+}
+
 variable "user_data" {
   description = "User Data for the instance"
   type        = string

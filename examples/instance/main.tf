@@ -6,7 +6,7 @@
 provider "ibm" {
 }
 
-data "ibm_is_vpc" "testacc_vpc" {
+data "ibm_is_vpc" "vpc" {
   name = var.vpc
 }
 
@@ -17,8 +17,9 @@ data "ibm_resource_group" "resource_group" {
 module "instance" {
   source = "terraform-ibm-modules/vpc/ibm//modules/instance"
 
+  no_of_instances           = var.no_of_instances
   name                      = var.name
-  vpc_id                    = data.ibm_is_vpc.testacc_vpc.id
+  vpc_id                    = data.ibm_is_vpc.vpc.id
   resource_group_id         = data.ibm_resource_group.resource_group.id
   location                  = var.location
   image                     = var.image
