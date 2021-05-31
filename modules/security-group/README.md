@@ -4,7 +4,7 @@ This module is used to create a Security Group
 
 ## Example Usage
 ```
-data "ibm_is_vpc" "testacc_vpc" {
+data "ibm_is_vpc" "vpc" {
   count = var.create_security_group ? 1 : 0
   name  = var.vpc
 }
@@ -32,7 +32,7 @@ module "security_group" {
 
   create_security_group = var.create_security_group
   name                  = var.name
-  vpc_id                = var.create_security_group ? data.ibm_is_vpc.testacc_vpc[0].id : null
+  vpc_id                = var.create_security_group ? data.ibm_is_vpc.vpc[0].id : null
   resource_group_id     = data.ibm_resource_group.resource_group.id
   security_group        = var.security_group
   security_group_rules  = local.rules

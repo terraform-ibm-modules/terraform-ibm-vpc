@@ -3,7 +3,7 @@
 # Copyright 2020 IBM
 #####################################################
 
-resource "ibm_is_subnet" "testacc_subnet" {
+resource "ibm_is_subnet" "subnet" {
   name                     = var.name
   resource_group           = var.resource_group_id
   vpc                      = var.vpc_id

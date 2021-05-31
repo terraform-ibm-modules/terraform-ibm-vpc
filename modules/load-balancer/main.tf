@@ -13,8 +13,8 @@ resource "ibm_is_lb" "lbs" {
   subnets         = var.subnets
   type            = var.type != null ? var.type : "public"
   security_groups = (var.security_groups != null ? var.security_groups : [])
-  profile         = (var.profile != null ? var.profile : null)
-  logging         = (var.logging != null ? var.logging : false)
+  profile         = (var.profile != null && var.logging == null ? var.profile : null)
+  logging         = (var.logging != null && var.profile == null ? var.logging : false)
   resource_group  = var.resource_group_id
   tags            = (var.tags != null ? var.tags : [])
 }
@@ -100,9 +100,8 @@ resource "ibm_is_lb_listener_policy" "lb_listener_policies" {
 
 resource "ibm_is_lb_listener_policy_rule" "lb_listener_policy_rules" {
   for_each  = { for r in var.lb_listener_policy_rules : r.name => r }
-  name      = each.value["name"]
   lb        = var.create_load_balancer ? ibm_is_lb.lbs[0].id : var.load_balancer
-  listener  = ibm_is_lb_listener.lb_listener[each.value["listener_name"]].id
+  listener  = ibm_is_lb_listener.lb_listeners[each.value["listener_name"]].id
   policy    = ibm_is_lb_listener_policy.lb_listener_policies[each.value["listener_policy_name"]].id
   condition = each.value["condition"]
   type      = each.value["type"]

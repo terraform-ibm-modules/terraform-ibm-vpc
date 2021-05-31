@@ -4,7 +4,7 @@ This module is used to create Virtual Endpoint Gateway and IPs
 
 ## Example Usage
 ```
-data "ibm_is_vpc" "testacc_vpc" {
+data "ibm_is_vpc" "vpc" {
   count = var.create_endpoint_gateway ? 1 : 0
   name  = var.vpc
 }
@@ -18,7 +18,7 @@ module "vpe" {
 
   create_endpoint_gateway = var.create_endpoint_gateway
   name                    = var.name
-  vpc_id                  = var.create_endpoint_gateway ? data.ibm_is_vpc.testacc_vpc[0].id : null
+  vpc_id                  = var.create_endpoint_gateway ? data.ibm_is_vpc.vpc[0].id : null
   resource_group_id       = data.ibm_resource_group.resource_group.id
   target                  = var.target
   ips                     = var.ips

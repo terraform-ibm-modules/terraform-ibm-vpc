@@ -4,7 +4,7 @@
 #####################################################
 
 
-resource "ibm_is_vpn_gateway_connection" "testacc_vpngw_connection" {
+resource "ibm_is_vpn_gateway_connection" "vpngw_connection" {
   name           = var.vpn_gateway_connection_name
   vpn_gateway    = var.vpn_gateway_id
   peer_address   = var.peer_gateway_address

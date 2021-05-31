@@ -3,7 +3,7 @@
 # Copyright 2020 IBM
 #####################################################
 
-resource "ibm_is_network_acl" "testacc_nwacl" {
+resource "ibm_is_network_acl" "nwacl" {
   name           = var.name
   vpc            = var.vpc_id
   resource_group = var.resource_group_id

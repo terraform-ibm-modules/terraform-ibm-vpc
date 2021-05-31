@@ -6,7 +6,7 @@
 provider "ibm" {
 }
 
-data "ibm_is_vpc" "testacc_vpc" {
+data "ibm_is_vpc" "vpc" {
   name = var.vpc
 }
 
@@ -33,7 +33,7 @@ module "network_acl" {
   source = "terraform-ibm-modules/vpc/ibm//modules/network-acl"
 
   name              = var.name
-  vpc_id            = data.ibm_is_vpc.testacc_vpc.id
+  vpc_id            = data.ibm_is_vpc.vpc.id
   resource_group_id = data.ibm_resource_group.resource_group.id
   rules             = local.rules
   tags              = var.tags

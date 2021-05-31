@@ -4,9 +4,9 @@
 ########################################################
 
 /****************************************************
-Example Usage 
+Example Usage
 
-//mandatory variables 
+//mandatory variables
 
 primary_network_interface = [{
   subnet               = "0737-7a911fcf-737d-4a85-b3b1-0184c6939eb6"

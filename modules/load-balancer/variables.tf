@@ -64,6 +64,7 @@ variable "tags" {
 variable "load_balancer" {
   description = "Existing Load Balancer's ID to which pools/listeners are to be attached."
   type        = string
+  default     = null
 }
 
 variable "lb_pools" {

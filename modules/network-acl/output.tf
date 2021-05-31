@@ -5,5 +5,5 @@
 
 output "network_acl_id" {
   description = "The ID of the Network ACL"
-  value       = ibm_is_network_acl.testacc_nwacl.id
+  value       = ibm_is_network_acl.nwacl.id
 }

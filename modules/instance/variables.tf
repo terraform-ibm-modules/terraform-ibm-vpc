@@ -47,6 +47,11 @@ variable "primary_network_interface" {
 # Optional Parameters
 #####################################################
 
+variable "no_of_instances" {
+  description = "number of Instances"
+  type        = number
+  default     = 1
+}
 
 variable "resource_group_id" {
   description = "Resource group ID"

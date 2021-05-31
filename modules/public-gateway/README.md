@@ -4,7 +4,7 @@ This module is used to create a Public Gateway
 
 ## Example Usage
 ```
-data "ibm_is_vpc" "testacc_vpc" {
+data "ibm_is_vpc" "vpc" {
   name = var.vpc
 }
 
@@ -16,7 +16,7 @@ module "public_gateway" {
   source = "terraform-ibm-modules/vpc/ibm//modules/public-gateway"
 
   name              = var.name
-  vpc_id            = data.ibm_is_vpc.testacc_vpc.id
+  vpc_id            = data.ibm_is_vpc.vpc.id
   resource_group_id = data.ibm_resource_group.resource_group.id
   location          = var.location
   floating_ip       = var.floating_ip

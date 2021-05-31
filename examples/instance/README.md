@@ -9,6 +9,7 @@ This example illustrates how to use the `instance` module.
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
 | resource\_group | Name of the resource group | string | default | no |
+| no\_of\_instances | Number of VSI's | number | 1 | no |
 | name | Name of the Subnet | string | n/a | yes |
 | vpc | Name of the VPC | string | n/a | yes |
 | location | Zone of the subnet  | string | n/a | yes |
