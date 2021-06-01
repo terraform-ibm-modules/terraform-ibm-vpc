@@ -24,8 +24,8 @@ resource "ibm_is_security_group_rule" "sg_rules" {
   dynamic "icmp" {
     for_each = lookup(each.value, "icmp") == null ? [] : [each.value.icmp]
     content {
-      code = icmp.value.code
-      type = icmp.value.type
+      code = lookup(icmp.value, "code", null)
+      type = lookup(icmp.value, "type", null)
     }
   }
   dynamic "tcp" {

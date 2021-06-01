@@ -30,7 +30,7 @@ locals {
 }
 
 module "network_acl" {
-  source = "terraform-ibm-modules/vpc/ibm//modules/network-acl"
+  source = "../../modules/network-acl"
 
   name              = var.name
   vpc_id            = data.ibm_is_vpc.vpc.id

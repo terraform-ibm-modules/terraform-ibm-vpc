@@ -76,7 +76,7 @@ locals {
 }
 
 module "load-balancer" {
-  source = "terraform-ibm-modules/vpc/ibm//modules/load-balancer"
+  source = "../../modules/load-balancer"
 
   create_load_balancer     = var.create_load_balancer
   name                     = var.name

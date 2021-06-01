@@ -66,6 +66,7 @@ module "vpc" {
 | vpc\_default\_security\_group |The ID of the vpc default security group |
 | vpc\_default\_network\_acl | The ID of the vpc default network acl |
 | vpc\_default\_routing\_table | The ID of the vpc default Routing Table |
+| vpc\_address\_prefixes | The ID(s) of the Address Prefixes to VPC |
 | subnet\_ids | The ID(s) of the Subnet(s) |
 | public\_gateway\_ids | The ID(s) of the Public Gateway(s) |
 

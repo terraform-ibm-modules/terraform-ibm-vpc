@@ -48,5 +48,6 @@ module "subnet" {
 | Name | Description |
 |------|-------------|
 | subnet\_id | The ID of the Subnet |
+| subnet\_ipv4\_cidr | IPV4 subnet CIDR block |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

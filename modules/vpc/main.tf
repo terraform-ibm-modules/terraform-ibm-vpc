@@ -15,7 +15,7 @@ resource "ibm_is_vpc" "vpc" {
   tags                        = (var.vpc_tags != null ? var.vpc_tags : [])
 }
 
-resource "ibm_is_vpc_address_prefix" "vpc_address_prefix" {
+resource "ibm_is_vpc_address_prefix" "vpc_address_prefixes" {
   for_each = toset(var.address_prefixes)
   name     = each.key
   vpc      = var.create_vpc ? ibm_is_vpc.vpc[0].id : var.vpc

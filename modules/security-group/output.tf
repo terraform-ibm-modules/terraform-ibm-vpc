@@ -10,5 +10,5 @@ output "security_group_id" {
 
 output "security_group_rules" {
   description = "All the Security group Rules"
-  value       = ibm_is_security_group_rule.sg_rules
+  value       = [for rule in ibm_is_security_group_rule.sg_rules : rule.id]
 }

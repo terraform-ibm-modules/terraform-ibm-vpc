@@ -57,7 +57,7 @@ module "security_group" {
 | Name | Description |
 |------|-------------|
 | security\_group\_id | The ID of the Security Group |
-| security\_group\_rules | All the Security Group Rules|
+| security\_group\_rules | All the Security Group Rule IDs|
 
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
