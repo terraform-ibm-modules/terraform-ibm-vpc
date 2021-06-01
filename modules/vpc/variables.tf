@@ -36,6 +36,24 @@ variable "default_address_prefix" {
   default     = null
 }
 
+variable "default_network_acl_name" {
+  description = "Name of the Default ACL"
+  type        = string
+  default     = null
+}
+
+variable "default_security_group_name" {
+  description = "Name of the Default Security Group"
+  type        = string
+  default     = null
+}
+
+variable "default_routing_table_name" {
+  description = "Name of the Default Routing Table"
+  type        = string
+  default     = null
+}
+
 variable "vpc_tags" {
   description = "List of Tags for the vpc"
   type        = list(string)
@@ -70,14 +88,8 @@ variable "number_of_addresses" {
   default     = null
 }
 
-variable "subnet_access_control_list" {
-  description = "Network ACL ID"
-  type        = string
-  default     = null
-}
-
-variable "routing_table" {
-  description = "Routing Table ID"
+variable "vpc" {
+  description = "ID of the Existing VPC to which subnets, gateways are to be attached"
   type        = string
   default     = null
 }
