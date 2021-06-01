@@ -58,6 +58,6 @@ module "instance" {
 | Name | Description |
 |------|-------------|
 | instance\_ids | The ID of the Instances |
-| primary\_network\_interfaces | The primary_network_interface of the Instances |
+| primary\_network\_interfaces | The primary_network_interface IDs of the Instances |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

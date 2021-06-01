@@ -10,5 +10,5 @@ output "instance_ids" {
 
 output "primary_network_interfaces" {
   description = "The primary_network_interface of the Instances"
-  value       = ibm_is_instance.instances.*.primary_network_interface
+  value       = [for ins in ibm_is_instance.instances : ins.primary_network_interface.*.id]
 }

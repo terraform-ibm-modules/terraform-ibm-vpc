@@ -10,5 +10,5 @@ output "endpoint_gateway_id" {
 
 output "gateway_reserved_ips" {
   description = "All the Gateway Reserved IPs"
-  value       = ibm_is_virtual_endpoint_gateway_ip.virtual_endpoint_gateway_ips
+  value       = [for ip in ibm_is_virtual_endpoint_gateway_ip.virtual_endpoint_gateway_ips : ip.id]
 }

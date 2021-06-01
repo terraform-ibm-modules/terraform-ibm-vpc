@@ -30,7 +30,7 @@ locals {
 }
 
 module "security_group" {
-  source = "terraform-ibm-modules/vpc/ibm//modules/security-group"
+  source = "../../modules/security-group"
 
   create_security_group = var.create_security_group
   name                  = var.name

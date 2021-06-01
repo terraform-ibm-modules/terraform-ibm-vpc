@@ -16,7 +16,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "vpe" {
-  source = "terraform-ibm-modules/vpc/ibm//modules/vpe"
+  source = "../../modules/vpe"
 
   create_endpoint_gateway = var.create_endpoint_gateway
   name                    = var.name

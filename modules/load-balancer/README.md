@@ -56,11 +56,11 @@ module "load-balancer" {
 | Name | Description |
 |------|-------------|
 | lb\_id | The ID of the Load balancer |
-| lb\_pools | All the Load balancer Pools |
-| lb\_pool\_members | All the Load balancer Pool Members |
-| lb\_listeners | All the Load balancer Listeners |
-| lb\_listener\_policies | All the Load balancer Listener Policies |
-| lb\_listener\_policy\_rules | All the Load balancer Listener Policy Rules |
+| lb\_pools | All the Load balancer Pool IDs |
+| lb\_pool\_members | All the Load balancer Pool Member IDs |
+| lb\_listeners | All the Load balancer Listener IDs |
+| lb\_listener\_policies | All the Load balancer Listener Policy IDs |
+| lb\_listener\_policy\_rules | All the Load balancer Listener Policy Rule IDs |
 
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

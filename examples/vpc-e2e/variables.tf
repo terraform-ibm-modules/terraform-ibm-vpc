@@ -48,11 +48,11 @@ variable "profile" {
 variable "href" {
   description = "Image Href value"
   type        = string
-  default     = "cos://us-south/cosbucket-vpc-image-gen2/rhel-guest-image-7.0-20140930.0.x86_64.qcow2"
+  default     = null
 }
 
 variable "operating_system" {
   description = "Image Operating system"
   type        = string
-  default     = "red-7-amd64"
+  default     = null
 }

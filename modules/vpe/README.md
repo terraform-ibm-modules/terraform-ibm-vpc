@@ -50,7 +50,7 @@ module "vpe" {
 | Name | Description |
 |------|-------------|
 | endpoint\_gateway\_id | The ID of the endpoint gateway |
-| gateway\_reserved\_ips | All the Gateway Reserved IPs |
+| gateway\_reserved\_ips | All the Gateway Reserved IP IDs |
 
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

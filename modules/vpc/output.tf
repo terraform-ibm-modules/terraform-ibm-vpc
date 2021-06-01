@@ -23,6 +23,11 @@ output "vpc_default_routing_table" {
   value       = ibm_is_vpc.vpc.*.default_routing_table
 }
 
+output "vpc_address_prefixes" {
+  description = "The Address Prefixes of the VPC"
+  value       = [for prefix in ibm_is_vpc_address_prefix.vpc_address_prefixes : prefix.id]
+}
+
 output "subnet_ids" {
   description = "The IDs of the subnets"
   value       = ibm_is_subnet.subnets.*.id

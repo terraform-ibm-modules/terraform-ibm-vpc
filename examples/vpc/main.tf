@@ -11,7 +11,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "vpc" {
-  source = "terraform-ibm-modules/vpc/ibm//modules/vpc"
+  source = "../../modules/vpc"
 
   create_vpc                  = var.create_vpc
   vpc_name                    = var.vpc_name

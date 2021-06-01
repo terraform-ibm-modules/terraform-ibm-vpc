@@ -10,25 +10,25 @@ output "lb_id" {
 
 output "lb_pools" {
   description = "All the Load balancer Pools"
-  value       = ibm_is_lb_pool.lb_pools
+  value       = [for pool in ibm_is_lb_pool.lb_pools : pool.id]
 }
 
 output "lb_pool_members" {
   description = "All the Load balancer Pool Members"
-  value       = ibm_is_lb_pool_member.lb_members
+  value       = [for member in ibm_is_lb_pool_member.lb_members : member.id]
 }
 
 output "lb_listeners" {
   description = "All the Load balancer Listeners"
-  value       = ibm_is_lb_listener.lb_listeners
+  value       = [for listener in ibm_is_lb_listener.lb_listeners : listener.id]
 }
 
 output "lb_listener_policies" {
   description = "All the Load balancer Listener Policies"
-  value       = ibm_is_lb_listener_policy.lb_listener_policies
+  value       = [for policy in ibm_is_lb_listener_policy.lb_listener_policies : policy.id]
 }
 
 output "lb_listener_policy_rules" {
   description = "All the Load balancer Listener Policy Rules"
-  value       = ibm_is_lb_listener_policy_rule.lb_listener_policy_rules
+  value       = [for policy_rule in ibm_is_lb_listener_policy_rule.lb_listener_policy_rules : policy_rule.id]
 }
