@@ -9,10 +9,24 @@ This example illustrates how to use the `vpc` module.
 | Name                              | Description                                           | Type   | Default | Required |
 |-----------------------------------|-------------------------------------------------------|--------|---------|----------|
 | resource\_group | Name of the resource group | string | default | no |
-| name | Name of the vpc | string | n/a | yes |
+| create\_vpc | True to create new VPC. False if VPC is already existing and subnets, gateways are to be added to it | bool | n/a | yes |
+| vpc\_name | Name of the vpc. Required only if Creating a new VPC | string | n/a | no |
 | classic\_access | Indicates whether this VPC should be connected to Classic Infrastructure. | bool | false | no |
-| default\_prefix\_management | Indicates whether a default address prefix should be automatically created for each zone in this VPC.  | string | auto | no |
-| tags | List of tags to attach  | list(string) | n/a | no |
+| default\_address\_prefix | Indicates whether a default address prefix should be automatically created for each zone in this VPC.  | string | auto | no |
+| default\_network\_acl\_name | Name of the Default ACL of the VPC | string | n/a | no |
+| default\_security\_group\_name | Name of the Default Security Group of the VPC | string | n/a | no |
+| default\_routing\_table\_name | Name of the Default Routing Table of the VPC  | string | n/a | no |
+| vpc\_tags | List of tags to attach to the VPC | list(string) | n/a | no |
+| address\_prefixes | List of Prefixes for the vpc | list(object) | n/a | no |
+| locations | zones per region | list(string) | n/a | no |
+| subnet\_name | Name(or Prefix) of the Subnet(s). Required only while Creating a new subnet(s) | string | n/a | no |
+| number\_of\_addresses | Number of IPV4 Addresses. Required only while Creating a new subnet(s) | number | n/a | no |
+| vpc | ID of the Existing VPC to which subnets, gateways are to be attached | string | n/a | no |
+| create\_gateway | True to create new Public Gateway | bool | false | no |
+| public\_gateway\_name | Name(or prefix) of the Public Gateway(s). Required only if Creating a new Public Gateway | string | n/a | no |
+| floating\_ip | Floating IP `id` or `address` that you want to assign to the public gateway | map | n/a | no |
+| gateway\_tags | List of Tags for the gateway | list(string) | n/a | no |
+
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
