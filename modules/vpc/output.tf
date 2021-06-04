@@ -28,6 +28,11 @@ output "vpc_address_prefixes" {
   value       = [for prefix in ibm_is_vpc_address_prefix.vpc_address_prefixes : prefix.id]
 }
 
+output "vpc_address_prefixes_cidr" {
+  description = "The Address Prefix CIDRs of the VPC"
+  value       = [for prefix in ibm_is_vpc_address_prefix.vpc_address_prefixes : prefix.cidr]
+}
+
 output "subnet_ids" {
   description = "The IDs of the subnets"
   value       = ibm_is_subnet.subnets.*.id

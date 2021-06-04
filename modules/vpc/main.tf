@@ -16,8 +16,8 @@ resource "ibm_is_vpc" "vpc" {
 }
 
 resource "ibm_is_vpc_address_prefix" "vpc_address_prefixes" {
-  for_each = toset(var.address_prefixes)
-  name     = each.key
+  for_each = { for r in var.address_prefixes : r.name => r }
+  name     = each.value["name"]
   vpc      = var.create_vpc ? ibm_is_vpc.vpc[0].id : var.vpc
   zone     = each.value["location"]
   cidr     = each.value["ip_range"]
