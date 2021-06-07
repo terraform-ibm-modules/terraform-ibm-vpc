@@ -17,8 +17,8 @@ func TestAccIBMISVPC(t *testing.T) {
 
 		Vars: map[string]interface{}{
 			"resource_group": "default",
-			"name":           "terratest-vpc1",
-			// "create_vpc":     true,
+			"vpc_name":       "terratest-vpc-eg",
+			"create_vpc":     true,
 			// "create_gateway": false,
 		},
 	})
