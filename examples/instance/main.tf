@@ -15,6 +15,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "instance" {
+  // source = "terraform-ibm-modules/vpc/ibm//modules/instance"
   source = "../../modules/instance"
 
   no_of_instances           = var.no_of_instances

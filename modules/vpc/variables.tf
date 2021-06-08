@@ -97,7 +97,7 @@ variable "vpc" {
 variable "create_gateway" {
   description = "True to create new Gateway"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "public_gateway_name" {

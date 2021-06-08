@@ -29,6 +29,7 @@ locals {
 }
 
 module "vpn_gateway" {
+  // source = "terraform-ibm-modules/vpc/ibm//modules/vpn-gateway"
   source = "../../modules/vpn-gateway"
 
   create_vpn_gateway = var.create_vpn_gateway

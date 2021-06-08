@@ -11,6 +11,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "ssh-key" {
+  // source = "terraform-ibm-modules/vpc/ibm//modules/ssh-key"
   source = "../../modules/ssh-key"
 
   name              = var.name
