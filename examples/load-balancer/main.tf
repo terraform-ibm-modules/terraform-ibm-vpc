@@ -38,7 +38,6 @@ locals {
 
   lb_listeners = [
     for r in var.lb_listeners : {
-      lb_pool_name          = r.lb_pool_name
       port                  = r.port
       protocol              = r.protocol
       default_pool          = lookup(r, "default_pool", null)
@@ -51,20 +50,20 @@ locals {
   lb_listener_policies = [
     for r in var.lb_listener_policies : {
       name                    = r.name
-      listener_name           = r.listener_name
+      listener_port           = r.listener_port
       action                  = r.action
       priority                = r.priority
       target_id               = lookup(r, "target_lb_pool", null)
       target_http_status_code = lookup(r, "target_http_status_code", null)
       target_url              = lookup(r, "target_url", null)
-      rules                   = lookup(r, "rules", [])
+      rules                   = lookup(r, "rules", null)
     }
   ]
 
   lb_listener_policy_rules = [
     for r in var.lb_listener_policy_rules : {
       name                 = r.name
-      listener_name        = r.listener_name
+      listener_port        = r.listener_port
       listener_policy_name = r.listener_policy_name
       condition            = r.condition
       type                 = r.type
@@ -76,6 +75,7 @@ locals {
 }
 
 module "load-balancer" {
+  // source = "terraform-ibm-modules/vpc/ibm//modules/load-balancer"
   source = "../../modules/load-balancer"
 
   create_load_balancer     = var.create_load_balancer

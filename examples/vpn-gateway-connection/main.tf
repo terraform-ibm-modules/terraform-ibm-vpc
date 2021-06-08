@@ -7,6 +7,7 @@ provider "ibm" {
 }
 
 module "vpc_gateway_connection" {
+  // source = "terraform-ibm-modules/vpc/ibm//modules/vpn-gateway-connection"
   source = "../../modules/vpn-gateway-connection"
 
   vpn_gateway_connection_name = var.vpn_gateway_connection_name

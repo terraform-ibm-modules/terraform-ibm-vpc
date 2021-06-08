@@ -6,6 +6,36 @@
 /****************************************************
 Example Usage
 
+lb_listeners = [{
+  port                  = 9086
+  protocol              = "http"
+}]
+
+lb_listener_policies = [{
+  name                    = "testlis1pol1"
+  listener_port           = "9086"
+  action                  = "redirect"
+  priority                = 2
+  target_http_status_code = 302
+  target_url              = "https://www.google.com"
+  rules = {
+    condition = "contains"
+    type      = "header"
+    field     = "1"
+    value     = "2"
+  }
+}]
+
+lb_listener_policy_rules = [{
+  name                 = "testlis1pol1rule1"
+  listener_port        = "9086"
+  listener_policy_name = "testlis1pol1"
+  condition = "equals"
+  type      = "header"
+  field     = "MY-APP-HEADER"
+  value     = "UpdateVal"
+}]
+
 ******************************************************/
 
 
@@ -38,7 +68,6 @@ lb_pool_members = [{
 }]
 
 lb_listeners = [{
-  lb_pool_name          = string
   port                  = number
   protocol              = string
   default_pool          = string

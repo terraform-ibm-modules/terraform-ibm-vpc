@@ -11,6 +11,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "image" {
+  // source = "terraform-ibm-modules/vpc/ibm//modules/image"
   source = "../../modules/image"
 
   name               = var.name

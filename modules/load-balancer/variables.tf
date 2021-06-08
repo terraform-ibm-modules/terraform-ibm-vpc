@@ -102,7 +102,6 @@ variable "lb_pool_members" {
 variable "lb_listeners" {
   description = "List of Load Balancer Listeners"
   type = list(object({
-    lb_pool_name          = string
     port                  = number
     protocol              = string
     default_pool          = string
@@ -119,7 +118,7 @@ variable "lb_listener_policies" {
   description = "List of Load Balancer Listener Policies"
   type = list(object({
     name                    = string
-    listener_name           = string
+    listener_port           = string
     action                  = string
     priority                = number
     target_id               = string
@@ -140,7 +139,7 @@ variable "lb_listener_policy_rules" {
   description = "List of Load Balancer Listener Policie Rules"
   type = list(object({
     name                 = string
-    listener_name        = string
+    listener_port        = string
     listener_policy_name = string
     condition            = string
     type                 = string

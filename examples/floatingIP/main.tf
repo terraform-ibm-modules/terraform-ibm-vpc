@@ -11,6 +11,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "fip" {
+  // source = "terraform-ibm-modules/vpc/ibm//modules/floatingIP"
   source = "../../modules/floatingIP"
 
   name              = var.name

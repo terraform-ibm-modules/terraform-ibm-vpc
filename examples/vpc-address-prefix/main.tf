@@ -11,6 +11,7 @@ data "ibm_is_vpc" "vpc" {
 }
 
 module "vpc-address-prefix" {
+  // source = "terraform-ibm-modules/vpc/ibm//modules/vpc-address-prefix"
   source = "../../modules/vpc-address-prefix"
 
   name     = var.name
