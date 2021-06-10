@@ -4,7 +4,7 @@
 #####################################################
 
 /***************************************************
-NOTE: To source a particular version of IBM terraform 
+NOTE: To source a particular version of IBM terraform
 provider version, configure the parameter `version`.
 
 terraform {
@@ -16,7 +16,7 @@ terraform {
     }
   }
 }
-If we dont configure the version parameter, 
+If we dont configure the version parameter,
 it fetches latest provider version.
 ****************************************************/
 
