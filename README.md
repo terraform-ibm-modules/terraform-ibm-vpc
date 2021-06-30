@@ -1,21 +1,22 @@
 # IBM VPC Terraform Module
 
 This is a collection of modules that make it easier to provision VPC Resources on IBM Cloud Platform:
-* [vpc](./modules/vpc)
-* [vpc-address-prefix](./modules/vpc-address-prefix)
-* [subnet](./modules/subnet)
-* [security-group](./modules/security-group)
-* [floatingIP](./modules/floatingIP)
-* [instance](./modules/instance)
-* [network-acl](./modules/network-acl)
-* [public-gateway](./modules/public-gateway)
-* [volume](./modules/volume)
-* [vpn-gateway](./modules/vpn-gateway)
-* [vpn-gateway-connection](./modules/vpn-gateway-connection)
-* [load-balancer](./modules/load-balancer)
-* [vpe](./modules/vpe)
-* [ssh-key](./modules/ssh-key)
-* [image](./modules/image)
+
+* vpc
+* vpc-address-prefix
+* subnet
+* security-group
+* floatingIP
+* instance
+* network-acl
+* public-gateway
+* volume
+* vpn-gateway
+* vpn-gateway-connection
+* load-balancer
+* vpe
+* ssh-key
+* image
 
 ## Compatibility
 
