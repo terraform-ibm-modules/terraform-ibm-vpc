@@ -21,7 +21,7 @@ variable "name" {
 variable "subnets" {
   description = "Load Balancer subnets list"
   type        = list(string)
-  default     = []
+  default     = null
 }
 
 variable "type" {
@@ -33,7 +33,7 @@ variable "type" {
 variable "security_groups" {
   description = "Load Balancer securitygroups list"
   type        = list(string)
-  default     = []
+  default     = null
 }
 
 variable "profile" {
@@ -62,7 +62,7 @@ variable "tags" {
 
 
 variable "load_balancer" {
-  description = "Existing Load Balancer's ID to which pools/listeners are to be attached."
+  description = "Existing Load Balancer's name to which pools/listeners are to be attached."
   type        = string
   default     = null
 }
@@ -72,27 +72,7 @@ variable "lb_pools" {
   default     = []
 }
 
-
-variable "lb_pool_members" {
-  description = "List of Load Balancer Pool Members"
-  default     = []
-}
-
-
 variable "lb_listeners" {
   description = "List of Load Balancer Listeners"
-  default     = []
-}
-
-
-
-variable "lb_listener_policies" {
-  description = "List of Load Balancer Listener Policies"
-  default     = []
-}
-
-
-variable "lb_listener_policy_rules" {
-  description = "List of Load Balancer Listener Policie Rules"
   default     = []
 }

@@ -11,7 +11,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 locals {
-  rules = [
+  connections = [
     for r in var.connections : {
       name           = r.name
       peer_address   = r.peer_address
@@ -38,5 +38,5 @@ module "vpn_gateway" {
   subnet             = var.subnet
   tags               = var.tags
   vpn_gateway        = var.vpn_gateway
-  connections        = var.connections
+  connections        = local.connections
 }

@@ -25,11 +25,11 @@ module "vpc" {
   vpc_tags                    = var.vpc_tags
   address_prefixes            = var.address_prefixes
   locations                   = var.locations
-  subnet_name                 = var.subnet_name
+  subnet_name_prefix          = var.subnet_name_prefix
   number_of_addresses         = var.number_of_addresses
   vpc                         = var.vpc
   create_gateway              = var.create_gateway
-  public_gateway_name         = var.public_gateway_name
+  public_gateway_name_prefix  = var.public_gateway_name_prefix
   floating_ip                 = var.floating_ip
   gateway_tags                = var.gateway_tags
 }

@@ -18,17 +18,29 @@ target = [{
 // optional variables
 
 ips = [{
-    id     = "0737-5ab3c18e-6f6c-4a69-8f48-20e3456647b5"
-    name   = "test-reserved-ip1"
-    subnet = ""
+  name   = "test-reserved-ip1"
+  subnet = "0727-3cda7a24-27e6-4198-8148-f00164d09991"
   },
 ]
 
+
 reserved_ips = [
   {
-    reserved_ip = "0674-5ab3c18e-6f6c-4a69-8f48-20e3456647b5"
+    reserved_ip = "0737-e28c9f3d-9d6a-436f-8478-bbea28f7ae26"
   },
 ]
+
+
+ ## ADD the below local block in main.tf if subnet_ids are to be used in creation of Endpoint ips
+locals {
+  subnet_ids = ["0727-80680487-c6cb-4685-bb0c-8024f89fbcd8", "0737-a8611186-8567-4ca7-ba6e-a532b7834333"]
+  ips = [
+    for count in range(2) : {
+      subnet = local.subnet_ids[count]
+      name   = "newip-${count}"
+    }
+  ]
+}
 
 tags = ["T1","T2"]
 

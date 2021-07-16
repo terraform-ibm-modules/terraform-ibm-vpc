@@ -41,7 +41,7 @@ module "vpe" {
 | target | Gateway target | list(object) | n/a | no |
 | ips | Gateway IPs | list(object) | n/a | no |
 | tags | List of tags to attach  | list(string) | n/a | no |
-| endpoint\_gateway | Existing Enpoint Gateway's ID to which Reserved IPs are to be attached | string | n/a | no |
+| endpoint\_gateway | Existing Enpoint Gateway's Name to which Reserved IPs are to be attached | string | n/a | no |
 | reserved\_ips | List of New reserved IPs to the Endpoint Gateway | list(object) | n/a | no |
 
 
@@ -50,6 +50,8 @@ module "vpe" {
 | Name | Description |
 |------|-------------|
 | endpoint\_gateway\_id | The ID of the endpoint gateway |
+| endpoint\_gateway\_target | The ID of the endpoint gateway target |
+| endpoint\_gateway\_ips |The ID of the endpoint gateway IPs |
 | gateway\_reserved\_ips | All the Gateway Reserved IP IDs |
 
 

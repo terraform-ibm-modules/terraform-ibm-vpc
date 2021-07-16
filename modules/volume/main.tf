@@ -11,5 +11,5 @@ resource "ibm_is_volume" "volume" {
   iops           = (var.volume_profile == "custom" && var.iops != null ? var.iops : null)
   capacity       = (var.size != null ? var.size : null)
   encryption_key = (var.encryption != null ? var.encryption : null)
-  tags           = (var.tags != null ? var.tags : [])
+  tags           = var.tags
 }
