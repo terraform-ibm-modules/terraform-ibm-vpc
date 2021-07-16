@@ -9,5 +9,5 @@ resource "ibm_is_public_gateway" "pgw" {
   vpc            = var.vpc_id
   zone           = var.location
   floating_ip    = (length(var.floating_ip) == 1 ? var.floating_ip : {})
-  tags           = (var.tags != null ? var.tags : [])
+  tags           = var.tags
 }

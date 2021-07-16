@@ -25,7 +25,7 @@ resource "ibm_is_instance" "instances" {
 
   user_data = (var.user_data != null ? var.user_data : null)
   volumes   = (var.data_volumes != null ? var.data_volumes : [])
-  tags      = (var.tags != null ? var.tags : [])
+  tags      = var.tags
 
   dynamic network_interfaces {
     for_each = (var.network_interfaces != null ? var.network_interfaces : [])

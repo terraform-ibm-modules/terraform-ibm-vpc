@@ -39,5 +39,5 @@ variable "floating_ip" {
 variable "tags" {
   description = "List of Tags for the Public Gateway"
   type        = list(string)
-  default     = []
+  default     = null
 }

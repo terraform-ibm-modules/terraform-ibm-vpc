@@ -17,13 +17,20 @@ This example illustrates how to use the `load-balancer` module.
 | security\_groups | Load Balancer Security Group list | list(string) | n/a | no |
 | resource\_group | ID of the resource group | string | n/a | no |
 | tags | List of tags to attach  | list(string) | n/a | no |
-| load\_balancer | Existing Load Balancer's ID to which pools/listeners are to be attached | string | n/a | no |
+| load\_balancer | Existing Load Balancer's name to which pools/listeners are to be attached | string | n/a | no |
 | lb\_pools | List of Load Balancer Pools | list(object) | n/a | no |
-| lb\_pool\_members | List of Load Balancer Pool Members | list(object) | n/a | no |
 | lb\_listeners | List of Load Balancer Listeners | list(object) | n/a | no |
-| lb\_listener\_policies | List of Load Balancer Listener Policies | list(object) | n/a | no |
-| lb\_listener\_policy\_rules | List of Load Balancer Listener Policie Rules | list(object) | n/a | no |
 
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| lb\_id | The ID of the Load balancer |
+| lb\_pools | All the Load balancer Pool IDs |
+| lb\_pool\_members | All the Load balancer Pool Member IDs |
+| lb\_listeners | All the Load balancer Listener IDs |
+| lb\_listener\_policies | All the Load balancer Listener Policy IDs |
+| lb\_listener\_policy\_rules | All the Load balancer Listener Policy Rule IDs |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 NOTE: We can configure the list of subnets, security_groups, tags, pools, listeners, listener_policies, listener_policy_rules to be attached to the Load balancer resources by entering respective details in input.tfvars.

@@ -7,16 +7,52 @@
 # Load Balancer
 ##############################################################################
 
+locals {
+
+  lb_pool_members_list = flatten([
+    for pool in var.lb_pools : [
+      for member in pool["lb_pool_members"] : [
+        merge(member, { lb_pool_name : pool["name"] })
+      ]
+    ]
+  ])
+
+  lb_listener_policies_list = flatten([
+    for listener in var.lb_listeners : [
+      for policy in listener["lb_listener_policies"] : [
+        merge(policy, { listener_port : listener["port"] })
+      ]
+    ]
+  ])
+
+
+  lb_listener_policy_rules_list = flatten([
+    for listener in var.lb_listeners : [
+      for policy in listener["lb_listener_policies"] : [
+        for rule in policy["lb_listener_policy_rules"] : [
+          merge(rule, { listener_port : listener["port"], listener_policy_name : policy["name"] })
+        ]
+      ]
+    ]
+  ])
+
+}
+
+data "ibm_is_lb" "lb_ds" {
+  count = var.create_load_balancer ? 0 : 1
+  name  = var.load_balancer
+}
+
 resource "ibm_is_lb" "lbs" {
   count           = var.create_load_balancer ? 1 : 0
   name            = var.name
   subnets         = var.subnets
   type            = var.type != null ? var.type : "public"
-  security_groups = (var.security_groups != null ? var.security_groups : [])
+  security_groups = var.security_groups
   profile         = (var.profile != null && var.logging == null ? var.profile : null)
   logging         = (var.logging != null && var.profile == null ? var.logging : false)
   resource_group  = var.resource_group_id
-  tags            = (var.tags != null ? var.tags : [])
+  tags            = var.tags
 }
 
 ##############################################################################
@@ -26,7 +62,7 @@ resource "ibm_is_lb" "lbs" {
 resource "ibm_is_lb_pool" "lb_pools" {
   for_each                        = { for r in var.lb_pools : r.name => r }
   name                            = each.value["name"]
-  lb                              = var.create_load_balancer ? ibm_is_lb.lbs[0].id : var.load_balancer
+  lb                              = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds.0.id
   algorithm                       = each.value["algorithm"]
   protocol                        = each.value["protocol"]
   health_delay                    = each.value["health_delay"]
@@ -44,8 +80,8 @@ resource "ibm_is_lb_pool" "lb_pools" {
 ##############################################################################
 
 resource "ibm_is_lb_pool_member" "lb_members" {
-  for_each       = { for r in var.lb_pool_members : r.port => r }
-  lb             = var.create_load_balancer ? ibm_is_lb.lbs[0].id : var.load_balancer
+  for_each       = { for r in local.lb_pool_members_list : r.port => r }
+  lb             = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds.0.id
   pool           = ibm_is_lb_pool.lb_pools[each.value["lb_pool_name"]].id
   port           = each.value["port"]
   target_address = lookup(each.value, "target_address", null)
@@ -59,7 +95,7 @@ resource "ibm_is_lb_pool_member" "lb_members" {
 
 resource "ibm_is_lb_listener" "lb_listeners" {
   for_each              = { for r in var.lb_listeners : r.port => r }
-  lb                    = var.create_load_balancer ? ibm_is_lb.lbs[0].id : var.load_balancer
+  lb                    = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds.0.id
   port                  = each.value["port"]
   protocol              = each.value["protocol"]
   default_pool          = lookup(each.value, "default_pool", null) != null ? ibm_is_lb_pool.lb_pools[each.value["default_pool"]].id : null
@@ -73,9 +109,9 @@ resource "ibm_is_lb_listener" "lb_listeners" {
 ##############################################################################
 
 resource "ibm_is_lb_listener_policy" "lb_listener_policies" {
-  for_each                = { for r in var.lb_listener_policies : r.name => r }
+  for_each                = { for r in local.lb_listener_policies_list : r.name => r }
   name                    = each.value["name"]
-  lb                      = var.create_load_balancer ? ibm_is_lb.lbs[0].id : var.load_balancer
+  lb                      = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds.0.id
   listener                = ibm_is_lb_listener.lb_listeners[each.value["listener_port"]].id
   action                  = each.value["action"]
   priority                = each.value["priority"]
@@ -98,8 +134,8 @@ resource "ibm_is_lb_listener_policy" "lb_listener_policies" {
 ##############################################################################
 
 resource "ibm_is_lb_listener_policy_rule" "lb_listener_policy_rules" {
-  for_each  = { for r in var.lb_listener_policy_rules : r.name => r }
-  lb        = var.create_load_balancer ? ibm_is_lb.lbs[0].id : var.load_balancer
+  for_each  = { for r in local.lb_listener_policy_rules_list : r.name => r }
+  lb        = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds.0.id
   listener  = ibm_is_lb_listener.lb_listeners[each.value["listener_port"]].id
   policy    = ibm_is_lb_listener_policy.lb_listener_policies[each.value["listener_policy_name"]].id
   condition = each.value["condition"]

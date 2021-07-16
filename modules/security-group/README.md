@@ -49,7 +49,7 @@ module "security_group" {
 | name | Name of the new Security Group. Required if creating a new sg | string | n/a | no |
 | vpc\_id | VPC ID of the new security group. Required if creating a new sg | string | n/a | no |
 | resource\_group\_id | ID of the resource group | string | n/a | no |
-| security\_group | Existing Security Group's ID to which rules are to be attached | string | n/a | no |
+| security\_group | Existing Security Group's name to which rules are to be attached | string | n/a | no |
 | security\_group\_rules | Security Group rules | list | n/a | no |
 
 ## Outputs

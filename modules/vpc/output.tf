@@ -5,22 +5,22 @@
 
 output "vpc_id" {
   description = "The ID of the vpc"
-  value       = ibm_is_vpc.vpc.*.id
+  value       = var.create_vpc ? ibm_is_vpc.vpc.0.id : data.ibm_is_vpc.vpc_ds.0.id
 }
 
 output "vpc_default_security_group" {
   description = "The ID of the vpc default security group"
-  value       = ibm_is_vpc.vpc.*.default_security_group
+  value       = var.create_vpc ? concat(ibm_is_vpc.vpc.*.default_security_group, [""])[0] : concat(data.ibm_is_vpc.vpc_ds.*.default_security_group, [""])[0]
 }
 
 output "vpc_default_network_acl" {
   description = "The ID of the vpc default network acl"
-  value       = ibm_is_vpc.vpc.*.default_network_acl
+  value       = var.create_vpc ? concat(ibm_is_vpc.vpc.*.default_network_acl, [""])[0] : concat(data.ibm_is_vpc.vpc_ds.*.default_network_acl, [""])[0]
 }
 
 output "vpc_default_routing_table" {
   description = "The ID of the vpc default Routing Table"
-  value       = ibm_is_vpc.vpc.*.default_routing_table
+  value       = var.create_vpc ? concat(ibm_is_vpc.vpc.*.default_routing_table, [""])[0] : concat(data.ibm_is_vpc.vpc_ds.*.default_routing_table, [""])[0]
 }
 
 output "vpc_address_prefixes" {

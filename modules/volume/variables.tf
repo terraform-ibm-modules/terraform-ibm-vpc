@@ -50,5 +50,5 @@ variable "encryption" {
 variable "tags" {
   description = "List of Tags for the volume"
   type        = list(string)
-  default     = []
+  default     = null
 }

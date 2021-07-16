@@ -33,5 +33,5 @@ variable "target" {
 variable "tags" {
   description = "List of Tags for the Floating IP"
   type        = list(string)
-  default     = []
+  default     = null
 }

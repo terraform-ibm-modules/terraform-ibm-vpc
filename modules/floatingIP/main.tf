@@ -8,5 +8,5 @@ resource "ibm_is_floating_ip" "fip" {
   resource_group = var.resource_group_id
   zone           = (var.location != null && var.target == null ? var.location : null)
   target         = (var.target != null && var.location == null ? var.target : null)
-  tags           = (var.tags != null ? var.tags : [])
+  tags           = var.tags
 }

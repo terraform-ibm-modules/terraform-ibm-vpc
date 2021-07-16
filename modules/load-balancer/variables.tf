@@ -33,7 +33,7 @@ variable "type" {
 variable "security_groups" {
   description = "Load Balancer securitygroups list"
   type        = list(string)
-  default     = []
+  default     = null
 }
 
 variable "profile" {
@@ -57,12 +57,12 @@ variable "resource_group_id" {
 variable "tags" {
   description = "List of Tags for the Load Balancer"
   type        = list(string)
-  default     = []
+  default     = null
 }
 
 
 variable "load_balancer" {
-  description = "Existing Load Balancer's ID to which pools/listeners are to be attached."
+  description = "Existing Load Balancer's name to which pools/listeners are to be attached."
   type        = string
   default     = null
 }
@@ -81,19 +81,12 @@ variable "lb_pools" {
     health_monitor_port             = number
     session_persistence_type        = string
     session_persistence_cookie_name = string
-  }))
-  default = []
-}
-
-
-variable "lb_pool_members" {
-  description = "List of Load Balancer Pool Members"
-  type = list(object({
-    lb_pool_name   = string
-    port           = number
-    target_address = string
-    target_id      = string
-    weight         = number
+    lb_pool_members = list(object({
+      port           = number
+      target_address = string
+      target_id      = string
+      weight         = number
+    }))
   }))
   default = []
 }
@@ -108,43 +101,27 @@ variable "lb_listeners" {
     certificate_instance  = string
     connection_limit      = number
     accept_proxy_protocol = bool
-  }))
-  default = []
-}
-
-
-
-variable "lb_listener_policies" {
-  description = "List of Load Balancer Listener Policies"
-  type = list(object({
-    name                    = string
-    listener_port           = string
-    action                  = string
-    priority                = number
-    target_id               = string
-    target_http_status_code = number
-    target_url              = string
-    rules = object({
-      condition = string
-      type      = string
-      field     = string
-      value     = string
-    })
-  }))
-  default = []
-}
-
-
-variable "lb_listener_policy_rules" {
-  description = "List of Load Balancer Listener Policie Rules"
-  type = list(object({
-    name                 = string
-    listener_port        = string
-    listener_policy_name = string
-    condition            = string
-    type                 = string
-    field                = string
-    value                = string
+    lb_listener_policies = list(object({
+      name                    = string
+      action                  = string
+      priority                = number
+      target_id               = string
+      target_http_status_code = number
+      target_url              = string
+      rules = object({
+        condition = string
+        type      = string
+        field     = string
+        value     = string
+      })
+      lb_listener_policy_rules = list(object({
+        name      = string
+        condition = string
+        type      = string
+        field     = string
+        value     = string
+      }))
+    }))
   }))
   default = []
 }

@@ -76,7 +76,7 @@ variable "locations" {
   default     = []
 }
 
-variable "subnet_name" {
+variable "subnet_name_prefix" {
   description = "Name of the subnet"
   type        = string
   default     = null
@@ -112,8 +112,8 @@ variable "create_gateway" {
   default     = true
 }
 
-variable "public_gateway_name" {
-  description = "Name of the Public Gateway"
+variable "public_gateway_name_prefix" {
+  description = "Prefix to the names of Public Gateways"
   type        = string
   default     = null
 }
@@ -127,5 +127,5 @@ variable "floating_ip" {
 variable "gateway_tags" {
   description = "List of Tags for the gateway"
   type        = list(string)
-  default     = []
+  default     = null
 }

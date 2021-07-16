@@ -43,5 +43,5 @@ variable "encryption_key" {
 variable "tags" {
   description = "List of Tags for the Image"
   type        = list(string)
-  default     = []
+  default     = null
 }

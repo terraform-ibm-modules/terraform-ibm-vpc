@@ -9,6 +9,16 @@ Example Usage
 vpc_tags = ["T1","T2"]
 
 
+address_prefixes = [
+  {
+    name     = "prefix-1"
+    location = "us-south-1"
+    ip_range = "10.0.120.0/18"
+  },
+]
+
+locations = ["us-south-1", "us-south-2", "us-south-3"]
+
 floating_ip = {
   "id" = "0737_b91457f3-4736-406f-a4fa-9e2be12940b6"
 }
@@ -30,7 +40,7 @@ address_prefixes = [
   },
 ]
 
-locations = ["us-south-1, us-south-2, us-south-3"]
+locations = ["<zone-1>", "<zone-2>", "<zone-3>"]
 
 floating_ip = {
   "id" = "<floating_ip_id>"

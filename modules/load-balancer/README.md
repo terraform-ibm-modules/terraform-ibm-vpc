@@ -44,12 +44,9 @@ module "load-balancer" {
 | security\_groups | Load Balancer Security Group list | list(string) | n/a | no |
 | resource\_group\_id | ID of the resource group | string | n/a | no |
 | tags | List of tags to attach  | list(string) | n/a | no |
-| load\_balancer | Existing Load Balancer's ID to which pools/listeners are to be attached | string | n/a | no |
+| load\_balancer | Existing Load Balancer's name to which pools/listeners are to be attached | string | n/a | no |
 | lb\_pools | List of Load Balancer Pools | list(object) | n/a | no |
-| lb\_pool\_members | List of Load Balancer Pool Members | list(object) | n/a | no |
 | lb\_listeners | List of Load Balancer Listeners | list(object) | n/a | no |
-| lb\_listener\_policies | List of Load Balancer Listener Policies | list(object) | n/a | no |
-| lb\_listener\_policy\_rules | List of Load Balancer Listener Policie Rules | list(object) | n/a | no |
 
 ## Outputs
 

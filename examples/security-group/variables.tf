@@ -31,7 +31,7 @@ variable "resource_group" {
 }
 
 variable "security_group" {
-  description = "Security Group ID to which rules are to be attached."
+  description = "Existing Security Group's name to which rules are to be attached."
   type        = string
   default     = null
 }

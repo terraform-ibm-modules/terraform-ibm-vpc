@@ -13,8 +13,18 @@ This example illustrates how to use the `vpn_gateway` module.
 | name | Name of the VPN Gateway. Required if creating a new Gateway | string | n/a | no |\
 | subnet | Subnet id for the Gateway. Required if creating a new Gateway | string | n/a | no |
 | tags | List of tags to attach  | list(string) | n/a | no |
-| vpn\_gateway | Existing VPN Gatewayp's ID to which connections are to be attached | string | n/a | no |
+| vpn\_gateway | Existing VPN Gateway's ID to which connections are to be attached | string | n/a | no |
 | connections | VPN Gateway connections | list | n/a | no |
+
+
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| vpn\_gateway\_id | The ID of the VPN Gateway |
+| vpn\_gateway\_public\_ip | The public IP address assigned to the VPN gateway |
+| vpn\_gateway\_connections | The VPN Gateway Connection IDs |
+
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
