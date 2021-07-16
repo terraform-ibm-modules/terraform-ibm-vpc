@@ -32,5 +32,5 @@ variable "rules" {
 variable "tags" {
   description = "List of Tags for the ACL"
   type        = list(string)
-  default     = []
+  default     = null
 }

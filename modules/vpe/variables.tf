@@ -59,7 +59,7 @@ variable "tags" {
 
 
 variable "endpoint_gateway" {
-  description = "Existing Enpoint Gateway's ID to which Reserved IPs are to be attached"
+  description = "Existing Enpoint Gateway's Name to which Reserved IPs are to be attached"
   type        = string
   default     = null
 }

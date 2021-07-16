@@ -14,9 +14,15 @@ This example illustrates how to use the `security-group` module
 | resource\_group | Name of the resource group | string | default | no |
 | name | Name of the new Security Group. Required if creating a new sg | string | n/a | no |
 | vpc | VPC Name of the new Security Group. Required if creating a new sg | string | n/a | no |
-| security\_group | Existing Security Group's ID to which rules are to be attached | string | n/a | no |
+| security\_group | Existing Security Group's name to which rules are to be attached | string | n/a | no |
 | security\_group\_rules | Security Group rules | list | n/a | no |
 
+## Outputs
+
+| Name | Description |
+|------|-------------|
+| security\_group\_id | The ID of the Security Group |
+| security\_group\_rules | All the Security Group Rule IDs|
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 

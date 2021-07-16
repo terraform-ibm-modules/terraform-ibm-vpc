@@ -26,5 +26,5 @@ variable "resource_group" {
 variable "tags" {
   description = "List of Tags for the SSH Key"
   type        = list(string)
-  default     = []
+  default     = null
 }

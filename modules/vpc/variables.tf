@@ -76,8 +76,8 @@ variable "locations" {
   default     = []
 }
 
-variable "subnet_name" {
-  description = "Name of the subnet"
+variable "subnet_name_prefix" {
+  description = "Prefix to the names of subnets"
   type        = string
   default     = null
 }
@@ -89,9 +89,9 @@ variable "number_of_addresses" {
 }
 
 variable "vpc" {
-  description = "ID of the Existing VPC to which subnets, gateways are to be attached"
+  description = "Name of the Existing VPC to which subnets, gateways are to be attached"
   type        = string
-  default     = null
+  default     = ""
 }
 
 variable "create_gateway" {
@@ -100,8 +100,8 @@ variable "create_gateway" {
   default     = false
 }
 
-variable "public_gateway_name" {
-  description = "Name of the Public Gateway"
+variable "public_gateway_name_prefix" {
+  description = "Prefix to the names of the Public Gateways"
   type        = string
   default     = null
 }

@@ -6,34 +6,59 @@
 /****************************************************
 Example Usage
 
+lb_pools = [{
+  name           = "test-pool"
+  lb             = "addfd-gg4r4-12345"
+  algorithm      = "round_robin"
+  protocol       = "http"
+  health_delay   = 60
+  health_retries = 5
+  health_timeout = 30
+  health_type    = "http"
+  proxy_protocol = "v1"
+  lb_pool_members = [
+    {
+      port           = 8080
+      target_address = "127.0.0.1"
+      target_id      = null
+      weight         = null
+    },
+  ]
+}]
+
 lb_listeners = [{
-  port                  = 9086
-  protocol              = "http"
-}]
-
-lb_listener_policies = [{
-  name                    = "testlis1pol1"
-  listener_port           = "9086"
-  action                  = "redirect"
-  priority                = 2
-  target_http_status_code = 302
-  target_url              = "https://www.google.com"
-  rules = {
-    condition = "contains"
-    type      = "header"
-    field     = "1"
-    value     = "2"
-  }
-}]
-
-lb_listener_policy_rules = [{
-  name                 = "testlis1pol1rule1"
-  listener_port        = "9086"
-  listener_policy_name = "testlis1pol1"
-  condition = "equals"
-  type      = "header"
-  field     = "MY-APP-HEADER"
-  value     = "UpdateVal"
+  port     = 9086
+  protocol = "http"
+  lb_listener_policies = [{
+    name                    = "testlis1pol1"
+    action                  = "redirect"
+    priority                = 2
+    target_id               = null
+    target_http_status_code = 302
+    target_url              = "https://www.google.com"
+    rules = {
+      condition = "contains"
+      type      = "header"
+      field     = "1"
+      value     = "2"
+    }
+    lb_listener_policy_rules = [
+      {
+        name      = "testlis1pol1rule1"
+        condition = "equals"
+        type      = "header"
+        field     = "MY-APP-HEADER"
+        value     = "newval"
+      },
+      {
+        name      = "testlis1pol1rule2"
+        condition = "equals"
+        type      = "header"
+        field     = "MY-APP-HEADER"
+        value     = "New-value"
+      },
+    ]
+  }]
 }]
 
 ******************************************************/
@@ -57,14 +82,12 @@ lb_pools = [{
   health_monitor_port             = number
   session_persistence_type        = string
   session_persistence_cookie_name = string
-}]
-
-lb_pool_members = [{
-  lb_pool_name   = string
-  port           = number
-  target_address = string
-  target_id      = string
-  weight         = number
+  lb_pool_members = [{
+    port           = number
+    target_address = string
+    target_id      = string
+    weight         = number
+  }]
 }]
 
 lb_listeners = [{
@@ -74,30 +97,25 @@ lb_listeners = [{
   certificate_instance  = string
   connection_limit      = number
   accept_proxy_protocol = bool
-}]
-
-lb_listener_policies = [{
-  name                    = string
-  listener_name           = string
-  action                  = string
-  priority                = number
-  target_id               = string
-  target_http_status_code = number
-  target_url              = string
-  rules = object({
-    condition = string
-    type      = string
-    field     = string
-    value     = string
-  })
-}]
-
-lb_listener_policy_rules = [{
-  name                 = string
-  listener_name        = string
-  listener_policy_name = string
-  condition            = string
-  type                 = string
-  field                = string
-  value                = string
+  lb_listener_policies = [{
+    name                    = string
+    action                  = string
+    priority                = number
+    target_id               = string
+    target_http_status_code = number
+    target_url              = string
+    rules = object({
+      condition = string
+      type      = string
+      field     = string
+      value     = string
+    })
+    lb_listener_policy_rules = [{
+      name      = string
+      condition = string
+      type      = string
+      field     = string
+      value     = string
+    }]
+  }]
 }]
