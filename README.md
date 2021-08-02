@@ -8,6 +8,7 @@ This is a collection of modules that make it easier to provision VPC Resources o
 * security-group
 * floatingIP
 * instance
+* instance-template
 * network-acl
 * public-gateway
 * volume
