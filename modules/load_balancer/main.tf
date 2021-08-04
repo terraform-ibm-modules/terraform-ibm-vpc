@@ -8,7 +8,7 @@ resource ibm_is_lb lb {
   subnets         = var.subnet_ids
   type            = var.use_public_load_balancer ? "public" : "private"
   security_groups = var.security_group_ids
-  profile         = var.logging == null && var.security_group_ids == null ? "network-fixed" : null
+  profile         = var.logging == null && var.security_group_ids == [] ? "network-fixed" : null
   logging         = var.logging != null ? var.logging : null
   resource_group  = var.resource_group_id
   tags            = var.tags
