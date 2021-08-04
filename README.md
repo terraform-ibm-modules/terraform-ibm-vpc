@@ -24,27 +24,19 @@ This module is meant for use with Terraform 0.13.
 
 ## Usage
 
-Full examples are in the [examples](./examples/) folder.
+Full examples are in the examples folder.
 
 ## Requirements
 
 ### Terraform plugins
 
 - [Terraform](https://www.terraform.io/downloads.html) 0.13
-- [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm)
-
 ## Install
 
 ### Terraform
 
 Be sure you have the correct Terraform version (0.13), you can choose the binary here:
 - https://releases.hashicorp.com/terraform/
-
-### Terraform plugins
-
-Be sure you have the compiled plugins on $HOME/.terraform.d/plugins/
-
-- [terraform-provider-ibm](https://github.com/IBM-Cloud/terraform-provider-ibm)
 
 ## How to input varaible values through a file
 
