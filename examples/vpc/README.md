@@ -37,7 +37,7 @@ address_prefixes          | The Address Prefixes of the VPC
 address_prefixes_cidr     | The Address Prefix CIDRs of the VPC
 subnet_ids                | The IDs of the subnets
 subnet_detail_list        | A list of subnets containing names, CIDR blocks, and zones.
-subnet_zone_list          | A list containing cluster subnet IDs and subnet zones
+subnet_zone_list          | A list containing subnet IDs and subnet zones
 public_gateway_ids        | The IDs of the Public Gateways
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
