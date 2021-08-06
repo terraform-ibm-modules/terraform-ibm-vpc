@@ -1,90 +1,83 @@
-##############################################################################
+#####################################################
 # Instance Module Example Parameters
 # Copyright 2020 IBM
-##############################################################################
+#####################################################
 
-variable instance_name {
+variable "name" {
   description = "Name of the Instance"
   type        = string
 }
 
-variable vpc_name {
+variable "vpc" {
   description = "VPC name"
   type        = string
 }
 
-variable subnet_name {
-  description = "Subnet in VPC where instances will be created"
+variable "location" {
+  description = "Instance zone"
   type        = string
 }
 
-variable image_name {
-  description = "Name of the image for the VSI"
+variable "image" {
+  description = "Image ID for the instance"
   type        = string
 }
 
-variable profile {
+variable "profile" {
   description = "Profile type for the Instance"
   type        = string
 }
 
-variable ssh_key_name {
-  description = "Name of SSH key to use when provisioning VSI"
-  type        = string
-}
-
-##############################################################################
-
-
-##############################################################################
-# Optional Parameters
-##############################################################################
-
-variable security_group_ids {
-  description = "Optional. A list of security group ids to attach the primary network interface."
+variable "ssh_keys" {
+  description = "List of ssh key IDs to the instance"
   type        = list(string)
-  default     = []
 }
 
-variable primary_network_interface {
+variable "primary_network_interface" {
   description = "List of primary_network_interface that are to be attached to the instance"
   type = list(object({
+    subnet               = string
     interface_name       = string
+    security_groups      = list(string)
     primary_ipv4_address = string
   }))
 }
 
-variable resource_group {
+#####################################################
+# Optional Parameters
+#####################################################
+
+variable "resource_group" {
   description = "Resource group name"
   type        = string
   default     = null
 }
 
-variable instances {
+variable "no_of_instances" {
   description = "number of Instances"
   type        = number
   default     = 1
 }
 
-variable user_data {
+variable "user_data" {
   description = "User Data for the instance"
   type        = string
   default     = null
 }
 
-variable data_volumes {
+variable "data_volumes" {
   description = "List of volume ids that are to be attached to the instance"
   type        = list(string)
   default     = null
 }
 
-variable tags {
+variable "tags" {
   description = "List of Tags for the vpc"
   type        = list(string)
   default     = null
 }
 
-variable network_interfaces {
+variable "network_interfaces" {
   description = "List of network_interfaces that are to be attached to the instance"
   type = list(object({
     subnet               = string
@@ -95,7 +88,7 @@ variable network_interfaces {
   default = null
 }
 
-variable boot_volume {
+variable "boot_volume" {
   description = "List of boot volume that are to be attached to the instance"
   type = list(object({
     name       = string

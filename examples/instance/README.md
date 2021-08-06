@@ -6,23 +6,22 @@ This example illustrates how to use the `instance` module.
 
 ## Inputs
 
-Name                      | Description                                                                     | Type                                                                                                                   | Default | Required
-------------------------- | ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------- |------
-instance_name             | Name of the Instance                                                            | string                                                                                                                 |         | true
-vpc_name                  | VPC name                                                                        | string                                                                                                                 |         | true
-subnet_name               | Subnet in VPC where instances will be created                                   | string                                                                                                                 |         | true
-image_name                | Name of the image for the VSI                                                   | string                                                                                                                 |         | true
-profile                   | Profile type for the Instance                                                   | string                                                                                                                 |         | true
-ssh_key_name              | Name of SSH key to use when provisioning VSI                                    | string                                                                                                                 |         | true
-security_group_ids        | Optional. A list of security group ids to attach the primary network interface. | list(string)                                                                                                           | []      |
-primary_network_interface | List of primary_network_interface that are to be attached to the instance       | list(object({ interface_name = string primary_ipv4_address = string }))                                                | {  interface_name       = ""  primary_ipv4_address = "" } |
-resource_group            | Resource group name                                                             | string                                                                                                                 | null    |
-instances                 | number of Instances                                                             | number                                                                                                                 | 1       |
-user_data                 | User Data for the instance                                                      | string                                                                                                                 | null    |
-data_volumes              | List of volume ids that are to be attached to the instance                      | list(string)                                                                                                           | null    |
-tags                      | List of Tags for the vpc                                                        | list(string)                                                                                                           | null    |
-network_interfaces        | List of network_interfaces that are to be attached to the instance              | list(object({ subnet = string interface_name = string security_groups = list(string) primary_ipv4_address = string })) | null    |
-boot_volume               | List of boot volume that are to be attached to the instance                     | list(object({ name = string encryption = string }))                                                                    | null    |
+| Name                              | Description                                           | Type   | Default | Required |
+|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
+| resource\_group | Name of the resource group | string | default | no |
+| no\_of\_instances | Number of VSI's | number | 1 | no |
+| name | Name of the Subnet | string | n/a | yes |
+| vpc | Name of the VPC | string | n/a | yes |
+| location | Zone of the subnet  | string | n/a | yes |
+| image | Image ID for the instance  | string | n/a | yes |
+| profile | Profile type for the Instance  | string | n/a | yes |
+| ssh\_keys | List of ssh key IDs to the instance  | list(string) | n/a | yes |
+| primary\_network\_interface | List of primary_network_interface that are to be attached to the instance  | list(object) | n/a | yes |
+| user\_data | User Data for the instance  | string | n/a | no |
+| boot\_volume | List of boot volume that are to be attached to the instance| list(object) | n/a | no |
+| network\_interfaces | List of network_interfaces that are to be attached to the instance  | list(object) | n/a | no |
+| data\_volumes | List of volume ids that are to be attached to the instance  | list(string) | n/a | no |
+| tags | List of tags to attach  | list(string) | n/a | no |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
