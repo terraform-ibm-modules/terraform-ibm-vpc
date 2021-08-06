@@ -1,23 +1,4 @@
 ##############################################################################
-# Subnet Module Example Parameters
-# Copyright 2020 IBM
-##############################################################################
-
-variable vpc {
-  description = "VPC name"
-  type        = string
-}
-
-variable region {
-  description = "Region where VPC will be created"
-  type        = string
-  default     = "us-south"
-}
-
-##############################################################################
-
-
-##############################################################################
 # Subnet Parameters
 # Copyright 2020 IBM
 ##############################################################################
@@ -25,6 +6,17 @@ variable region {
 variable prefix {
   description = "Prefix to be added to the beginning of each subnet name"
   type        = string
+}
+
+variable vpc_id {
+  description = "ID of VPC where subnets will be created"
+  type        = string
+}
+
+variable region {
+  description = "Region where VPC will be created"
+  type        = string
+  default     = "us-south"
 }
 
 variable subnets {
@@ -52,6 +44,12 @@ variable create_subnet_prefixes {
   description = "Create prefixes on the VPC for subnets"
   type        = bool
   default     = true
+}
+
+variable resource_group_id {
+  description = "Optional. Resource group ID"
+  type        = string
+  default     = null
 }
 
 variable public_gateways {
