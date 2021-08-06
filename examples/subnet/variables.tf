@@ -14,6 +14,12 @@ variable region {
   default     = "us-south"
 }
 
+variable resource_group {
+  description = "Name of the resource group where subnets will be provisioned. If null, the `default` resource group will be used"
+  type        = string
+  default     = null
+}
+
 ##############################################################################
 
 
