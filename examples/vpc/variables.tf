@@ -3,6 +3,10 @@
 # Copyright 2020 IBM
 #####################################################
 
+variable ibmcloud_api_key {
+  description = "The IBM Cloud platform API key needed to deploy IAM enabled resources"
+}
+
 variable "create_vpc" {
   description = "True to create new VPC. False if VPC is already existing and subnets or address prefixies are to be added"
   type        = bool
