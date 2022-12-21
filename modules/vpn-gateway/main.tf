@@ -9,7 +9,7 @@ resource "ibm_is_vpn_gateway" "vpngw" {
   resource_group = var.resource_group_id
   subnet         = (var.subnet != null ? var.subnet : null)
   mode           = (var.mode != null ? var.mode : null)
-  tags           = (var.tags != null ? var.tags : [])
+  tags           = var.tags
 }
 
 resource "ibm_is_vpn_gateway_connection" "vpngw_connections" {
