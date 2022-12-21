@@ -53,7 +53,7 @@ module "vpn_gateway" {
 | tags | List of tags to attach  | list(string) | n/a | no |
 | vpn\_gateway | Existing VPN Gatewayp's ID to which connections are to be attached | string | n/a | no |
 | connections | VPN Gateway connections | list | n/a | no |
-| mode | VPN mode | string | n/a | no |
+| mode | VPN mode, required for policy based VPN | string | n/a | no |
 
 ## Outputs
 
