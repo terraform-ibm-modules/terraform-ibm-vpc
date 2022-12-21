@@ -34,6 +34,7 @@ module "vpn_gateway" {
   resource_group_id  = data.ibm_resource_group.resource_group.id
   subnet             = var.subnet
   tags               = var.tags
+  mode               = var.mode
   vpn_gateway        = var.vpn_gateway
   connections        = var.connections
 }
@@ -52,6 +53,7 @@ module "vpn_gateway" {
 | tags | List of tags to attach  | list(string) | n/a | no |
 | vpn\_gateway | Existing VPN Gatewayp's ID to which connections are to be attached | string | n/a | no |
 | connections | VPN Gateway connections | list | n/a | no |
+| mode | VPN mode | string | n/a | no |
 
 ## Outputs
 
