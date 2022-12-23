@@ -49,11 +49,11 @@ module "vpc" {
 | vpc\_tags | List of tags to attach to the VPC | list(string) | n/a | no |
 | address\_prefixes | List of Prefixes for the vpc | list(object) | n/a | no |
 | locations | zones per region | list(string) | n/a | no |
-| subnet\_name | Name(or Prefix) of the Subnet(s). Required only while Creating a new subnet(s) | string | n/a | no |
+| subnet\_name\_prefix | Name(or Prefix) of the Subnet(s). Required only while Creating a new subnet(s) | string | n/a | no |
 | number\_of\_addresses | Number of IPV4 Addresses. Required only while Creating a new subnet(s) | number | n/a | no |
-| vpc | ID of the Existing VPC to which subnets, gateways are to be attached | string | n/a | no |
+| vpc | Name of the Existing VPC to which subnets, gateways are to be attached | string | n/a | no |
 | create\_gateway | True to create new Public Gateway | bool | false | no |
-| public\_gateway\_name | Name(or prefix) of the Public Gateway(s). Required only if Creating a new Public Gateway | string | n/a | no |
+| public\_gateway\_name\_prefix | Name(or prefix) of the Public Gateway(s). Required only if Creating a new Public Gateway | string | n/a | no |
 | floating\_ip | Floating IP `id` or `address` that you want to assign to the public gateway | map | n/a | no |
 | gateway\_tags | List of Tags for the gateway | list(string) | n/a | no |
 

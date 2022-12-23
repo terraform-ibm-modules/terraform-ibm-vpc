@@ -44,12 +44,12 @@ variable "ips" {
 variable "tags" {
   description = "List of Tags for the Endpoint Gateway"
   type        = list(string)
-  default     = []
+  default     = null
 }
 
 
 variable "endpoint_gateway" {
-  description = "Existing Enpoint Gateway's ID to which Reserved IPs are to be attached"
+  description = "Existing Enpoint Gateway's Name to which Reserved IPs are to be attached"
   type        = string
   default     = null
 }
@@ -57,5 +57,5 @@ variable "endpoint_gateway" {
 
 variable "reserved_ips" {
   description = "List of New reserved IPs to the Endpoint Gateway"
-  default     = []
+  default     = null
 }
