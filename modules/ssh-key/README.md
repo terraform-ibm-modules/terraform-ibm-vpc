@@ -19,19 +19,3 @@ module "ssh-key" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
-## Inputs
-
-| Name                              | Description                                           | Type   | Default | Required |
-|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| name | Name of the ssh key | string | n/a | yes |
-| resource\_group\_id | ID of the resource group | string | n/a | no |
-| public_key | SSH Public key data | string | n/a | yes |
-| tags | List of tags to attach  | list(string) | n/a | no |
-
-## Outputs
-
-| Name | Description |
-|------|-------------|
-| ssh\_key\_id | The ID of the SSH Key |
-| fingerprint | SSH key Fingerprint info |

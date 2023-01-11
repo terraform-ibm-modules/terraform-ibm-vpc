@@ -33,41 +33,60 @@ module "vpc" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.41.1 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [ibm_is_public_gateway.pgws](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.41.1/docs/resources/is_public_gateway) | resource |
+| [ibm_is_subnet.subnets](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.41.1/docs/resources/is_subnet) | resource |
+| [ibm_is_vpc.vpc](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.41.1/docs/resources/is_vpc) | resource |
+| [ibm_is_vpc_address_prefix.vpc_address_prefixes](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.41.1/docs/resources/is_vpc_address_prefix) | resource |
+| [ibm_is_vpc.vpc_ds](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.41.1/docs/data-sources/is_vpc) | data source |
 
 ## Inputs
 
-| Name                              | Description                                           | Type   | Default | Required |
-|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| create\_vpc | True to create new VPC. False if VPC is already existing and subnets, gateways are to be added to it | bool | n/a | yes |
-| vpc\_name | Name of the vpc. Required only if Creating a new VPC | string | n/a | no |
-| resource\_group\_id | ID of the resource group | string | n/a | no |
-| classic\_access | Indicates whether this VPC should be connected to Classic Infrastructure. | bool | false | no |
-| default\_address\_prefix | Indicates whether a default address prefix should be automatically created for each zone in this VPC.  | string | auto | no |
-| default\_network\_acl\_name | Name of the Default ACL of the VPC | string | n/a | no |
-| default\_security\_group\_name | Name of the Default Security Group of the VPC | string | n/a | no |
-| default\_routing\_table\_name | Name of the Default Routing Table of the VPC  | string | n/a | no |
-| vpc\_tags | List of tags to attach to the VPC | list(string) | n/a | no |
-| address\_prefixes | List of Prefixes for the vpc | list(object) | n/a | no |
-| locations | zones per region | list(string) | n/a | no |
-| subnet\_name\_prefix | Name(or Prefix) of the Subnet(s). Required only while Creating a new subnet(s) | string | n/a | no |
-| number\_of\_addresses | Number of IPV4 Addresses. Required only while Creating a new subnet(s) | number | n/a | no |
-| vpc | Name of the Existing VPC to which subnets, gateways are to be attached | string | n/a | no |
-| create\_gateway | True to create new Public Gateway | bool | false | no |
-| public\_gateway\_name\_prefix | Name(or prefix) of the Public Gateway(s). Required only if Creating a new Public Gateway | string | n/a | no |
-| floating\_ip | Floating IP `id` or `address` that you want to assign to the public gateway | map | n/a | no |
-| gateway\_tags | List of Tags for the gateway | list(string) | n/a | no |
-
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_address_prefixes"></a> [address\_prefixes](#input\_address\_prefixes) | List of Prefixes for the vpc | <pre>list(object({<br>    name     = string<br>    location = string<br>    ip_range = string<br>  }))</pre> | `[]` | no |
+| <a name="input_classic_access"></a> [classic\_access](#input\_classic\_access) | Classic Access to the VPC | `bool` | `null` | no |
+| <a name="input_create_gateway"></a> [create\_gateway](#input\_create\_gateway) | True to create new Gateway | `bool` | `false` | no |
+| <a name="input_create_vpc"></a> [create\_vpc](#input\_create\_vpc) | True to create new VPC. False if VPC is already existing and subnets or address prefixies are to be added | `bool` | n/a | yes |
+| <a name="input_default_address_prefix"></a> [default\_address\_prefix](#input\_default\_address\_prefix) | Default address prefix creation method | `string` | `null` | no |
+| <a name="input_default_network_acl_name"></a> [default\_network\_acl\_name](#input\_default\_network\_acl\_name) | Name of the Default ACL | `string` | `null` | no |
+| <a name="input_default_routing_table_name"></a> [default\_routing\_table\_name](#input\_default\_routing\_table\_name) | Name of the Default Routing Table | `string` | `null` | no |
+| <a name="input_default_security_group_name"></a> [default\_security\_group\_name](#input\_default\_security\_group\_name) | Name of the Default Security Group | `string` | `null` | no |
+| <a name="input_floating_ip"></a> [floating\_ip](#input\_floating\_ip) | Floating IP `id`'s or `address`'es that you want to assign to the public gateway | `map(any)` | `{}` | no |
+| <a name="input_gateway_tags"></a> [gateway\_tags](#input\_gateway\_tags) | List of Tags for the gateway | `list(string)` | `[]` | no |
+| <a name="input_locations"></a> [locations](#input\_locations) | zones per region | `list(string)` | `[]` | no |
+| <a name="input_number_of_addresses"></a> [number\_of\_addresses](#input\_number\_of\_addresses) | Number of IPV4 Addresses | `number` | `null` | no |
+| <a name="input_public_gateway_name_prefix"></a> [public\_gateway\_name\_prefix](#input\_public\_gateway\_name\_prefix) | Prefix to the names of the Public Gateways | `string` | `null` | no |
+| <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | ID of resource group. | `string` | `null` | no |
+| <a name="input_subnet_name_prefix"></a> [subnet\_name\_prefix](#input\_subnet\_name\_prefix) | Prefix to the names of subnets | `string` | `null` | no |
+| <a name="input_vpc"></a> [vpc](#input\_vpc) | Name of the Existing VPC to which subnets, gateways are to be attached | `string` | `""` | no |
+| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Name of the vpc | `string` | `null` | no |
+| <a name="input_vpc_tags"></a> [vpc\_tags](#input\_vpc\_tags) | List of Tags for the vpc | `list(string)` | `[]` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| vpc\_id | The ID of the VPC |
-| vpc\_default\_security\_group |The ID of the vpc default security group |
-| vpc\_default\_network\_acl | The ID of the vpc default network acl |
-| vpc\_default\_routing\_table | The ID of the vpc default Routing Table |
-| vpc\_address\_prefixes | The ID(s) of the Address Prefixes to VPC |
-| subnet\_ids | The ID(s) of the Subnet(s) |
-| public\_gateway\_ids | The ID(s) of the Public Gateway(s) |
-
+| <a name="output_public_gateway_ids"></a> [public\_gateway\_ids](#output\_public\_gateway\_ids) | The IDs of the Public Gateways |
+| <a name="output_subnet_ids"></a> [subnet\_ids](#output\_subnet\_ids) | The IDs of the subnets |
+| <a name="output_vpc_address_prefixes"></a> [vpc\_address\_prefixes](#output\_vpc\_address\_prefixes) | The Address Prefixes of the VPC |
+| <a name="output_vpc_address_prefixes_cidr"></a> [vpc\_address\_prefixes\_cidr](#output\_vpc\_address\_prefixes\_cidr) | The Address Prefix CIDRs of the VPC |
+| <a name="output_vpc_default_network_acl"></a> [vpc\_default\_network\_acl](#output\_vpc\_default\_network\_acl) | The ID of the vpc default network acl |
+| <a name="output_vpc_default_routing_table"></a> [vpc\_default\_routing\_table](#output\_vpc\_default\_routing\_table) | The ID of the vpc default Routing Table |
+| <a name="output_vpc_default_security_group"></a> [vpc\_default\_security\_group](#output\_vpc\_default\_security\_group) | The ID of the vpc default security group |
+| <a name="output_vpc_id"></a> [vpc\_id](#output\_vpc\_id) | The ID of the vpc |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

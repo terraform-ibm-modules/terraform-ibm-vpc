@@ -1,6 +1,5 @@
 #####################################################
 # Network ACL Resource
-# Copyright 2020 IBM
 #####################################################
 
 resource "ibm_is_network_acl" "nwacl" {
@@ -10,7 +9,7 @@ resource "ibm_is_network_acl" "nwacl" {
   tags           = var.tags
 
   # Create ACL rules
-  dynamic rules {
+  dynamic "rules" {
     for_each = (var.rules != null ? var.rules : [])
     content {
       name        = rules.value.name

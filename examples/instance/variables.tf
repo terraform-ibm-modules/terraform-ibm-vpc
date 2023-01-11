@@ -9,7 +9,7 @@ variable "name" {
 }
 
 variable "vpc" {
-  description = "VPC name"
+  description = "Name of the VPC"
   type        = string
 }
 

@@ -28,26 +28,41 @@ module "subnet" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.41.1 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [ibm_is_subnet.subnet](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.41.1/docs/resources/is_subnet) | resource |
 
 ## Inputs
 
-| Name                              | Description                                           | Type   | Default | Required |
-|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| name | Name of the Subnet | string | n/a | yes |
-| vpc | Name of the VPC | string | n/a | yes |
-| location | Zone of the subnet  | string | n/a | yes |
-| resource\_group\_id | ID of the resource group | string | n/a | no |
-| ip\_range | IP range/CIDR block of the Subnet. Either `ip_range` or `number_of_addresses` input parameters must be provided in the module| string | n/a | no |
-| number\_of\_addresses | The total number of IPv4 addresses. Either `ip_range` or `number_of_addresses` input parameters must be provided in the module | number | n/a | no |
-| subnet\_access\_control\_list | Network ACL ID  | string | n/a | no |
-| public\_gateway | Public Gateway ID  | string | n/a | no |
-| routing\_table | Routing Table ID  | string | n/a | no |
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_ip_range"></a> [ip\_range](#input\_ip\_range) | IP range or CIDR block | `string` | `null` | no |
+| <a name="input_location"></a> [location](#input\_location) | location of the subnet | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | Name of the subnet | `string` | n/a | yes |
+| <a name="input_number_of_addresses"></a> [number\_of\_addresses](#input\_number\_of\_addresses) | Number of IPV4 Addresses | `number` | `null` | no |
+| <a name="input_public_gateway"></a> [public\_gateway](#input\_public\_gateway) | Public Gateway ID | `string` | `null` | no |
+| <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
+| <a name="input_routing_table"></a> [routing\_table](#input\_routing\_table) | Routing Table ID | `string` | `null` | no |
+| <a name="input_subnet_access_control_list"></a> [subnet\_access\_control\_list](#input\_subnet\_access\_control\_list) | Network ACL ID | `string` | `null` | no |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID | `string` | n/a | yes |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| subnet\_id | The ID of the Subnet |
-| subnet\_ipv4\_cidr | IPV4 subnet CIDR block |
-
+| <a name="output_subnet_id"></a> [subnet\_id](#output\_subnet\_id) | The ID of the subnet |
+| <a name="output_subnet_ipv4_cidr"></a> [subnet\_ipv4\_cidr](#output\_subnet\_ipv4\_cidr) | IPV4 subnet CIDR block |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

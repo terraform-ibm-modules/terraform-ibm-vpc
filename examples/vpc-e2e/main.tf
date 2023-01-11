@@ -77,7 +77,7 @@ module "network_acl" {
   vpc_id = module.vpc.vpc_id[0]
 }
 
-module "load-balancer" {
+module "load_balancer" {
   source = "../../modules/load-balancer"
 
   create_load_balancer = true

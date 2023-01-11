@@ -3,19 +3,19 @@
 This is a collection of modules that make it easier to provision VPC Resources on IBM Cloud Platform:
 
 * vpc
-* vpc-address-prefix
+* vpc_address_prefix
 * subnet
-* security-group
+* security_group
 * floatingIP
 * instance
-* network-acl
-* public-gateway
+* network_acl
+* public_gateway
 * volume
-* vpn-gateway
-* vpn-gateway-connection
-* load-balancer
+* vpn_gateway
+* vpn_gateway_connection
+* load_balancer
 * vpe
-* ssh-key
+* ssh_key
 * image
 
 ## Compatibility

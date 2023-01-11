@@ -1,0 +1,443 @@
+2023-01-05 12:03:07,601 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:03:07,616 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:03:07,617 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:03:07,629 - __main__ - ERROR: Errors: 1  Warnings: 1  Info: 0  Debug: 0
+
+-----------------------------
+  Error count: 1
+=============================
++---+--------------------------------------------------+-----------------------------------+---------+
+| T | Message                                          | Evidence                          | Context |
++---+--------------------------------------------------+-----------------------------------+---------+
+| E | Unused output parameters declared in the modules | $module.basic-resource-           |         |
+|   |                                                  | group.outputs.resource_group_name |         |
++---+--------------------------------------------------+-----------------------------------+---------+
+
+
+-----------------------------
+  Warning count: 1
+=============================
++---+-----------------------------------------------------+--------------------------------+---------+
+| T | Message                                             | Evidence                       | Context |
++---+-----------------------------------------------------+--------------------------------+---------+
+| W | Unused setting parameters declared in the blueprint | $blueprint.settings.TF_VERSION |         |
++---+-----------------------------------------------------+--------------------------------+---------+
+
+
+2023-01-05 12:06:34,833 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:06:34,844 - blueprint.validate.schema_validator - ERROR: Blueprint yaml schema validation failed!
+Schema     : /Users/umarali/opt/anaconda3/lib/python3.9/site-packages/blueprint/validate/../schema/schema.yaml
+Config     : /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+----------------------------------------
+* line    ?:  type                                     :  Required field missing
+----------------------------------------
+
+2023-01-05 12:06:34,844 - __main__ - ERROR: Blueprint yaml schema validation failed!
+Schema     : /Users/umarali/opt/anaconda3/lib/python3.9/site-packages/blueprint/validate/../schema/schema.yaml
+Config     : /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+----------------------------------------
+* line    ?:  type                                     :  Required field missing
+----------------------------------------
+
+2023-01-05 12:06:34,844 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:06:34,849 - __main__ - ERROR: Error loading blueprint, for advanced validation
+2023-01-05 12:07:45,132 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:07:45,140 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:07:45,140 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:30:35,631 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:30:35,642 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:30:35,642 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:31:54,972 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:31:54,984 - blueprint.validate.schema_validator - ERROR: Blueprint yaml schema validation failed!
+Schema     : /Users/umarali/opt/anaconda3/lib/python3.9/site-packages/blueprint/validate/../schema/schema.yaml
+Config     : /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+----------------------------------------
+* line    ?:  type                                     :  Required field missing
+----------------------------------------
+
+2023-01-05 12:31:54,984 - __main__ - ERROR: Blueprint yaml schema validation failed!
+Schema     : /Users/umarali/opt/anaconda3/lib/python3.9/site-packages/blueprint/validate/../schema/schema.yaml
+Config     : /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+----------------------------------------
+* line    ?:  type                                     :  Required field missing
+----------------------------------------
+
+2023-01-05 12:31:54,984 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:31:54,989 - __main__ - ERROR: Error loading blueprint, for advanced validation
+2023-01-05 12:32:21,564 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:32:21,573 - blueprint.validate.schema_validator - ERROR: Blueprint yaml schema validation failed!
+Schema     : /Users/umarali/opt/anaconda3/lib/python3.9/site-packages/blueprint/validate/../schema/schema.yaml
+Config     : /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+----------------------------------------
+* line    ?:  type                                     :  Required field missing
+----------------------------------------
+
+2023-01-05 12:32:21,573 - __main__ - ERROR: Blueprint yaml schema validation failed!
+Schema     : /Users/umarali/opt/anaconda3/lib/python3.9/site-packages/blueprint/validate/../schema/schema.yaml
+Config     : /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+----------------------------------------
+* line    ?:  type                                     :  Required field missing
+----------------------------------------
+
+2023-01-05 12:32:21,573 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:32:21,577 - __main__ - ERROR: Error loading blueprint, for advanced validation
+2023-01-05 12:32:36,243 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:32:36,251 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:32:36,251 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:32:59,682 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:32:59,690 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:32:59,690 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:33:23,707 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:33:23,716 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:33:23,716 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:33:23,727 - __main__ - ERROR: Errors: 1  Warnings: 1  Info: 0  Debug: 0
+
+-----------------------------
+  Error count: 1
+=============================
++---+--------------------------------------------------+-----------------------------------+---------+
+| T | Message                                          | Evidence                          | Context |
++---+--------------------------------------------------+-----------------------------------+---------+
+| E | Unused output parameters declared in the modules | $module.basic-resource-           |         |
+|   |                                                  | group.outputs.resource_group_name |         |
++---+--------------------------------------------------+-----------------------------------+---------+
+
+
+-----------------------------
+  Warning count: 1
+=============================
++---+-----------------------------------------------------+--------------------------------+---------+
+| T | Message                                             | Evidence                       | Context |
++---+-----------------------------------------------------+--------------------------------+---------+
+| W | Unused setting parameters declared in the blueprint | $blueprint.settings.TF_VERSION |         |
++---+-----------------------------------------------------+--------------------------------+---------+
+
+
+2023-01-05 12:35:49,575 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:36:45,081 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:37:22,261 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:37:52,680 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:37:52,687 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:37:52,688 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:37:52,698 - __main__ - ERROR: Errors: 1  Warnings: 1  Info: 0  Debug: 0
+
+-----------------------------
+  Error count: 1
+=============================
++---+--------------------------------------------------+-----------------------------------+---------+
+| T | Message                                          | Evidence                          | Context |
++---+--------------------------------------------------+-----------------------------------+---------+
+| E | Unused output parameters declared in the modules | $module.basic-resource-           |         |
+|   |                                                  | group.outputs.resource_group_name |         |
++---+--------------------------------------------------+-----------------------------------+---------+
+
+
+-----------------------------
+  Warning count: 1
+=============================
++---+-----------------------------------------------------+--------------------------------+---------+
+| T | Message                                             | Evidence                       | Context |
++---+-----------------------------------------------------+--------------------------------+---------+
+| W | Unused setting parameters declared in the blueprint | $blueprint.settings.TF_VERSION |         |
++---+-----------------------------------------------------+--------------------------------+---------+
+
+
+2023-01-05 12:38:07,811 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:38:07,820 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:38:07,820 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:38:07,831 - __main__ - ERROR: Errors: 9  Warnings: 1  Info: 0  Debug: 0
+
+-----------------------------
+  Error count: 9
+=============================
++---+------------------------------------------------------------------------+-----------------------------------+----------------------------------+
+| T | Message                                                                | Evidence                          | Context                          |
++---+------------------------------------------------------------------------+-----------------------------------+----------------------------------+
+| E | Incorrect wiring                                                       | from: None to: $module.basic-cos- |                                  |
+|   |                                                                        | storage.inputs.cos_storage_plan   |                                  |
+| E | Incorrect wiring                                                       | from: None to: $module.basic-cos- |                                  |
+|   |                                                                        | storage.inputs.cos_instance_name  |                                  |
+| E | Incorrect wiring from blueprint.setting to module.input                | $module.basic-cos-                |                                  |
+|   |                                                                        | storage.inputs.cos_instance_name  |                                  |
+| E | Incorrect wiring from blueprint.setting to module.input                | $module.basic-cos-                |                                  |
+|   |                                                                        | storage.inputs.cos_storage_plan   |                                  |
+| E | Invalid $blueprint.cos_instance_name 'from' parameter name in the wire |                                   |                                  |
+| E | Invalid $blueprint.cos_storage_plan 'from' parameter name in the wire  |                                   |                                  |
+| E | Undeclared blueprint linked data, used by modules                      | $blueprint.cos_instance_name      | $module.basic-cos-               |
+|   |                                                                        |                                   | storage.inputs.cos_instance_name |
+| E | Undeclared blueprint linked data, used by modules                      | $blueprint.cos_storage_plan       | $module.basic-cos-               |
+|   |                                                                        |                                   | storage.inputs.cos_storage_plan  |
+| E | Unused output parameters declared in the modules                       | $module.basic-resource-           |                                  |
+|   |                                                                        | group.outputs.resource_group_name |                                  |
++---+------------------------------------------------------------------------+-----------------------------------+----------------------------------+
+
+
+-----------------------------
+  Warning count: 1
+=============================
++---+-----------------------------------------------------+--------------------------------+---------+
+| T | Message                                             | Evidence                       | Context |
++---+-----------------------------------------------------+--------------------------------+---------+
+| W | Unused setting parameters declared in the blueprint | $blueprint.settings.TF_VERSION |         |
++---+-----------------------------------------------------+--------------------------------+---------+
+
+
+2023-01-05 12:38:24,497 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:38:24,505 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:38:24,505 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:38:24,517 - __main__ - ERROR: Errors: 9  Warnings: 1  Info: 0  Debug: 0
+
+-----------------------------
+  Error count: 9
+=============================
++---+------------------------------------------------------------------------+-----------------------------------+----------------------------------+
+| T | Message                                                                | Evidence                          | Context                          |
++---+------------------------------------------------------------------------+-----------------------------------+----------------------------------+
+| E | Incorrect wiring                                                       | from: None to: $module.basic-cos- |                                  |
+|   |                                                                        | storage.inputs.cos_instance_name  |                                  |
+| E | Incorrect wiring                                                       | from: None to: $module.basic-cos- |                                  |
+|   |                                                                        | storage.inputs.cos_storage_plan   |                                  |
+| E | Incorrect wiring from blueprint.setting to module.input                | $module.basic-cos-                |                                  |
+|   |                                                                        | storage.inputs.cos_instance_name  |                                  |
+| E | Incorrect wiring from blueprint.setting to module.input                | $module.basic-cos-                |                                  |
+|   |                                                                        | storage.inputs.cos_storage_plan   |                                  |
+| E | Invalid $blueprint.cos_instance_name 'from' parameter name in the wire |                                   |                                  |
+| E | Invalid $blueprint.cos_storage_plan 'from' parameter name in the wire  |                                   |                                  |
+| E | Undeclared blueprint linked data, used by modules                      | $blueprint.cos_storage_plan       | $module.basic-cos-               |
+|   |                                                                        |                                   | storage.inputs.cos_storage_plan  |
+| E | Undeclared blueprint linked data, used by modules                      | $blueprint.cos_instance_name      | $module.basic-cos-               |
+|   |                                                                        |                                   | storage.inputs.cos_instance_name |
+| E | Unused output parameters declared in the modules                       | $module.basic-resource-           |                                  |
+|   |                                                                        | group.outputs.resource_group_name |                                  |
++---+------------------------------------------------------------------------+-----------------------------------+----------------------------------+
+
+
+-----------------------------
+  Warning count: 1
+=============================
++---+-----------------------------------------------------+--------------------------------+---------+
+| T | Message                                             | Evidence                       | Context |
++---+-----------------------------------------------------+--------------------------------+---------+
+| W | Unused setting parameters declared in the blueprint | $blueprint.settings.TF_VERSION |         |
++---+-----------------------------------------------------+--------------------------------+---------+
+
+
+2023-01-05 12:42:14,608 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:42:14,619 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:42:14,619 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:42:14,629 - __main__ - ERROR: Errors: 3  Warnings: 1  Info: 0  Debug: 0
+
+-----------------------------
+  Error count: 3
+=============================
++---+--------------------------------------------------+------------------------------------------+---------+
+| T | Message                                          | Evidence                                 | Context |
++---+--------------------------------------------------+------------------------------------------+---------+
+| E | Unused output parameters declared in the modules | $module.basic-cos-storage.outputs.cos_id |         |
+| E | Unused output parameters declared in the modules | $module.basic-cos-                       |         |
+|   |                                                  | storage.outputs.cos_crn                  |         |
+| E | Unused output parameters declared in the modules | $module.basic-resource-                  |         |
+|   |                                                  | group.outputs.resource_group_name        |         |
++---+--------------------------------------------------+------------------------------------------+---------+
+
+
+-----------------------------
+  Warning count: 1
+=============================
++---+-----------------------------------------------------+--------------------------------+---------+
+| T | Message                                             | Evidence                       | Context |
++---+-----------------------------------------------------+--------------------------------+---------+
+| W | Unused setting parameters declared in the blueprint | $blueprint.settings.TF_VERSION |         |
++---+-----------------------------------------------------+--------------------------------+---------+
+
+
+2023-01-05 12:42:56,860 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:42:56,867 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:42:56,867 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:42:56,877 - __main__ - ERROR: Errors: 1  Warnings: 0  Info: 0  Debug: 0
+
+-----------------------------
+  Error count: 1
+=============================
++---+--------------------------------------------------+-----------------------------------+---------+
+| T | Message                                          | Evidence                          | Context |
++---+--------------------------------------------------+-----------------------------------+---------+
+| E | Unused output parameters declared in the modules | $module.basic-resource-           |         |
+|   |                                                  | group.outputs.resource_group_name |         |
++---+--------------------------------------------------+-----------------------------------+---------+
+
+
+2023-01-05 12:43:46,487 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:43:46,497 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:43:46,497 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:43:46,507 - __main__ - ERROR: {'msg': 'Empty, no events'}
+2023-01-05 12:44:35,816 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:44:35,825 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:44:35,825 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:45:27,873 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:45:27,881 - blueprint.validate.schema_validator - ERROR: Blueprint yaml schema validation failed!
+Schema     : /Users/umarali/opt/anaconda3/lib/python3.9/site-packages/blueprint/validate/../schema/schema.yaml
+Config     : /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+----------------------------------------
+* line    ?:  type                                     :  Required field missing
+----------------------------------------
+
+2023-01-05 12:45:27,881 - __main__ - ERROR: Blueprint yaml schema validation failed!
+Schema     : /Users/umarali/opt/anaconda3/lib/python3.9/site-packages/blueprint/validate/../schema/schema.yaml
+Config     : /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+----------------------------------------
+* line    ?:  type                                     :  Required field missing
+----------------------------------------
+
+2023-01-05 12:45:27,881 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:45:27,886 - __main__ - ERROR: Error loading blueprint, for advanced validation
+2023-01-05 12:48:02,156 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:48:02,167 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:48:02,167 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:48:02,177 - __main__ - ERROR: Errors: 0  Warnings: 1  Info: 0  Debug: 0
+
+-----------------------------
+  Warning count: 1
+=============================
++---+-----------------------------------------------------+--------------------------------+---------+
+| T | Message                                             | Evidence                       | Context |
++---+-----------------------------------------------------+--------------------------------+---------+
+| W | Unused setting parameters declared in the blueprint | $blueprint.settings.TF_VERSION |         |
++---+-----------------------------------------------------+--------------------------------+---------+
+
+
+2023-01-05 12:49:08,818 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:49:33,814 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:49:48,664 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:49:48,672 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:49:48,672 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:49:48,683 - __main__ - ERROR: Errors: 8  Warnings: 1  Info: 0  Debug: 0
+
+-----------------------------
+  Error count: 8
+=============================
++---+------------------------------------------------------------------------+-----------------------------------+----------------------------------+
+| T | Message                                                                | Evidence                          | Context                          |
++---+------------------------------------------------------------------------+-----------------------------------+----------------------------------+
+| E | Incorrect wiring                                                       | from: None to: $module.basic-cos- |                                  |
+|   |                                                                        | storage.inputs.cos_storage_plan   |                                  |
+| E | Incorrect wiring                                                       | from: None to: $module.basic-cos- |                                  |
+|   |                                                                        | storage.inputs.cos_instance_name  |                                  |
+| E | Incorrect wiring from blueprint.setting to module.input                | $module.basic-cos-                |                                  |
+|   |                                                                        | storage.inputs.cos_instance_name  |                                  |
+| E | Incorrect wiring from blueprint.setting to module.input                | $module.basic-cos-                |                                  |
+|   |                                                                        | storage.inputs.cos_storage_plan   |                                  |
+| E | Invalid $blueprint.cos_instance_name 'from' parameter name in the wire |                                   |                                  |
+| E | Invalid $blueprint.cos_storage_plan 'from' parameter name in the wire  |                                   |                                  |
+| E | Undeclared blueprint linked data, used by modules                      | $blueprint.cos_instance_name      | $module.basic-cos-               |
+|   |                                                                        |                                   | storage.inputs.cos_instance_name |
+| E | Undeclared blueprint linked data, used by modules                      | $blueprint.cos_storage_plan       | $module.basic-cos-               |
+|   |                                                                        |                                   | storage.inputs.cos_storage_plan  |
++---+------------------------------------------------------------------------+-----------------------------------+----------------------------------+
+
+
+-----------------------------
+  Warning count: 1
+=============================
++---+-----------------------------------------------------+--------------------------------+---------+
+| T | Message                                             | Evidence                       | Context |
++---+-----------------------------------------------------+--------------------------------+---------+
+| W | Unused setting parameters declared in the blueprint | $blueprint.settings.TF_VERSION |         |
++---+-----------------------------------------------------+--------------------------------+---------+
+
+
+2023-01-05 12:50:10,351 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:50:10,361 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:50:10,361 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:50:10,372 - __main__ - ERROR: Errors: 4  Warnings: 2  Info: 0  Debug: 0
+
+-----------------------------
+  Error count: 4
+=============================
++---+------------------------------------------------------------------------+-----------------------------------+----------------------------------+
+| T | Message                                                                | Evidence                          | Context                          |
++---+------------------------------------------------------------------------+-----------------------------------+----------------------------------+
+| E | Incorrect wiring                                                       | from: None to: $module.basic-cos- |                                  |
+|   |                                                                        | storage.inputs.cos_instance_name  |                                  |
+| E | Incorrect wiring from blueprint.setting to module.input                | $module.basic-cos-                |                                  |
+|   |                                                                        | storage.inputs.cos_instance_name  |                                  |
+| E | Invalid $blueprint.cos_instance_name 'from' parameter name in the wire |                                   |                                  |
+| E | Undeclared blueprint linked data, used by modules                      | $blueprint.cos_instance_name      | $module.basic-cos-               |
+|   |                                                                        |                                   | storage.inputs.cos_instance_name |
++---+------------------------------------------------------------------------+-----------------------------------+----------------------------------+
+
+
+-----------------------------
+  Warning count: 2
+=============================
++---+-----------------------------------------------------+--------------------------------------+---------+
+| T | Message                                             | Evidence                             | Context |
++---+-----------------------------------------------------+--------------------------------------+---------+
+| W | Unused input parameters declared in the blueprint   | $blueprint.inputs.cos_instance_name2 |         |
+| W | Unused setting parameters declared in the blueprint | $blueprint.settings.TF_VERSION       |         |
++---+-----------------------------------------------------+--------------------------------------+---------+
+
+
+2023-01-05 12:50:47,468 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:50:47,476 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:50:47,476 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:50:47,486 - __main__ - ERROR: Errors: 2  Warnings: 1  Info: 0  Debug: 0
+
+-----------------------------
+  Error count: 2
+=============================
++---+--------------------------------------------------+------------------------------------------+---------+
+| T | Message                                          | Evidence                                 | Context |
++---+--------------------------------------------------+------------------------------------------+---------+
+| E | Unused output parameters declared in the modules | $module.basic-cos-storage.outputs.cos_id |         |
+| E | Unused output parameters declared in the modules | $module.basic-cos-                       |         |
+|   |                                                  | storage.outputs.cos_crn                  |         |
++---+--------------------------------------------------+------------------------------------------+---------+
+
+
+-----------------------------
+  Warning count: 1
+=============================
++---+-----------------------------------------------------+--------------------------------+---------+
+| T | Message                                             | Evidence                       | Context |
++---+-----------------------------------------------------+--------------------------------+---------+
+| W | Unused setting parameters declared in the blueprint | $blueprint.settings.TF_VERSION |         |
++---+-----------------------------------------------------+--------------------------------+---------+
+
+
+2023-01-05 12:51:19,821 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:51:55,353 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:51:55,361 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:51:55,361 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:51:55,372 - __main__ - ERROR: Errors: 2  Warnings: 5  Info: 0  Debug: 0
+
+-----------------------------
+  Error count: 2
+=============================
++---+--------------------------------------------------+------------------------------------------+---------+
+| T | Message                                          | Evidence                                 | Context |
++---+--------------------------------------------------+------------------------------------------+---------+
+| E | Unused output parameters declared in the modules | $module.basic-cos-storage.outputs.cos_id |         |
+| E | Unused output parameters declared in the modules | $module.basic-cos-                       |         |
+|   |                                                  | storage.outputs.cos_crn                  |         |
++---+--------------------------------------------------+------------------------------------------+---------+
+
+
+-----------------------------
+  Warning count: 5
+=============================
++---+----------------------------------------------------------+------------------------------------------+---------------------------+
+| T | Message                                                  | Evidence                                 | Context                   |
++---+----------------------------------------------------------+------------------------------------------+---------------------------+
+| W | Invalid linked data for input parameter of the blueprint | $module.basic-cos-storage.outputs.cos_id | $blueprint.inputs.cos_id  |
+| W | Invalid linked data for input parameter of the blueprint | $module.basic-cos-                       | $blueprint.inputs.cos_crn |
+|   |                                                          | storage.outputs.cos_crn                  |                           |
+| W | Unused input parameters declared in the blueprint        | $blueprint.inputs.cos_crn                |                           |
+| W | Unused input parameters declared in the blueprint        | $blueprint.inputs.cos_id                 |                           |
+| W | Unused setting parameters declared in the blueprint      | $blueprint.settings.TF_VERSION           |                           |
++---+----------------------------------------------------------+------------------------------------------+---------------------------+
+
+
+2023-01-05 12:53:43,231 - __main__ - INFO: Validate - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml
+2023-01-05 12:53:43,240 - blueprint.validate.schema_validator - INFO: Blueprint yaml schema validation success!
+2023-01-05 12:53:43,240 - __main__ - INFO: Advanced validation - /Users/umarali/go/src/github.com/umarali-nagoor/blueprint-basic-example/basic-blueprint.yaml

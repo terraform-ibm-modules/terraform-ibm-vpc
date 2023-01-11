@@ -1,6 +1,5 @@
 #####################################################
 # Floating IP Configuration
-# Copyright 2020 IBM
 #####################################################
 
 provider "ibm" {
@@ -11,7 +10,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "fip" {
-  // source = "terraform-ibm-modules/vpc/ibm//modules/floatingIP"
+  # source = "terraform-ibm-modules/vpc/ibm//modules/floatingIP"
   source = "../../modules/floatingIP"
 
   name              = var.name

@@ -1,6 +1,5 @@
 #####################################################
 # Network ACL Configuration
-# Copyright 2020 IBM
 #####################################################
 
 provider "ibm" {
@@ -30,7 +29,7 @@ locals {
 }
 
 module "network_acl" {
-  // source = "terraform-ibm-modules/vpc/ibm//modules/network-acl"
+  # source = "terraform-ibm-modules/vpc/ibm//modules/network-acl"
   source = "../../modules/network-acl"
 
   name              = var.name

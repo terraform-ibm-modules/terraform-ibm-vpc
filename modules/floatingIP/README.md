@@ -1,41 +1,56 @@
-# Floating IP Module Example
+# Floating IP Module
 
-This module is used to create a Floating IP
+This example is used to create a floating IP address that you can associate with a Virtual Servers for VPC instance.
 
 ## Example Usage
-```
+
+``` terraform
+provider "ibm" {
+}
 
 data "ibm_resource_group" "resource_group" {
-  name = (var.resource_group != null ? var.resource_group : "default")
+  name = "default"
 }
 
 module "fip" {
-  source = "terraform-ibm-modules/vpc/ibm//modules/floatingIP"
+  # source = "terraform-ibm-modules/vpc/ibm//modules/floatingIP"
+  source = "../../modules/floatingIP"
 
-  name              = var.name
+  name              = "fip"
   resource_group_id = data.ibm_resource_group.resource_group.id
-  location          = var.location
-  target            = var.target
-  tags              = var.tags
+  location          = "us-south"
+  tags              = ["t1","t2"]
 }
 ```
+## Requirements
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.41.1 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [ibm_is_floating_ip.fip](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_floating_ip) | resource |
 
 ## Inputs
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_name"></a> [name](#input\_name) | Name of the Floating IP | `string` | n/a | yes |
+| <a name="input_location"></a> [ibm\_location](#input\_ibm\_location) | Floating IP Zone. This conflicts with 'target'. Give only either of one" | `string` | n/a | yes |
+| <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
+| <a name="input_target"></a> [target](#input\_target) | Target Interface ID for this Floating IP. This conflicts with 'zone'. Give only either of one | `string` | `null` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the Floating IP | `list(string)` | `null` | no |
 
-| Name                              | Description                                           | Type   | Default | Required |
-|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| name | Name of the Floating IP | string | n/a | yes |
-| resource\_group\_id | ID of the resource group | string | n/a | no |
-| location | Floating IP Zone. Either `location` or `target` input parameters must be provided in the module | string | n/a | no |
-| target | Target Interface ID for this Floating IP. Either `location` or `target` input parameters must be provided in the module| string | n/a | no |
-| tags | List of tags to attach  | list(string) | n/a | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| floating\_ip\_id | The ID of the Floating IP |
-
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| <a name="output_floating_ip_id"></a> [floating\_ip\_id](#output\_floating\_ip\_id) | Floating ip ID |

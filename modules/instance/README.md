@@ -1,28 +1,33 @@
-# Instance Module Example
+# Instance Module
 
-This module is used to create an Instance
+Create, update, or delete a Virtual Servers for VPC instance. For more information, about managing VPC instance, see about virtual server instances for VPC.
 
 ## Example Usage
-```
+
+``` terraform
+provider "ibm" {
+}
+
 data "ibm_is_vpc" "vpc" {
-  name = var.vpc
+  name = "myvpc"
 }
 
 data "ibm_resource_group" "resource_group" {
-  name = (var.resource_group != null ? var.resource_group : "default")
+  name = "default"
 }
 
 module "instance" {
-  source = "terraform-ibm-modules/vpc/ibm//modules/instance"
+  // source = "terraform-ibm-modules/vpc/ibm//modules/instance"
+  source = "../../modules/instance"
 
-  no_of_instances           = var.no_of_instances
-  name                      = var.name
+  no_of_instances           = 1
+  name                      = "myinstance"
   vpc_id                    = data.ibm_is_vpc.vpc.id
   resource_group_id         = data.ibm_resource_group.resource_group.id
-  location                  = var.location
-  image                     = var.image
-  profile                   = var.profile
-  ssh_keys                  = var.ssh_keys
+  location                  = "us-south"
+  image                     = "jskd-98274-hsjdj"
+  profile                   = "bc1-2x8"
+  ssh_keys                  = ["k1_id","k2-id"]
   primary_network_interface = var.primary_network_interface
   user_data                 = var.user_data
   boot_volume               = var.boot_volume
@@ -31,33 +36,53 @@ module "instance" {
   tags                      = var.tags
 }
 ```
+## Requirements
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | 1.41.1 |
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [ibm_resource_group.resource_group](https://registry.terraform.io/providers/IBM-Cloud/ibm/1.41.1/docs/data-sources/resource_group) | data source |
+| [ibm_is_vpc.vpc](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc) | data source |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [ibm_is_instance.instances](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance) | resource |
 
 ## Inputs
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_name"></a> [name](#input\_name) | Name of the instance | `string` | n/a | yes |
+| <a name="input_vpc_id"></a> [vpc](#input\_vpc_\id) | VPC ID | `string` | n/a | yes |
+| <a name="input_location"></a> [location](#input\_location) | The zone where the instance was created. | `string` | n/a | yes |
+| <a name="input_image"></a> [image](#input\_image) | ID of the Image | `string` | n/a | yes |
+| <a name="input_profile"></a> [profile](#input\_profile) | Profile type for the Instance | `string` | n/a | yes |
+| <a name="input_ssh_keys"></a> [ssh_keys](#input\_ssh\_keys) | List of ssh key IDs to the instance | `string` | n/a | yes |
+| <a name="input_primary_network_interface"></a> [primary_network_interface](#input\_primary\_network\_interface) | List of primary_network_interface that are to be attached to the instance | `list(string)` | n/a | yes |
 
-| Name                              | Description                                           | Type   | Default | Required |
-|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| no\_of\_instances | Number of Instances | number | 1 | no |
-| name | Name of the Subnet | string | n/a | yes |
-| vpc | Name of the VPC | string | n/a | yes |
-| location | Zone of the subnet  | string | n/a | yes |
-| image | Image ID for the instance  | string | n/a | yes |
-| profile | Profile type for the Instance  | string | n/a | yes |
-| ssh\_keys | List of ssh key IDs to the instance  | list(string) | n/a | yes |
-| primary\_network\_interface | List of primary_network_interface that are to be attached to the instance  | list(object) | n/a | yes |
-| resource\_group\_id | ID of the resource group | string | n/a | no |
-| user\_data | User Data for the instance  | string | n/a | no |
-| boot\_volume | List of boot volume that are to be attached to the instance| list(object) | n/a | no |
-| network\_interfaces | List of network_interfaces that are to be attached to the instance  | list(object) | n/a | no |
-| data\_volumes | List of volume ids that are to be attached to the instance  | list(string) | n/a | no |
-| tags | List of tags to attach  | list(string) | n/a | no |
+| <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
+| <a name="input_no_of_instances"></a> [no\_of\_instances](#input\_no\_of\_instances) | Number of VSI instances to create | `number` | 1 | no |
+| <a name="input_user_data"></a> [user\_data](#input\_user\_data) | User data for the instance | `string` | `null` | no |
+| <a name="input_data_volumes"></a> [data\_volumes](#input\_data\_volumes) | List of volume ids that are to be attached to the instance | `list(string)` | `null` | no |
+| <a name="input_network_interfaces"></a> [network\_interfaces](#input\_network\_interfaces) | List of network_interfaces that are to be attached to the instance | `list(object)` | `null` | no |
+| <a name="input_boot_volume"></a> [boot\_volume](#input\_boot\_volume) | List of boot volume that are to be attached to the instance | `list(object)` | `null` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the Floating IP | `list(string)` | `null` | no |
+
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| instance\_ids | The ID of the Instances |
-| primary\_network\_interfaces | The primary_network_interface IDs of the Instances |
-
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| <a name="output_instance_ids"></a> [instance\_ids](#output\_instance\_ids) | List of instance IDs |
+| <a name="output_primary_network_interfaces"></a> [primary\_network\_interfaces](#output\_primary\_network\_interfaces) | List of primary_network_interfaces of the Instances |

@@ -1,6 +1,5 @@
 #####################################################
 # Custom Image Configuration Example
-# Copyright 2020 IBM
 #####################################################
 
 provider "ibm" {
@@ -11,7 +10,7 @@ data "ibm_resource_group" "resource_group" {
 }
 
 module "image" {
-  // source = "terraform-ibm-modules/vpc/ibm//modules/image"
+  # source = "terraform-ibm-modules/vpc/ibm//modules/image"
   source = "../../modules/image"
 
   name               = var.name

@@ -1,6 +1,5 @@
 #####################################################
 # Load Balanncer Configuration Example
-# Copyright 2020 IBM
 #####################################################
 
 provider "ibm" {
@@ -81,8 +80,8 @@ locals {
   ]
 }
 
-module "load-balancer" {
-  // source = "terraform-ibm-modules/vpc/ibm//modules/load-balancer"
+module "load_balancer" {
+  # source = "terraform-ibm-modules/vpc/ibm//modules/load-balancer"
   source = "../../modules/load-balancer"
 
   create_load_balancer = var.create_load_balancer

@@ -1,0 +1,18 @@
+# The settings are inherited from common repository repo-settings (same file name and location)
+# You can append settings that are deeply-merged with the inherited settings.
+#
+# When you have installed the GitHub App "repo-settings" in this repository,
+# any change of this settings.yml file is detected by the GitHub App and
+# the settings of this repository are updated immediately.
+
+_extends: repo-settings:.github/common-settings.yml
+
+# repo-specific settings
+#
+repository:
+  # By changing this field, you rename the repository.
+  name: "terraform-ibm-kms"
+
+  # The description is displayed under the repository name on the
+  # organization page and in the 'About' section of the repository.
+  description: "Terraform modules to create and work with IBM Key Management Service"

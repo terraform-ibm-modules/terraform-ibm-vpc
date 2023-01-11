@@ -1,0 +1,12 @@
+{
+  "path": ".",
+  "variables": {},
+  "outputs": {},
+  "required_core": [
+    "\u003e= 1.0.0"
+  ],
+  "required_providers": {},
+  "managed_resources": {},
+  "data_resources": {},
+  "module_calls": {}
+}

@@ -1,6 +1,5 @@
 #####################################################
 # Load Balancer Variables
-# Copyright 2020 IBM
 #####################################################
 
 variable "create_load_balancer" {
