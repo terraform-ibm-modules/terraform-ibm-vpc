@@ -1,5 +1,27 @@
 # IBM VPC Terraform Module
 
+## Module archived
+
+:spider_web: This repo is no longer maintained and is archived. Use the [IBM Cloud Provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs) resources directly to create VPC resources, or use one of following maintained public modules if you consume the module from GitHub: 
+- [terraform-ibm-landing-zone-vpc](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc)
+- [terraform-ibm-landing-zone-vsi](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vsi)
+- [terraform-ibm-security-group](https://github.com/terraform-ibm-modules/terraform-ibm-security-group)
+- [terraform-ibm-client-to-site-vpn](https://github.com/terraform-ibm-modules/terraform-ibm-client-to-site-vpn)
+- [terraform-ibm-vpe-gateway](https://github.com/terraform-ibm-modules/terraform-ibm-vpe-gateway)
+
+## Changes if you use the Hashicorp registry
+
+:exclamation: **Important:**  This module will be deleted from the Hashicorp registry on 1 September 2023. 
+
+If you consume the from the Hashicorp registry, use one of these instead:
+- [landing-zone-vpc](https://registry.terraform.io/modules/terraform-ibm-modules/landing-zone-vpc/ibm/latest)
+- [landing-zone-vsi](https://registry.terraform.io/modules/terraform-ibm-modules/landing-zone-vsi/ibm/latest)
+- [security-group](https://registry.terraform.io/modules/terraform-ibm-modules/security-group/ibm/latest)
+- [client-to-site-vpn](https://registry.terraform.io/modules/terraform-ibm-modules/client-to-site-vpn/ibm/latest)
+- [vpe-gateway](https://registry.terraform.io/modules/terraform-ibm-modules/vpe-gateway/ibm/latest)
+
+---
+
 This is a collection of modules that make it easier to provision VPC Resources on IBM Cloud Platform:
 
 * vpc
