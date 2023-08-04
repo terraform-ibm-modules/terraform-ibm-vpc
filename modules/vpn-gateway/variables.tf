@@ -43,6 +43,11 @@ variable "vpn_gateway" {
   default     = null
 }
 
+variable "mode"  {
+  description = "VPN Mode, route or policy"
+  type        = string
+  default     = null
+}
 
 variable "connections" {
   description = "List of connections for the VPN Gateway"
