@@ -12,3 +12,4 @@ crash.log
 # to change depending on the environment.
 #
 *.tfvars
+!input.tfvars
