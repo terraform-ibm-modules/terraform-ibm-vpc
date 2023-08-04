@@ -13,18 +13,19 @@ data "ibm_resource_group" "resource_group" {
 locals {
   lb_pools = [
     for r in var.lb_pools : {
-      name                            = r.name
-      algorithm                       = r.algorithm
-      protocol                        = r.protocol
-      health_delay                    = r.health_delay
-      health_retries                  = r.health_retries
-      health_timeout                  = r.health_timeout
-      health_type                     = r.health_type
-      health_monitor_url              = lookup(r, "health_monitor_url", null)
-      health_monitor_port             = lookup(r, "health_monitor_port", null)
-      session_persistence_type        = lookup(r, "session_persistence_type", null)
-      session_persistence_cookie_name = lookup(r, "session_persistence_cookie_name", null)
-      lb_pool_members                 = lookup(r, "lb_pool_members", null)
+      name                                = r.name
+      algorithm                           = r.algorithm
+      protocol                            = r.protocol
+      health_delay                        = r.health_delay
+      health_retries                      = r.health_retries
+      health_timeout                      = r.health_timeout
+      health_type                         = r.health_type
+      health_monitor_url                  = lookup(r, "health_monitor_url", null)
+      health_monitor_port                 = lookup(r, "health_monitor_port", null)
+      session_persistence_type            = lookup(r, "session_persistence_type", null)
+      session_persistence_app_cookie_name = lookup(r, "session_persistence_app_cookie_name", null)
+      proxy_protocol                      = lookup(r, "proxy_protocol", null)
+      lb_pool_members                     = lookup(r, "lb_pool_members", null)
     }
   ]
 
