@@ -6,39 +6,39 @@ This example illustrates how to use the `vpc` module.
 
 ## Inputs
 
-| Name                              | Description                                           | Type   | Default | Required |
-|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| resource\_group | Name of the resource group | string | default | no |
-| create\_vpc | True to create new VPC. False if VPC is already existing and subnets, gateways are to be added to it | bool | n/a | yes |
-| vpc\_name | Name of the vpc. Required only if Creating a new VPC | string | n/a | no |
-| classic\_access | Indicates whether this VPC should be connected to Classic Infrastructure. | bool | false | no |
-| default\_address\_prefix | Indicates whether a default address prefix should be automatically created for each zone in this VPC.  | string | auto | no |
-| default\_network\_acl\_name | Name of the Default ACL of the VPC | string | n/a | no |
-| default\_security\_group\_name | Name of the Default Security Group of the VPC | string | n/a | no |
-| default\_routing\_table\_name | Name of the Default Routing Table of the VPC  | string | n/a | no |
-| vpc\_tags | List of tags to attach to the VPC | list(string) | n/a | no |
-| address\_prefixes | List of Prefixes for the vpc | list(object) | n/a | no |
-| locations | zones per region | list(string) | n/a | no |
-| subnet\_name\_prefix | Name(or Prefix) of the Subnet(s). Required only while Creating a new subnet(s) | string | n/a | no |
-| number\_of\_addresses | Number of IPV4 Addresses. Required only while Creating a new subnet(s) | number | n/a | no |
-| vpc | ID of the Existing VPC to which subnets, gateways are to be attached | string | n/a | no |
-| create\_gateway | True to create new Public Gateway | bool | false | no |
-| public\_gateway\_name\_prefix | Name(or prefix) of the Public Gateway(s). Required only if Creating a new Public Gateway | string | n/a | no |
-| floating\_ip | Floating IP `id` or `address` that you want to assign to the public gateway | map | n/a | no |
-| gateway\_tags | List of Tags for the gateway | list(string) | n/a | no |
+Name                                | Description                                                                                                                                                   | Type                                                                          | Default
+----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------------
+create_vpc                          | True to create new VPC. False if VPC is already existing and subnets or address prefixies are to be added                                                     | bool                                                                          | true
+resource_group                      | Name of resource group. If null will use the `default` resource group                                                                                         | string                                                                        | null
+region                              | Region where VPC will be created                                                                                                                              | string                                                                        | us-south
+vpc_name                            | Name of the VPC                                                                                                                                               | string                                                                        | 
+prefix                              | A prefix to be added to the beginning of resources created that are not the VPC                                                                               | string                                                                        | default
+classic_access                      | Classic Access to the VPC. This cannot be added after the VPC is created.                                                                                     | bool                                                                          | false
+auto_prefix_management              | Indicates whether a default address prefix should be created automatically. If false, address prefixes will be managed manually.                              | string                                                                        | true
+default_network_acl_name            | Name of the Default ACL                                                                                                                                       | string                                                                        | null
+default_security_group_name         | Name of the Default Security Group                                                                                                                            | string                                                                        | null
+default_routing_table_name          | Name of the Default Routing Table                                                                                                                             | string                                                                        | null
+tags                                | List of Tags for the vpc                                                                                                                                      | list(string)                                                                  | []
+address_prefixes                    | List of Prefixes for the vpc                                                                                                                                  | object({ zone-1 = list(string) zone-2 = list(string) zone-3 = list(string) }) | { zone-1 = [], zone-2 = [], zone-3 = []
+create_subnets_for_address_prefixes | Create a subnet for each of the address prefixes                                                                                                              | bool                                                                          | false
+acl_id                              | Use the ID of an ACL for creation of subnets. Leave empty to use the default vpc acl                                                                          | string                                                                        | 
+create_public_gateway               | If true a public gateway will be created in each zone where an address prefix will be created. If true, all subnets created will be attached to this gateway. | bool                                                                          | false
 
 
 ## Outputs
 
-| Name | Description |
-|------|-------------|
-| vpc\_id | The ID of the VPC |
-| vpc\_default\_security\_group |The ID of the vpc default security group |
-| vpc\_default\_network\_acl | The ID of the vpc default network acl |
-| vpc\_default\_routing\_table | The ID of the vpc default Routing Table |
-| vpc\_address\_prefixes | The ID(s) of the Address Prefixes to VPC |
-| subnet\_ids | The ID(s) of the Subnet(s) |
-| public\_gateway\_ids | The ID(s) of the Public Gateway(s) |
+Name                      | Description
+------------------------- | -----------------------------------------------------------
+id                        | The ID of the vpc
+default_security_group_id | The ID of the vpc default security group
+default_acl_id            | The ID of the vpc default network acl
+default_routing_table_id  | The ID of the vpc default Routing Table
+address_prefixes          | The Address Prefixes of the VPC
+address_prefixes_cidr     | The Address Prefix CIDRs of the VPC
+subnet_ids                | The IDs of the subnets
+subnet_detail_list        | A list of subnets containing names, CIDR blocks, and zones.
+subnet_zone_list          | A list containing subnet IDs and subnet zones
+public_gateway_ids        | The IDs of the Public Gateways
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
