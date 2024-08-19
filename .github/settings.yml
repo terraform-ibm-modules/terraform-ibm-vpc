@@ -1,0 +1,28 @@
+# The settings are inherited from common repository repo-settings (same file name and location)
+# You can append settings that are deeply merged with the inherited settings.
+#
+# When you have installed the GitHub App "repo-settings" in this repository,
+# any change of this settings.yml file is detected by the GitHub App and
+# the settings of this repository are updated immediately.
+#
+_extends: repo-settings:.github/common-settings-v2.yml
+
+# repo-specific settings
+#
+repository:
+  # See https://terraform-ibm-modules.github.io/documentation/#/implementation-guidelines?id=module-names-and-descriptions
+
+  # By changing this field, you rename the repository.
+
+  # Uncomment this name property and set the name to the current repo name.
+  # name: ""
+
+  # The description is displayed under the repository name on the
+  # organization page and in the 'About' section of the repository.
+
+  # Uncomment this description property
+  # and update the description to the current repo description.
+  # description: ""
+
+  # Use a comma-separated list of topics to set on the repo (ensure not to use any caps in the topic string).
+  topics: terraform, ibm-cloud, terraform-module
