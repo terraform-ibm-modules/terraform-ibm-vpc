@@ -19,4 +19,5 @@ module "vpc" {
   resource_group_id = module.resource_group.resource_group_id
   vpc_name          = "soaib-vpc0"
   locations         = var.locations
+  network_acls      = var.network_acls
 }

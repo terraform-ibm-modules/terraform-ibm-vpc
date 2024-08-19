@@ -106,6 +106,7 @@ No modules.
 
 | Name | Type |
 |------|------|
+| [ibm_is_network_acl.network_acl](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_network_acl) | resource |
 | [ibm_is_public_gateway.public_gateway](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_public_gateway) | resource |
 | [ibm_is_subnet.subnet](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_subnet) | resource |
 | [ibm_is_vpc.vpc](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpc) | resource |
@@ -136,7 +137,7 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_address_prefix"></a> [address\_prefix](#output\_address\_prefix) | n/a |
-| <a name="output_public_gateways"></a> [public\_gateways](#output\_public\_gateways) | n/a |
+| <a name="output_network_acl"></a> [network\_acl](#output\_network\_acl) | n/a |
 | <a name="output_subnets"></a> [subnets](#output\_subnets) | n/a |
 | <a name="output_vpc"></a> [vpc](#output\_vpc) | n/a |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

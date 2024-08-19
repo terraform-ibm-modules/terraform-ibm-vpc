@@ -14,6 +14,6 @@ output "subnets" {
   value = ibm_is_subnet.subnet
 }
 
-output "public_gateways" {
-  value = ibm_is_public_gateway.public_gateway
+output "network_acl" {
+  value = ibm_is_network_acl.network_acl
 }
