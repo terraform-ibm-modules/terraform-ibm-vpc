@@ -28,8 +28,7 @@ TODO: Replace this with a description of the modules in this repo.
 ## Overview
 * [terraform-ibm-vpc](#terraform-ibm-vpc)
 * [Examples](./examples)
-    * [Advanced example](./examples/advanced)
-    * [Basic example](./examples/basic)
+    * [Basic example](./examples/complete)
 * [Contributing](#contributing)
 <!-- END OVERVIEW HOOK -->
 
