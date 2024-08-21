@@ -19,13 +19,6 @@ variable "resource_group_id" {
   type        = string
 }
 
-
-variable "prefix" {
-  description = "The value that you would like to prefix to the name of the resources provisioned by this module. Explicitly set to null if you do not wish to use a prefix. This value is ignored if using one of the optional variables for explicit control over naming."
-  type        = string
-  default     = null
-}
-
 variable "vpc_name" {
   description = "Name of the vpc"
   type        = string
@@ -41,7 +34,7 @@ variable "enable_classic_access" {
 variable "auto_assign_address_prefix" {
   description = "Set to true to create a default address prefix automatically for each zone in the VPC."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "default_network_acl_name" {
@@ -62,8 +55,8 @@ variable "default_routing_table_name" {
   default     = null
 }
 
-variable "no_sg_acl_rules" {
-  description = "Set to true to delete all rules attached to default security group and default network ACL for a new VPC. This attribute has no impact on update."
+variable "clean_default_sg_acl" {
+  description = "Remove all rules from the default VPC security group and VPC ACL (less permissive)"
   type        = bool
   default     = false
 }
@@ -188,3 +181,64 @@ variable "network_acls" {
     )) == 0
   }
 }
+
+
+##############################################################################
+# Default Security Group Rules
+##############################################################################
+
+variable "default_security_group_rules" {
+  description = "A list of security group rules to be added to the default vpc security group (default empty)"
+  default     = []
+  type = list(
+    object({
+      name      = string
+      direction = string
+      remote    = string
+      tcp = optional(
+        object({
+          port_max = optional(number)
+          port_min = optional(number)
+        })
+      )
+      udp = optional(
+        object({
+          port_max = optional(number)
+          port_min = optional(number)
+        })
+      )
+      icmp = optional(
+        object({
+          type = optional(number)
+          code = optional(number)
+        })
+      )
+    })
+  )
+
+  validation {
+    error_message = "Security group rule direction can only be `inbound` or `outbound`."
+    condition = (var.default_security_group_rules == null || length(var.default_security_group_rules) == 0) ? true : length(distinct(
+      flatten([
+        # Check through rules
+        for rule in var.default_security_group_rules :
+        # Return false if direction is not valid
+        false if !contains(["inbound", "outbound"], rule.direction)
+      ])
+    )) == 0
+  }
+
+  validation {
+    error_message = "Security group rule names must match the regex pattern ^([a-z]|[a-z][-a-z0-9]*[a-z0-9])$."
+    condition = (var.default_security_group_rules == null || length(var.default_security_group_rules) == 0) ? true : length(distinct(
+      flatten([
+        # Check through rules
+        for rule in var.default_security_group_rules :
+        # Return false if direction is not valid
+        false if !can(regex("^([a-z]|[a-z][-a-z0-9]*[a-z0-9])$", rule.name))
+      ])
+    )) == 0
+  }
+}
+
+##############################################################################

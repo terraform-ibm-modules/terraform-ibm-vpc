@@ -3,9 +3,8 @@ This file is used to implement the ROOT module.
 *********************************************************************/
 
 locals {
-  vpc_id   = var.create_vpc ? ibm_is_vpc.vpc[0].id : var.existing_vpc_id
-  vpc_name = var.create_vpc ? ibm_is_vpc.vpc[0].name : data.ibm_is_vpc.vpc[0].name
-  vpc_crn  = var.create_vpc ? ibm_is_vpc.vpc[0].crn : data.ibm_is_vpc.vpc[0].crn
+  vpc_id                     = var.create_vpc ? ibm_is_vpc.vpc[0].id : var.existing_vpc_id
+  vpc_default_security_group = var.create_vpc == true ? ibm_is_vpc.vpc[0].default_security_group : data.ibm_is_vpc.vpc[0].default_security_group
 }
 
 data "ibm_is_vpc" "vpc" {
@@ -22,7 +21,7 @@ resource "ibm_is_vpc" "vpc" {
   default_network_acl_name    = var.default_network_acl_name
   default_security_group_name = var.default_security_group_name
   default_routing_table_name  = var.default_routing_table_name
-  no_sg_acl_rules             = var.no_sg_acl_rules
+  no_sg_acl_rules             = var.clean_default_sg_acl
   tags                        = var.vpc_tags
 }
 
@@ -199,6 +198,38 @@ resource "ibm_is_network_acl" "network_acl" {
           code = rules.value.icmp.code
         }
       }
+    }
+  }
+}
+
+
+resource "ibm_is_security_group_rule" "default_vpc_rule" {
+  for_each  = { for rule in var.default_security_group_rules : rule.name => rule }
+  group     = local.vpc_default_security_group
+  direction = each.value.direction
+  remote    = each.value.remote
+
+  dynamic "tcp" {
+    for_each = each.value.tcp == null ? [] : [each.value]
+    content {
+      port_min = each.value.tcp.port_min
+      port_max = each.value.tcp.port_max
+    }
+  }
+
+  dynamic "udp" {
+    for_each = each.value.udp == null ? [] : [each.value]
+    content {
+      port_min = each.value.udp.port_min
+      port_max = each.value.udp.port_max
+    }
+  }
+
+  dynamic "icmp" {
+    for_each = each.value.icmp == null ? [] : [each.value]
+    content {
+      type = lookup(each.value.icmp, "type", null)
+      code = lookup(each.value.icmp, "code", null)
     }
   }
 }

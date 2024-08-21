@@ -26,10 +26,10 @@ variable "resource_group" {
   default     = null
 }
 
-variable "resource_tags" {
-  type        = list(string)
-  description = "Optional list of tags to be added to created resources"
-  default     = []
+variable "vpc_name" {
+  description = "Name of the vpc"
+  type        = string
+  default     = null
 }
 
 variable "locations" {
@@ -56,7 +56,53 @@ variable "locations" {
       tags                  = optional(list(string), [])
     })), [])
   }))
-  default = []
+  default = [{
+    zone = "us-south-1"
+    address_prefix = {
+      cidr = "192.168.0.0/17"
+      name = "us-south-01"
+    }
+    public_gateway = {
+      name = "gateway-01"
+    }
+    subnets = [{
+      name                  = "zone01subnet01"
+      ipv4_cidr_block       = "192.168.0.0/18"
+      attach_public_gateway = true
+      }, {
+      name            = "zone01subnet02"
+      ipv4_cidr_block = "192.168.64.0/19"
+      }, {
+      name            = "zone01subnet03"
+      ipv4_cidr_block = "192.168.96.0/19"
+    }]
+    }, {
+    zone = "us-south-2"
+    address_prefix = {
+      name = "us-south-002"
+      cidr = "192.168.128.0/18"
+    }
+    subnets = [{
+      name            = "zone02subnet01"
+      ipv4_cidr_block = "192.168.128.0/19"
+      }, {
+      name            = "zone02subnet02"
+      ipv4_cidr_block = "192.168.160.0/19"
+    }]
+    }, {
+    zone = "us-south-3"
+    address_prefix = {
+      name = "us-south-003"
+      cidr = "192.168.192.0/18"
+    }
+    subnets = [{
+      name            = "zone03subnet01"
+      ipv4_cidr_block = "192.168.192.0/19"
+      }, {
+      name            = "zone03subnet02"
+      ipv4_cidr_block = "192.168.224.0/19"
+    }]
+  }]
 }
 
 variable "network_acls" {
@@ -98,5 +144,84 @@ variable "network_acls" {
     })
   )
 
-  default = []
+  default = [{
+    name = "nacl-tcp-01"
+    rules = [{
+      name        = "allow-http-inbound"
+      action      = "allow"
+      direction   = "inbound"
+      source      = "0.0.0.0/0"
+      destination = "0.0.0.0/0"
+      tcp = {
+        port_min = 80
+        port_max = 80
+      }
+      }, {
+      name        = "allow-http-outbound"
+      action      = "allow"
+      direction   = "outbound"
+      source      = "0.0.0.0/32"
+      destination = "0.0.0.0/32"
+      tcp = {
+        source_port_min = 80
+        source_port_max = 80
+      }
+    }]
+    }, {
+    name = "nacl-udp-01"
+    rules = [{
+      name        = "deny-all-udp-inbound"
+      action      = "deny"
+      direction   = "inbound"
+      source      = "0.0.0.0/0"
+      destination = "0.0.0.0/0"
+      udp = {
+        port_min = 1
+        port_max = 65535
+      }
+    }]
+    }, {
+    name = "nacl-icmp-01"
+    rules = [{
+      name        = "deny-all-icmp-inbound"
+      action      = "deny"
+      direction   = "inbound"
+      source      = "0.0.0.0/0"
+      destination = "0.0.0.0/0"
+      icmp = {
+        port_min = 1
+        port_max = 65535
+      }
+    }]
+  }]
+}
+
+variable "default_security_group_rules" {
+  description = "A list of security group rules to be added to the default vpc security group (default empty)"
+  default     = []
+  type = list(
+    object({
+      name      = string
+      direction = string
+      remote    = string
+      tcp = optional(
+        object({
+          port_max = optional(number)
+          port_min = optional(number)
+        })
+      )
+      udp = optional(
+        object({
+          port_max = optional(number)
+          port_min = optional(number)
+        })
+      )
+      icmp = optional(
+        object({
+          type = optional(number)
+          code = optional(number)
+        })
+      )
+    })
+  )
 }
