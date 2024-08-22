@@ -78,7 +78,7 @@ variable "locations" {
     zone = string
     address_prefix = optional(object({
       name = optional(string, null)
-      cidr = optional(string, null)
+      cidr = string
     }), null)
 
     public_gateway = optional(object({

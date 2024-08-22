@@ -20,5 +20,6 @@ module "vpc" {
   vpc_name                     = var.vpc_name
   locations                    = var.locations
   network_acls                 = var.network_acls
+  auto_assign_address_prefix   = false
   default_security_group_rules = var.default_security_group_rules
 }

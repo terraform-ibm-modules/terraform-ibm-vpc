@@ -198,7 +198,15 @@ variable "network_acls" {
 
 variable "default_security_group_rules" {
   description = "A list of security group rules to be added to the default vpc security group (default empty)"
-  default     = []
+  default = [{
+    name      = "http-inbound"
+    direction = "inbound"
+    remote    = ""
+    tcp = {
+      port_max = 80
+      port_min = 80
+    }
+  }]
   type = list(
     object({
       name      = string

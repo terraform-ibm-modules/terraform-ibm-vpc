@@ -4,6 +4,7 @@ This file is used to implement the ROOT module.
 
 locals {
   vpc_id                     = var.create_vpc ? ibm_is_vpc.vpc[0].id : var.existing_vpc_id
+  vpc_name                   = var.create_vpc ? ibm_is_vpc.vpc[0].name : data.ibm_is_vpc.vpc[0].name
   vpc_default_security_group = var.create_vpc == true ? ibm_is_vpc.vpc[0].default_security_group : data.ibm_is_vpc.vpc[0].default_security_group
 }
 
@@ -31,7 +32,8 @@ resource "ibm_is_vpc" "vpc" {
 
 locals {
   address_prefix = {
-    for location in var.locations : location.address_prefix.name => {
+    for location in var.locations : location.zone => {
+      name = location.address_prefix.name == null ? "${local.vpc_name}-${location.zone}" : location.address_prefix.name
       zone = location.zone
       cidr = location.address_prefix.cidr
     } if location.address_prefix != null
@@ -40,7 +42,7 @@ locals {
 
 resource "ibm_is_vpc_address_prefix" "vpc_address_prefixes" {
   for_each = local.address_prefix
-  name     = each.key
+  name     = each.value.name
   vpc      = local.vpc_id
   zone     = each.value.zone
   cidr     = each.value.cidr
