@@ -21,21 +21,36 @@ module "fip" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+### Requirements
 
-## Inputs
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=0.13 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.64.0, < 2.0.0 |
 
-| Name                              | Description                                           | Type   | Default | Required |
-|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| name | Name of the Floating IP | string | n/a | yes |
-| resource\_group\_id | ID of the resource group | string | n/a | no |
-| location | Floating IP Zone. Either `location` or `target` input parameters must be provided in the module | string | n/a | no |
-| target | Target Interface ID for this Floating IP. Either `location` or `target` input parameters must be provided in the module| string | n/a | no |
-| tags | List of tags to attach  | list(string) | n/a | no |
+### Modules
 
-## Outputs
+No modules.
+
+### Resources
+
+| Name | Type |
+|------|------|
+| [ibm_is_floating_ip.fip](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_floating_ip) | resource |
+
+### Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_location"></a> [location](#input\_location) | Floating IP Zone | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | Name of the Floating IP | `string` | n/a | yes |
+| <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the Floating IP | `list(string)` | `null` | no |
+| <a name="input_target"></a> [target](#input\_target) | Target Interface ID for this Floating IP | `string` | `null` | no |
+
+### Outputs
 
 | Name | Description |
 |------|-------------|
-| floating\_ip\_id | The ID of the Floating IP |
-
+| <a name="output_floating_ip_id"></a> [floating\_ip\_id](#output\_floating\_ip\_id) | The ID of the Floating IP |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

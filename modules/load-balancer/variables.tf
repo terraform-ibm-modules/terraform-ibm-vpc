@@ -27,7 +27,7 @@ variable "subnets" {
 variable "type" {
   description = "Type of Load balancer"
   type        = string
-  default     = null
+  default     = "public"
 }
 
 variable "security_groups" {

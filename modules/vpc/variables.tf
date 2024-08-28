@@ -108,7 +108,7 @@ variable "public_gateway_name_prefix" {
 
 variable "floating_ip" {
   description = "Floating IP `id`'s or `address`'es that you want to assign to the public gateway"
-  type        = map
+  type        = map(any)
   default     = {}
 }
 
@@ -116,4 +116,10 @@ variable "gateway_tags" {
   description = "List of Tags for the gateway"
   type        = list(string)
   default     = []
+}
+
+variable "clean_default_sg_acl" {
+  description = "Remove all rules from the default VPC security group and VPC ACL (less permissive)"
+  type        = bool
+  default     = false
 }
