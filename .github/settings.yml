@@ -16,7 +16,7 @@ repository:
   # The description is displayed under the repository name on the
   # organization page and in the 'About' section of the repository.
 
-  description: "Provisions and configures IBM Cloud"
+  description: "Provisions and configures IBM Cloud VPC resources"
 
   # Use a comma-separated list of topics to set on the repo (ensure not to use any caps in the topic string).
   topics: core-team, terraform, ibm-cloud, VPC
