@@ -22,7 +22,7 @@ func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptio
 	return options
 }
 
-func TestRunAdvancedExample(t *testing.T) {
+func TestRunCompleteExample(t *testing.T) {
 	t.Parallel()
 
 	options := setupOptions(t, "vpc-complete", completeExampleDir)

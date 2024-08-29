@@ -1,28 +1,10 @@
-#####################################################
-# VPC Load Balancer
-# Copyright 2020 IBM
-#####################################################
-
-/***************************************************
-NOTE: To source a particular version of IBM terraform provider, configure the parameter `version` as follows
 terraform {
-  required_version = ">=0.13"
-  required_providers {
-    ibm = {
-      source = "IBM-Cloud/ibm"
-      version = "1.22.0"
-    }
-  }
-}
-If we dont configure the version parameter, it fetches the latest provider version.
-****************************************************/
+  required_version = ">= 1.3.0"
 
-terraform {
-  required_version = ">=0.13"
   required_providers {
     ibm = {
       source  = "IBM-Cloud/ibm"
-      version = "1.23.0"
+      version = ">= 1.49.0, < 2.0.0"
     }
   }
 }

@@ -1,4 +1,6 @@
-# Advanced example
+# Complete example
 
-<!-- There is a pre-commit hook that will take the title of each example add include it in the repos main README.md  -->
-<!-- Add text below should describe exactly what resources are provisioned / configured by the example  -->
+An end-to-end example that creates the following infrastructure:
+- A resource group, if one is not passed in.
+- A new VPC instance
+- A VPC address prefix and public gateway for each zone
