@@ -1,81 +1,152 @@
-# IBM VPC Terraform Module
+<!-- Update this title with a descriptive name. Use sentence case. -->
+# Terraform modules template project
 
-## Module archived
+<!--
+Update status and "latest release" badges:
+  1. For the status options, see https://terraform-ibm-modules.github.io/documentation/#/badge-status
+  2. Update the "latest release" badge to point to the correct module's repo. Replace "terraform-ibm-module-template" in two places.
+-->
+[![Incubating (Not yet consumable)](https://img.shields.io/badge/status-Incubating%20(Not%20yet%20consumable)-red)](https://terraform-ibm-modules.github.io/documentation/#/badge-status)
+[![latest release](https://img.shields.io/github/v/release/terraform-ibm-modules/terraform-ibm-module-template?logo=GitHub&sort=semver)](https://github.com/terraform-ibm-modules/terraform-ibm-module-template/releases/latest)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-:spider_web: This repo is no longer maintained and is archived. Use the [IBM Cloud Provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs) resources directly to create VPC resources, or use one of following maintained public modules if you consume the module from GitHub: 
-- [terraform-ibm-landing-zone-vpc](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc)
-- [terraform-ibm-landing-zone-vsi](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vsi)
-- [terraform-ibm-security-group](https://github.com/terraform-ibm-modules/terraform-ibm-security-group)
-- [terraform-ibm-client-to-site-vpn](https://github.com/terraform-ibm-modules/terraform-ibm-client-to-site-vpn)
-- [terraform-ibm-vpe-gateway](https://github.com/terraform-ibm-modules/terraform-ibm-vpe-gateway)
+<!--
+Add a description of modules in this repo.
+Expand on the repo short description in the .github/settings.yml file.
 
-## Changes if you use the Hashicorp registry
+For information, see "Module names and descriptions" at
+https://terraform-ibm-modules.github.io/documentation/#/implementation-guidelines?id=module-names-and-descriptions
+-->
 
-:exclamation: **Important:**  This module will be deleted from the Hashicorp registry on 1 September 2023. 
+TODO: Replace this with a description of the modules in this repo.
 
-If you consume the from the Hashicorp registry, use one of these instead:
-- [landing-zone-vpc](https://registry.terraform.io/modules/terraform-ibm-modules/landing-zone-vpc/ibm/latest)
-- [landing-zone-vsi](https://registry.terraform.io/modules/terraform-ibm-modules/landing-zone-vsi/ibm/latest)
-- [security-group](https://registry.terraform.io/modules/terraform-ibm-modules/security-group/ibm/latest)
-- [client-to-site-vpn](https://registry.terraform.io/modules/terraform-ibm-modules/client-to-site-vpn/ibm/latest)
-- [vpe-gateway](https://registry.terraform.io/modules/terraform-ibm-modules/vpe-gateway/ibm/latest)
 
----
+<!-- The following content is automatically populated by the pre-commit hook -->
+<!-- BEGIN OVERVIEW HOOK -->
+## Overview
+* [terraform-ibm-vpc](#terraform-ibm-vpc)
+* [Submodules](./modules)
+    * [floatingIP](./modules/floatingIP)
+    * [image](./modules/image)
+    * [instance](./modules/instance)
+    * [load-balancer](./modules/load-balancer)
+    * [network-acl](./modules/network-acl)
+    * [public-gateway](./modules/public-gateway)
+    * [security-group](./modules/security-group)
+    * [ssh-key](./modules/ssh-key)
+    * [subnet](./modules/subnet)
+    * [volume](./modules/volume)
+    * [vpc-address-prefix](./modules/vpc-address-prefix)
+    * [vpc](./modules/vpc)
+    * [vpe](./modules/vpe)
+    * [vpn-gateway-connection](./modules/vpn-gateway-connection)
+    * [vpn-gateway](./modules/vpn-gateway)
+* [Examples](./examples)
+    * [Floating IP Module Example](./examples/floatingIP)
+    * [Instance Module Example](./examples/instance)
+    * [Load Balancer Module Example](./examples/load-balancer)
+    * [Module SSH Key](./examples/ssh-key)
+    * [Module VPC](./examples/vpc)
+    * [Network ACL Module Example](./examples/network-acl)
+    * [Public Gateway Module Example](./examples/public-gateway)
+    * [SUBNET Module Example](./examples/subnet)
+    * [Security Group Module Example](./examples/security-group)
+    * [VPC Address Prefix Module Example](./examples/vpc-address-prefix)
+    * [VPC Block Storage Module Example](./examples/volume)
+    * [VPC Image Module Example](./examples/image)
+    * [VPN Gateway Connection Module Example](./examples/vpn-gateway-connection)
+    * [VPN Gateway Module](./examples/vpn-gateway)
+    * [Virtual Private Endpoint Module Example](./examples/vpe)
+* [Contributing](#contributing)
+<!-- END OVERVIEW HOOK -->
 
-This is a collection of modules that make it easier to provision VPC Resources on IBM Cloud Platform:
 
-* vpc
-* vpc-address-prefix
-* subnet
-* security-group
-* floatingIP
-* instance
-* network-acl
-* public-gateway
-* volume
-* vpn-gateway
-* vpn-gateway-connection
-* load-balancer
-* vpe
-* ssh-key
-* image
+<!--
+If this repo contains any reference architectures, uncomment the heading below and link to them.
+(Usually in the `/reference-architectures` directory.)
+See "Reference architecture" in the public documentation at
+https://terraform-ibm-modules.github.io/documentation/#/implementation-guidelines?id=reference-architecture
+-->
+<!-- ## Reference architectures -->
 
-## Compatibility
 
-This module is meant for use with Terraform 0.13.
+<!-- Replace this heading with the name of the root level module (the repo name) -->
+## terraform-ibm-module-template
 
-## Usage
+### Usage
 
-Full examples are in the examples folder.
+<!--
+Add an example of the use of the module in the following code block.
 
-## Requirements
+Use real values instead of "var.<var_name>" or other placeholder values
+unless real values don't help users know what to change.
+-->
 
-### Terraform plugins
+```hcl
 
-- [Terraform](https://www.terraform.io/downloads.html) 0.13
-## Install
+```
 
-### Terraform
+### Required IAM access policies
 
-Be sure you have the correct Terraform version (0.13), you can choose the binary here:
-- https://releases.hashicorp.com/terraform/
+<!-- PERMISSIONS REQUIRED TO RUN MODULE
+If this module requires permissions, uncomment the following block and update
+the sample permissions, following the format.
+Replace the sample Account and IBM Cloud service names and roles with the
+information in the console at
+Manage > Access (IAM) > Access groups > Access policies.
+-->
 
-## How to input varaible values through a file
+<!--
+You need the following permissions to run this module:
 
-To review the plan for the configuration defined (no resources actually provisioned)
+- IAM services
+    - **Sample IBM Cloud** service
+        - `Editor` platform access
+        - `Manager` platform access
+- Account management services
+    - **Sample account management** service
+        - `Editor` platform access
+-->
 
-`terraform plan -var-file=./input.tfvars`
+<!-- NO PERMISSIONS FOR MODULE
+If no permissions are required for the module, uncomment the following
+statement instead the previous block.
+-->
 
-To execute and start building the configuration defined in the plan (provisions resources)
+<!-- No permissions are needed to run this module.-->
 
-`terraform apply -var-file=./input.tfvars`
 
-To destroy the VPC and all related resources
+<!-- The following content is automatically populated by the pre-commit hook -->
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+### Requirements
 
-`terraform destroy -var-file=./input.tfvars`
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.64.0, < 2.0.0 |
 
-All optional parameters by default will be set to null in respective example's varaible.tf file. If user wants to configure any optional paramter he has overwrite the default value.
+### Modules
 
-## Note
+No modules.
 
-All optional fields should be given value `null` in respective resource varaible.tf file. User can configure the same by overwriting with appropriate values.
+### Resources
+
+No resources.
+
+### Inputs
+
+No inputs.
+
+### Outputs
+
+No outputs.
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- Leave this section as is so that your module has a link to local development environment set-up steps for contributors to follow -->
+## Contributing
+
+You can report issues and request features for this module in GitHub issues in the module repo. See [Report an issue or request a feature](https://github.com/terraform-ibm-modules/.github/blob/main/.github/SUPPORT.md).
+
+To set up your local development environment, see [Local development setup](https://terraform-ibm-modules.github.io/documentation/#/local-dev-setup) in the project documentation.

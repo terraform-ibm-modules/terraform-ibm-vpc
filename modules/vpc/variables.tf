@@ -108,7 +108,7 @@ variable "public_gateway_name_prefix" {
 
 variable "floating_ip" {
   description = "Floating IP `id`'s or `address`'es that you want to assign to the public gateway"
-  type        = map
+  type        = map(any)
   default     = {}
 }
 

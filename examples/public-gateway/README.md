@@ -3,18 +3,39 @@
 This example illustrates how to use the `public_gateway` module.
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+### Requirements
 
-## Inputs
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=0.13 |
 
-| Name                              | Description                                           | Type   | Default | Required |
-|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| resource\_group | Name of the resource group | string | default | no |
-| name | Name of the Public Gateway | string | n/a | yes |
-| vpc | Name of the VPC | string | n/a | yes |
-| location | Zone of the Public Gateway  | string | n/a | yes |
-| floating\_ip | Floating IP `id` or `address` that you want to assign to the public gateway | map | n/a | no |
-| tags | List of tags to attach  | list(string) | n/a | no |
+### Modules
 
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_public_gateway"></a> [public\_gateway](#module\_public\_gateway) | ../../modules/public-gateway | n/a |
+
+### Resources
+
+| Name | Type |
+|------|------|
+| [ibm_is_vpc.vpc](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_vpc) | data source |
+| [ibm_resource_group.resource_group](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/resource_group) | data source |
+
+### Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_floating_ip"></a> [floating\_ip](#input\_floating\_ip) | Floating IP `id`'s or `address`'es that you want to assign to the public gateway | `map(any)` | `null` | no |
+| <a name="input_location"></a> [location](#input\_location) | Public Gateway Zone | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | Name of the Public Gateway | `string` | n/a | yes |
+| <a name="input_resource_group"></a> [resource\_group](#input\_resource\_group) | Resource group name | `string` | `null` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the Volume | `list(string)` | `null` | no |
+| <a name="input_vpc"></a> [vpc](#input\_vpc) | VPC name | `string` | n/a | yes |
+
+### Outputs
+
+No outputs.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 

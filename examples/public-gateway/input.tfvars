@@ -26,4 +26,3 @@ floating_ip = {
 }
 
 tags = ["<Tag-1>", "<Tag-2>"]
-
