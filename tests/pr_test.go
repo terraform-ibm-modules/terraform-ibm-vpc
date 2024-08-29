@@ -9,7 +9,7 @@ import (
 )
 
 const resourceGroup = "geretain-test-resources"
-const completeExampleDir = "examples/complete"
+const completeExampleDir = "examples/basic"
 
 func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
 	options := testhelper.TestOptionsDefaultWithVars(&testhelper.TestOptions{
@@ -22,10 +22,10 @@ func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptio
 	return options
 }
 
-func TestRunCompleteExample(t *testing.T) {
+func TestRunBasicExample(t *testing.T) {
 	t.Parallel()
 
-	options := setupOptions(t, "vpc-complete", completeExampleDir)
+	options := setupOptions(t, "vpc-basic", completeExampleDir)
 
 	output, err := options.RunTestConsistency()
 	assert.Nil(t, err, "This should not have errored")
@@ -36,7 +36,7 @@ func TestRunUpgradeExample(t *testing.T) {
 	t.Parallel()
 	t.Skip()
 
-	options := setupOptions(t, "vpc-complete-upg", completeExampleDir)
+	options := setupOptions(t, "vpc-basic-upg", completeExampleDir)
 
 	output, err := options.RunTestUpgrade()
 	if !options.UpgradeTestSkipped {
