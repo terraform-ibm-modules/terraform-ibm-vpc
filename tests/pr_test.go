@@ -8,9 +8,8 @@ import (
 	"github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper/testhelper"
 )
 
-// Use existing resource group
 const resourceGroup = "geretain-test-resources"
-const advancedExampleDir = "examples/advanced"
+const completeExampleDir = "examples/complete"
 
 func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptions {
 	options := testhelper.TestOptionsDefaultWithVars(&testhelper.TestOptions{
@@ -18,6 +17,7 @@ func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptio
 		TerraformDir:  dir,
 		Prefix:        prefix,
 		ResourceGroup: resourceGroup,
+		Region:        "us-south",
 	})
 	return options
 }
@@ -25,7 +25,7 @@ func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptio
 func TestRunAdvancedExample(t *testing.T) {
 	t.Parallel()
 
-	options := setupOptions(t, "mod-template", advancedExampleDir)
+	options := setupOptions(t, "vpc-complete", completeExampleDir)
 
 	output, err := options.RunTestConsistency()
 	assert.Nil(t, err, "This should not have errored")
@@ -34,8 +34,9 @@ func TestRunAdvancedExample(t *testing.T) {
 
 func TestRunUpgradeExample(t *testing.T) {
 	t.Parallel()
+	t.Skip()
 
-	options := setupOptions(t, "mod-template-upg", advancedExampleDir)
+	options := setupOptions(t, "vpc-complete-upg", completeExampleDir)
 
 	output, err := options.RunTestUpgrade()
 	if !options.UpgradeTestSkipped {

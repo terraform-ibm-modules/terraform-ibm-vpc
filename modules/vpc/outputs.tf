@@ -30,10 +30,10 @@ output "vpc_address_prefixes_cidr" {
 
 output "subnet_ids" {
   description = "The IDs of the subnets"
-  value       = ibm_is_subnet.subnets[0].id
+  value       = [for subnet in ibm_is_subnet.subnets : subnet.id]
 }
 
 output "public_gateway_ids" {
   description = "The IDs of the Public Gateways"
-  value       = ibm_is_public_gateway.pgws[0].id
+  value       = [for pgw in ibm_is_public_gateway.pgws : pgw.id]
 }
