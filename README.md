@@ -28,6 +28,8 @@ TODO: Replace this with a description of the modules in this repo.
 ## Overview
 * [terraform-ibm-vpc](#terraform-ibm-vpc)
 * [Submodules](./modules)
+    * [floatingIP](./modules/floatingIP)
+    * [image](./modules/image)
     * [vpc](./modules/vpc)
 * [Examples](./examples)
     * [Advanced example](./examples/complete)
