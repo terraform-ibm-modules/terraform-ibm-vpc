@@ -1,9 +1,9 @@
 #####################################################
-# VPC Block Storage
+# Network ACL
 # Copyright 2020 IBM
 #####################################################
 
-output "volume_id" {
-  description = "The ID of the volume"
-  value       = ibm_is_volume.volume.id
+output "network_acl_id" {
+  description = "The ID of the Network ACL"
+  value       = ibm_is_network_acl.nwacl.id
 }

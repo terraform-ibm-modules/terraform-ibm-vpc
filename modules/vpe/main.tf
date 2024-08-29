@@ -18,7 +18,7 @@ resource "ibm_is_virtual_endpoint_gateway" "endpoint_gateway" {
   name           = var.name
   vpc            = var.vpc_id
   resource_group = var.resource_group_id
-  dynamic target {
+  dynamic "target" {
     for_each = var.target
     content {
       resource_type = target.value.resource_type
@@ -26,7 +26,7 @@ resource "ibm_is_virtual_endpoint_gateway" "endpoint_gateway" {
       crn           = (target.value.crn != "" ? target.value.crn : null)
     }
   }
-  dynamic ips {
+  dynamic "ips" {
     for_each = (var.ips != null ? var.ips : [])
     content {
       id     = (ips.value.id != "" ? ips.value.id : null)

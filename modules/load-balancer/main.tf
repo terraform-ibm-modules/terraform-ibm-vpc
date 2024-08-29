@@ -60,18 +60,18 @@ resource "ibm_is_lb" "lbs" {
 ##############################################################################
 
 resource "ibm_is_lb_pool" "lb_pools" {
-  for_each                        = { for r in var.lb_pools : r.name => r }
-  name                            = each.value["name"]
-  lb                              = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds.0.id
-  algorithm                       = each.value["algorithm"]
-  protocol                        = each.value["protocol"]
-  health_delay                    = each.value["health_delay"]
-  health_retries                  = each.value["health_retries"]
-  health_timeout                  = each.value["health_timeout"]
-  health_type                     = each.value["health_type"]
-  health_monitor_url              = lookup(each.value, "health_monitor_url", null)
-  health_monitor_port             = lookup(each.value, "health_monitor_port", null)
-  session_persistence_type        = lookup(each.value, "session_persistence_type", null)
+  for_each                 = { for r in var.lb_pools : r.name => r }
+  name                     = each.value["name"]
+  lb                       = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds.0.id
+  algorithm                = each.value["algorithm"]
+  protocol                 = each.value["protocol"]
+  health_delay             = each.value["health_delay"]
+  health_retries           = each.value["health_retries"]
+  health_timeout           = each.value["health_timeout"]
+  health_type              = each.value["health_type"]
+  health_monitor_url       = lookup(each.value, "health_monitor_url", null)
+  health_monitor_port      = lookup(each.value, "health_monitor_port", null)
+  session_persistence_type = lookup(each.value, "session_persistence_type", null)
   # session_persistence_cookie_name = lookup(each.value, "session_persistence_cookie_name", null)
 }
 

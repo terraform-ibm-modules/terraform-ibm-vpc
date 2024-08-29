@@ -35,6 +35,7 @@ module "load-balancer" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=0.13 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.63.0, <2.0.0 |
 
 ### Modules
 
@@ -67,7 +68,7 @@ No modules.
 | <a name="input_security_groups"></a> [security\_groups](#input\_security\_groups) | Load Balancer securitygroups list | `list(string)` | `null` | no |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | Load Balancer subnets list | `list(string)` | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the Load Balancer | `list(string)` | `null` | no |
-| <a name="input_type"></a> [type](#input\_type) | Type of Load balancer | `string` | `"public"` | no |
+| <a name="input_type"></a> [type](#input\_type) | Type of Load balancer | `string` | `null` | no |
 
 ### Outputs
 

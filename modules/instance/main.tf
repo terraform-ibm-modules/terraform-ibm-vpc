@@ -13,7 +13,7 @@ resource "ibm_is_instance" "instances" {
   keys           = var.ssh_keys
   resource_group = var.resource_group_id
 
-  dynamic primary_network_interface {
+  dynamic "primary_network_interface" {
     for_each = var.primary_network_interface
     content {
       subnet               = primary_network_interface.value.subnet
@@ -27,7 +27,7 @@ resource "ibm_is_instance" "instances" {
   volumes   = (var.data_volumes != null ? var.data_volumes : [])
   tags      = var.tags
 
-  dynamic network_interfaces {
+  dynamic "network_interfaces" {
     for_each = (var.network_interfaces != null ? var.network_interfaces : [])
     content {
       subnet               = network_interfaces.value.subnet
@@ -36,7 +36,7 @@ resource "ibm_is_instance" "instances" {
       primary_ipv4_address = (network_interfaces.value.primary_ipv4_address != "" ? network_interfaces.value.primary_ipv4_address : null)
     }
   }
-  dynamic boot_volume {
+  dynamic "boot_volume" {
     for_each = (var.boot_volume != null ? var.boot_volume : [])
     content {
       name       = (boot_volume.value.name != "" ? boot_volume.value.name : null)
