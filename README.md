@@ -8,23 +8,19 @@ Update status and "latest release" badges:
 -->
 [![Incubating (Not yet consumable)](https://img.shields.io/badge/status-Incubating%20(Not%20yet%20consumable)-red)](https://terraform-ibm-modules.github.io/documentation/#/badge-status)
 
-<!--
 [![latest release](https://img.shields.io/github/v/release/terraform-ibm-modules/terraform-ibm-module-template?logo=GitHub&sort=semver)](https://github.com/terraform-ibm-modules/terraform-ibm-module-template/releases/latest)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
--->
 
-<!--
-Add a description of modules in this repo.
-Expand on the repo short description in the .github/settings.yml file.
 
-For information, see "Module names and descriptions" at
-https://terraform-ibm-modules.github.io/documentation/#/implementation-guidelines?id=module-names-and-descriptions
--->
 
-TODO: Replace this with a description of the modules in this repo.
 
+## Terraform Module for IBM Cloud VPC Infrastructure
+
+This module provides a comprehensive solution for managing IBM Cloud Virtual Private Cloud (VPC) infrastructure. It includes a main module and several submodules, enabling you to create, configure, and manage VPC components either individually or through the main module.
+
+This module is designed to provide a scalable, secure, and flexible VPC environment tailored to meet various use cases within IBM Cloud, supporting a broad range of infrastructure needs from basic networking setups to complex multi-zone architectures.
 
 <!-- The following content is automatically populated by the pre-commit hook -->
 <!-- BEGIN OVERVIEW HOOK -->
@@ -89,35 +85,59 @@ unless real values don't help users know what to change.
 -->
 
 ```hcl
+module "vpc" {
+  source            = "terraform-ibm-modules/vpc/ibm"
+  version           = "X.X.X" # Replace "X.X.X" with a release version to lock into a specific release
+
+  vpc_name          = "stage-vpc"
+  resource_group_id = module.resource_group.resource_group_id
+  locations         = ["us-south-1", "us-south-2", "us-south-3"]
+  vpc_tags          = var.resource_tags
+  address_prefixes = [
+    {
+      name     = "stage-us-south-1"
+      location = "us-south-1"
+      ip_range = "10.10.10.0/24"
+    },
+    {
+      name     = "stage-us-south-2"
+      location = "us-south-2"
+      ip_range = "10.10.20.0/24"
+    },
+    {
+      name     = "stage-us-south-3"
+      location = "us-south-3"
+      ip_range = "10.10.30.0/24"
+    }
+  ]
+
+  subnet_name_prefix          = "stage-subnet"
+  default_network_acl_name    = "stage-nacl"
+  default_routing_table_name  = "stage-routing-table"
+  default_security_group_name = "stage-sg"
+  create_gateway              = true
+  public_gateway_name_prefix  = "stage-pw"
+  number_of_addresses         = 16
+}
 
 ```
 
 ### Required IAM access policies
-
-<!-- PERMISSIONS REQUIRED TO RUN MODULE
-If this module requires permissions, uncomment the following block and update
-the sample permissions, following the format.
-Replace the sample Account and IBM Cloud service names and roles with the
-information in the console at
-Manage > Access (IAM) > Access groups > Access policies.
--->
-
-<!--
-You need the following permissions to run this module:
+You need the following permissions to run this module.
 
 - IAM services
-    - **Sample IBM Cloud** service
+    - **VPC Infrastructure** services
         - `Editor` platform access
-        - `Manager` platform access
-- Account management services
-    - **Sample account management** service
-        - `Editor` platform access
--->
+    - **No service access**
+        - **Resource Group** \<your resource group>
+        - `Viewer` resource group access
 
-<!-- NO PERMISSIONS FOR MODULE
-If no permissions are required for the module, uncomment the following
-statement instead the previous block.
--->
+To attach access management tags to resources in this module, you need the following permissions.
+
+- IAM Services
+    - **Tagging** service
+        - `Administrator` platform access
+
 
 <!-- No permissions are needed to run this module.-->
 

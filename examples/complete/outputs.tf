@@ -19,6 +19,6 @@ output "resource_group_name" {
 
 
 output "vpc" {
-  description = "Information of newly created or existing VPC instace."
+  description = "Configuration of newly created or existing VPC instace."
   value       = module.vpc
 }
