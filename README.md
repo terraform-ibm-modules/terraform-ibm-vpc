@@ -28,37 +28,8 @@ TODO: Replace this with a description of the modules in this repo.
 ## Overview
 * [terraform-ibm-vpc](#terraform-ibm-vpc)
 * [Submodules](./modules)
-    * [floatingIP](./modules/floatingIP)
-    * [image](./modules/image)
-    * [instance](./modules/instance)
-    * [load-balancer](./modules/load-balancer)
-    * [network-acl](./modules/network-acl)
-    * [public-gateway](./modules/public-gateway)
-    * [security-group](./modules/security-group)
-    * [ssh-key](./modules/ssh-key)
-    * [subnet](./modules/subnet)
-    * [volume](./modules/volume)
-    * [vpc-address-prefix](./modules/vpc-address-prefix)
     * [vpc](./modules/vpc)
-    * [vpe](./modules/vpe)
-    * [vpn-gateway-connection](./modules/vpn-gateway-connection)
-    * [vpn-gateway](./modules/vpn-gateway)
 * [Examples](./examples)
-    * [Floating IP Module Example](./examples/floatingIP)
-    * [Instance Module Example](./examples/instance)
-    * [Load Balancer Module Example](./examples/load-balancer)
-    * [Module SSH Key](./examples/ssh-key)
-    * [Module VPC](./examples/vpc)
-    * [Network ACL Module Example](./examples/network-acl)
-    * [Public Gateway Module Example](./examples/public-gateway)
-    * [SUBNET Module Example](./examples/subnet)
-    * [Security Group Module Example](./examples/security-group)
-    * [VPC Address Prefix Module Example](./examples/vpc-address-prefix)
-    * [VPC Block Storage Module Example](./examples/volume)
-    * [VPC Image Module Example](./examples/image)
-    * [VPN Gateway Connection Module Example](./examples/vpn-gateway-connection)
-    * [VPN Gateway Module](./examples/vpn-gateway)
-    * [Virtual Private Endpoint Module Example](./examples/vpe)
 * [Contributing](#contributing)
 <!-- END OVERVIEW HOOK -->
 
@@ -125,11 +96,13 @@ statement instead the previous block.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.64.0, < 2.0.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.63.0, <2.0.0 |
 
 ### Modules
 
-No modules.
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_vpc"></a> [vpc](#module\_vpc) | ./modules/vpc | n/a |
 
 ### Resources
 
@@ -137,11 +110,33 @@ No resources.
 
 ### Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_address_prefixes"></a> [address\_prefixes](#input\_address\_prefixes) | List of Prefixes for the vpc | <pre>list(object({<br>    name     = string<br>    location = string<br>    ip_range = string<br>  }))</pre> | `[]` | no |
+| <a name="input_classic_access"></a> [classic\_access](#input\_classic\_access) | Classic Access to the VPC | `bool` | `false` | no |
+| <a name="input_clean_default_sg_acl"></a> [clean\_default\_sg\_acl](#input\_clean\_default\_sg\_acl) | Remove all rules from the default VPC security group and VPC ACL (less permissive) | `bool` | `false` | no |
+| <a name="input_create_gateway"></a> [create\_gateway](#input\_create\_gateway) | True to create new Gateway | `bool` | `false` | no |
+| <a name="input_create_vpc"></a> [create\_vpc](#input\_create\_vpc) | True to create new VPC. False if VPC is already existing and subnets or address prefixies are to be added | `bool` | `true` | no |
+| <a name="input_default_address_prefix"></a> [default\_address\_prefix](#input\_default\_address\_prefix) | Default address prefix creation method | `string` | `null` | no |
+| <a name="input_default_network_acl_name"></a> [default\_network\_acl\_name](#input\_default\_network\_acl\_name) | Name of the Default ACL | `string` | `null` | no |
+| <a name="input_default_routing_table_name"></a> [default\_routing\_table\_name](#input\_default\_routing\_table\_name) | Name of the Default Routing Table | `string` | `null` | no |
+| <a name="input_default_security_group_name"></a> [default\_security\_group\_name](#input\_default\_security\_group\_name) | Name of the Default Security Group | `string` | `null` | no |
+| <a name="input_existing_vpc_name"></a> [existing\_vpc\_name](#input\_existing\_vpc\_name) | Name of the Existing VPC to which subnets, gateways are to be attached | `string` | `null` | no |
+| <a name="input_floating_ip"></a> [floating\_ip](#input\_floating\_ip) | Floating IP `id`'s or `address`'es that you want to assign to the public gateway | `map(any)` | `{}` | no |
+| <a name="input_gateway_tags"></a> [gateway\_tags](#input\_gateway\_tags) | List of Tags for the gateway | `list(string)` | `[]` | no |
+| <a name="input_locations"></a> [locations](#input\_locations) | zones per region | `list(string)` | `[]` | no |
+| <a name="input_number_of_addresses"></a> [number\_of\_addresses](#input\_number\_of\_addresses) | Number of IPV4 Addresses | `number` | `null` | no |
+| <a name="input_public_gateway_name_prefix"></a> [public\_gateway\_name\_prefix](#input\_public\_gateway\_name\_prefix) | Prefix to the names of the Public Gateways | `string` | `null` | no |
+| <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | ID of resource group. | `string` | `null` | no |
+| <a name="input_subnet_name_prefix"></a> [subnet\_name\_prefix](#input\_subnet\_name\_prefix) | Prefix to the names of subnets | `string` | `null` | no |
+| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Name of the vpc | `string` | `null` | no |
+| <a name="input_vpc_tags"></a> [vpc\_tags](#input\_vpc\_tags) | List of Tags for the vpc | `list(string)` | `[]` | no |
 
 ### Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_vpc"></a> [vpc](#output\_vpc) | Information of newly created or existing VPC instace. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 <!-- Leave this section as is so that your module has a link to local development environment set-up steps for contributors to follow -->
