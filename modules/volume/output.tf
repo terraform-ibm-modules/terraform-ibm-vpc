@@ -1,9 +1,9 @@
 #####################################################
-# Image
+# VPC Block Storage
 # Copyright 2020 IBM
 #####################################################
 
-output "image_id" {
-  description = "The ID of the Image"
-  value       = ibm_is_image.image.id
+output "volume_id" {
+  description = "The ID of the volume"
+  value       = ibm_is_volume.volume.id
 }

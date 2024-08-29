@@ -1,9 +1,9 @@
 #####################################################
-# Image
+# Network ACL
 # Copyright 2020 IBM
 #####################################################
 
-output "image_id" {
-  description = "The ID of the Image"
-  value       = ibm_is_image.image.id
+output "network_acl_id" {
+  description = "The ID of the Network ACL"
+  value       = ibm_is_network_acl.nwacl.id
 }
