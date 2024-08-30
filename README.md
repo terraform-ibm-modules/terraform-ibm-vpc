@@ -52,7 +52,7 @@ https://terraform-ibm-modules.github.io/documentation/#/implementation-guideline
 
 
 <!-- Replace this heading with the name of the root level module (the repo name) -->
-## terraform-ibm-module-template
+## terraform-ibm-vpc
 
 ### Usage
 
@@ -110,14 +110,6 @@ You need the following permissions to run this module.
     - **No service access**
         - **Resource Group** \<your resource group>
         - `Viewer` resource group access
-
-To attach access management tags to resources in this module, you need the following permissions.
-
-- IAM Services
-    - **Tagging** service
-        - `Administrator` platform access
-
-
 <!-- No permissions are needed to run this module.-->
 
 

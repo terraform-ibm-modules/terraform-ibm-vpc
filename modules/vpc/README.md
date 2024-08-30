@@ -37,7 +37,7 @@ module "vpc" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >=0.13 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.64.0, < 2.0.0 |
 
 ### Modules
@@ -74,7 +74,7 @@ No modules.
 | <a name="input_public_gateway_name_prefix"></a> [public\_gateway\_name\_prefix](#input\_public\_gateway\_name\_prefix) | Prefix to the names of the Public Gateways | `string` | `null` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | ID of resource group. | `string` | `null` | no |
 | <a name="input_subnet_name_prefix"></a> [subnet\_name\_prefix](#input\_subnet\_name\_prefix) | Prefix to the names of subnets | `string` | `null` | no |
-| <a name="input_vpc"></a> [vpc](#input\_vpc) | Name of the Existing VPC to which subnets, gateways are to be attached | `string` | `null` | no |
+| <a name="input_vpc"></a> [vpc](#input\_vpc) | Name of the Existing VPC to which subnets, gateways are to be attached, only used when `var.create_vpc` is false | `string` | `null` | no |
 | <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Name of the vpc | `string` | `null` | no |
 | <a name="input_vpc_tags"></a> [vpc\_tags](#input\_vpc\_tags) | List of Tags for the vpc | `list(string)` | `[]` | no |
 

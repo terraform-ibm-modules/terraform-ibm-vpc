@@ -14,7 +14,7 @@ output "prefix" {
 
 output "resource_group_name" {
   description = "The name of the resource group used"
-  value       = var.resource_group
+  value       = module.resource_group.resource_group_name
 }
 
 output "vpc" {
