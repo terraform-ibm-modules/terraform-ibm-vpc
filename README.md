@@ -37,7 +37,7 @@ This module is designed to provide a scalable, secure, and flexible VPC environm
     * [vpn-gateway-connection](./modules/vpn-gateway-connection)
     * [vpn-gateway](./modules/vpn-gateway)
 * [Examples](./examples)
-    * [Complete example](./examples/basic)
+    * [Basic example](./examples/basic)
 * [Contributing](#contributing)
 <!-- END OVERVIEW HOOK -->
 

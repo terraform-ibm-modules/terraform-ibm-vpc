@@ -13,7 +13,7 @@ variable "region" {
 variable "prefix" {
   type        = string
   description = "Prefix to append to all resources created by this example"
-  default     = "complete"
+  default     = "vpc-basic"
 }
 
 variable "resource_group" {
