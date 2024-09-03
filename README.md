@@ -8,8 +8,6 @@
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
 
-
-
 ## Terraform Module for IBM Cloud VPC Infrastructure
 
 This module provides a comprehensive solution for managing IBM Cloud Virtual Private Cloud (VPC) infrastructure. It includes a main module and several submodules, enabling you to create, configure, and manage VPC components either individually or through the main module.
@@ -90,7 +88,6 @@ module "vpc" {
   public_gateway_name_prefix  = "stage-pw"
   number_of_addresses         = 16
 }
-
 ```
 
 ### Required IAM access policies
@@ -102,7 +99,6 @@ You need the following permissions to run this module.
     - **No service access**
         - **Resource Group** \<your resource group>
         - `Viewer` resource group access
-
 
 <!-- The following content is automatically populated by the pre-commit hook -->
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
@@ -136,7 +132,7 @@ No resources.
 | <a name="input_default_network_acl_name"></a> [default\_network\_acl\_name](#input\_default\_network\_acl\_name) | Name of the Default ACL | `string` | `"default-network-acl"` | no |
 | <a name="input_default_routing_table_name"></a> [default\_routing\_table\_name](#input\_default\_routing\_table\_name) | Name of the Default Routing Table | `string` | `"default_routing_table"` | no |
 | <a name="input_default_security_group_name"></a> [default\_security\_group\_name](#input\_default\_security\_group\_name) | Name of the Default Security Group | `string` | `"default_security_group"` | no |
-| <a name="input_existing_vpc_name"></a> [existing\_vpc\_name](#input\_existing\_vpc\_name) | Name of the Existing VPC to which subnets, gateways are to be attached | `string` | `null` | no |
+| <a name="input_existing_vpc_name"></a> [existing\_vpc\_name](#input\_existing\_vpc\_name) | Name of the Existing VPC to which subnets, gateways are to be attached, only used when `var.create_vpc` is false | `string` | `null` | no |
 | <a name="input_floating_ip"></a> [floating\_ip](#input\_floating\_ip) | Floating IP `id`'s or `address`'es that you want to assign to the public gateway | `map(any)` | `{}` | no |
 | <a name="input_gateway_tags"></a> [gateway\_tags](#input\_gateway\_tags) | List of Tags for the gateway | `list(string)` | `[]` | no |
 | <a name="input_locations"></a> [locations](#input\_locations) | zones per region | `list(string)` | `[]` | no |

@@ -86,7 +86,7 @@ variable "number_of_addresses" {
 
 
 variable "existing_vpc_name" {
-  description = "Name of the Existing VPC to which subnets, gateways are to be attached"
+  description = "Name of the Existing VPC to which subnets, gateways are to be attached, only used when `var.create_vpc` is false"
   type        = string
   default     = null
 }
