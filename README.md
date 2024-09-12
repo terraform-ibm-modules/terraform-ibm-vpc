@@ -1,81 +1,158 @@
-# IBM VPC Terraform Module
+# IBM Cloud VPC module
 
-## Module archived
+[![Incubating (Not yet consumable)](https://img.shields.io/badge/status-Incubating%20(Not%20yet%20consumable)-red)](https://terraform-ibm-modules.github.io/documentation/#/badge-status)
 
-:spider_web: This repo is no longer maintained and is archived. Use the [IBM Cloud Provider](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs) resources directly to create VPC resources, or use one of following maintained public modules if you consume the module from GitHub: 
-- [terraform-ibm-landing-zone-vpc](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vpc)
-- [terraform-ibm-landing-zone-vsi](https://github.com/terraform-ibm-modules/terraform-ibm-landing-zone-vsi)
-- [terraform-ibm-security-group](https://github.com/terraform-ibm-modules/terraform-ibm-security-group)
-- [terraform-ibm-client-to-site-vpn](https://github.com/terraform-ibm-modules/terraform-ibm-client-to-site-vpn)
-- [terraform-ibm-vpe-gateway](https://github.com/terraform-ibm-modules/terraform-ibm-vpe-gateway)
+[![latest release](https://img.shields.io/github/v/release/terraform-ibm-modules/terraform-ibm-vpc?logo=GitHub&sort=semver)](https://github.com/terraform-ibm-modules/terraform-ibm-vpc/releases/latest)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+[![Renovate enabled](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com/)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 
-## Changes if you use the Hashicorp registry
 
-:exclamation: **Important:**  This module will be deleted from the Hashicorp registry on 1 September 2023. 
+## Terraform Module for IBM Cloud VPC Infrastructure
 
-If you consume the from the Hashicorp registry, use one of these instead:
-- [landing-zone-vpc](https://registry.terraform.io/modules/terraform-ibm-modules/landing-zone-vpc/ibm/latest)
-- [landing-zone-vsi](https://registry.terraform.io/modules/terraform-ibm-modules/landing-zone-vsi/ibm/latest)
-- [security-group](https://registry.terraform.io/modules/terraform-ibm-modules/security-group/ibm/latest)
-- [client-to-site-vpn](https://registry.terraform.io/modules/terraform-ibm-modules/client-to-site-vpn/ibm/latest)
-- [vpe-gateway](https://registry.terraform.io/modules/terraform-ibm-modules/vpe-gateway/ibm/latest)
+This module provides a comprehensive solution for managing IBM Cloud Virtual Private Cloud (VPC) infrastructure. It includes a main module and several submodules, enabling you to create, configure, and manage VPC components either individually or through the main module.
 
----
+This module is designed to provide a scalable, secure, and flexible VPC environment tailored to meet various use cases within IBM Cloud, supporting a broad range of infrastructure needs from basic networking setups to complex multi-zone architectures.
 
-This is a collection of modules that make it easier to provision VPC Resources on IBM Cloud Platform:
+<!-- The following content is automatically populated by the pre-commit hook -->
+<!-- BEGIN OVERVIEW HOOK -->
+## Overview
+* [terraform-ibm-vpc](#terraform-ibm-vpc)
+* [Submodules](./modules)
+    * [floatingIP](./modules/floatingIP)
+    * [image](./modules/image)
+    * [instance](./modules/instance)
+    * [load-balancer](./modules/load-balancer)
+    * [network-acl](./modules/network-acl)
+    * [public-gateway](./modules/public-gateway)
+    * [security-group](./modules/security-group)
+    * [ssh-key](./modules/ssh-key)
+    * [subnet](./modules/subnet)
+    * [volume](./modules/volume)
+    * [vpc-address-prefix](./modules/vpc-address-prefix)
+    * [vpc](./modules/vpc)
+    * [vpe](./modules/vpe)
+    * [vpn-gateway-connection](./modules/vpn-gateway-connection)
+    * [vpn-gateway](./modules/vpn-gateway)
+* [Examples](./examples)
+    * [Basic example](./examples/basic)
+* [Contributing](#contributing)
+<!-- END OVERVIEW HOOK -->
 
-* vpc
-* vpc-address-prefix
-* subnet
-* security-group
-* floatingIP
-* instance
-* network-acl
-* public-gateway
-* volume
-* vpn-gateway
-* vpn-gateway-connection
-* load-balancer
-* vpe
-* ssh-key
-* image
 
-## Compatibility
+<!--
+If this repo contains any reference architectures, uncomment the heading below and link to them.
+(Usually in the `/reference-architectures` directory.)
+See "Reference architecture" in the public documentation at
+https://terraform-ibm-modules.github.io/documentation/#/implementation-guidelines?id=reference-architecture
+-->
+<!-- ## Reference architectures -->
 
-This module is meant for use with Terraform 0.13.
 
-## Usage
+## terraform-ibm-vpc
 
-Full examples are in the examples folder.
+### Usage
 
-## Requirements
+```hcl
+module "vpc" {
+  source            = "terraform-ibm-modules/vpc/ibm"
+  version           = "X.X.X" # Replace "X.X.X" with a release version to lock into a specific release
 
-### Terraform plugins
+  vpc_name          = "stage-vpc"
+  resource_group_id = module.resource_group.resource_group_id
+  locations         = ["us-south-1", "us-south-2", "us-south-3"]
+  vpc_tags          = var.resource_tags
+  address_prefixes = [
+    {
+      name     = "stage-us-south-1"
+      location = "us-south-1"
+      ip_range = "10.10.10.0/24"
+    },
+    {
+      name     = "stage-us-south-2"
+      location = "us-south-2"
+      ip_range = "10.10.20.0/24"
+    },
+    {
+      name     = "stage-us-south-3"
+      location = "us-south-3"
+      ip_range = "10.10.30.0/24"
+    }
+  ]
 
-- [Terraform](https://www.terraform.io/downloads.html) 0.13
-## Install
+  subnet_name_prefix          = "stage-subnet"
+  default_network_acl_name    = "stage-nacl"
+  default_routing_table_name  = "stage-routing-table"
+  default_security_group_name = "stage-sg"
+  create_gateway              = true
+  public_gateway_name_prefix  = "stage-pw"
+  number_of_addresses         = 16
+}
+```
 
-### Terraform
+### Required IAM access policies
+You need the following permissions to run this module.
 
-Be sure you have the correct Terraform version (0.13), you can choose the binary here:
-- https://releases.hashicorp.com/terraform/
+- IAM services
+    - **VPC Infrastructure** services
+        - `Editor` platform access
+    - **No service access**
+        - **Resource Group** \<your resource group>
+        - `Viewer` resource group access
 
-## How to input varaible values through a file
+<!-- The following content is automatically populated by the pre-commit hook -->
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+### Requirements
 
-To review the plan for the configuration defined (no resources actually provisioned)
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.64.0, <2.0.0 |
 
-`terraform plan -var-file=./input.tfvars`
+### Modules
 
-To execute and start building the configuration defined in the plan (provisions resources)
+| Name | Source | Version |
+|------|--------|---------|
+| <a name="module_vpc"></a> [vpc](#module\_vpc) | ./modules/vpc | n/a |
 
-`terraform apply -var-file=./input.tfvars`
+### Resources
 
-To destroy the VPC and all related resources
+No resources.
 
-`terraform destroy -var-file=./input.tfvars`
+### Inputs
 
-All optional parameters by default will be set to null in respective example's varaible.tf file. If user wants to configure any optional paramter he has overwrite the default value.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_address_prefixes"></a> [address\_prefixes](#input\_address\_prefixes) | List of Prefixes for the vpc | <pre>list(object({<br>    name     = string<br>    location = string<br>    ip_range = string<br>  }))</pre> | `[]` | no |
+| <a name="input_auto_assign_address_prefix"></a> [auto\_assign\_address\_prefix](#input\_auto\_assign\_address\_prefix) | Set to true to create a default address prefix automatically for each zone in the VPC. | `bool` | `true` | no |
+| <a name="input_classic_access"></a> [classic\_access](#input\_classic\_access) | Classic Access to the VPC | `bool` | `false` | no |
+| <a name="input_clean_default_sg_acl"></a> [clean\_default\_sg\_acl](#input\_clean\_default\_sg\_acl) | Remove all rules from the default VPC security group and VPC ACL (less permissive) | `bool` | `false` | no |
+| <a name="input_create_gateway"></a> [create\_gateway](#input\_create\_gateway) | True to create new Gateway | `bool` | `false` | no |
+| <a name="input_create_vpc"></a> [create\_vpc](#input\_create\_vpc) | True to create new VPC. False if VPC is already existing and subnets or address prefixies are to be added | `bool` | `true` | no |
+| <a name="input_default_network_acl_name"></a> [default\_network\_acl\_name](#input\_default\_network\_acl\_name) | Name of the Default ACL | `string` | `"default-network-acl"` | no |
+| <a name="input_default_routing_table_name"></a> [default\_routing\_table\_name](#input\_default\_routing\_table\_name) | Name of the Default Routing Table | `string` | `"default_routing_table"` | no |
+| <a name="input_default_security_group_name"></a> [default\_security\_group\_name](#input\_default\_security\_group\_name) | Name of the Default Security Group | `string` | `"default_security_group"` | no |
+| <a name="input_existing_vpc_name"></a> [existing\_vpc\_name](#input\_existing\_vpc\_name) | Name of the Existing VPC to which subnets, gateways are to be attached, only used when `var.create_vpc` is false | `string` | `null` | no |
+| <a name="input_floating_ip"></a> [floating\_ip](#input\_floating\_ip) | Floating IP `id`'s or `address`'es that you want to assign to the public gateway | `map(any)` | `{}` | no |
+| <a name="input_gateway_tags"></a> [gateway\_tags](#input\_gateway\_tags) | List of Tags for the gateway | `list(string)` | `[]` | no |
+| <a name="input_locations"></a> [locations](#input\_locations) | zones per region | `list(string)` | `[]` | no |
+| <a name="input_number_of_addresses"></a> [number\_of\_addresses](#input\_number\_of\_addresses) | Number of IPV4 Addresses | `number` | `null` | no |
+| <a name="input_public_gateway_name_prefix"></a> [public\_gateway\_name\_prefix](#input\_public\_gateway\_name\_prefix) | Prefix to the names of the Public Gateways | `string` | `"public_gateway"` | no |
+| <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | ID of resource group. | `string` | `null` | no |
+| <a name="input_subnet_name_prefix"></a> [subnet\_name\_prefix](#input\_subnet\_name\_prefix) | Prefix to the names of subnets | `string` | `"subnet"` | no |
+| <a name="input_vpc_name"></a> [vpc\_name](#input\_vpc\_name) | Name of the vpc | `string` | `null` | no |
+| <a name="input_vpc_tags"></a> [vpc\_tags](#input\_vpc\_tags) | List of Tags for the vpc | `list(string)` | `[]` | no |
 
-## Note
+### Outputs
 
-All optional fields should be given value `null` in respective resource varaible.tf file. User can configure the same by overwriting with appropriate values.
+| Name | Description |
+|------|-------------|
+| <a name="output_vpc"></a> [vpc](#output\_vpc) | Configuration of newly created or existing VPC instance. |
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+
+<!-- Leave this section as is so that your module has a link to local development environment set-up steps for contributors to follow -->
+## Contributing
+
+You can report issues and request features for this module in GitHub issues in the module repo. See [Report an issue or request a feature](https://github.com/terraform-ibm-modules/.github/blob/main/.github/SUPPORT.md).
+
+To set up your local development environment, see [Local development setup](https://terraform-ibm-modules.github.io/documentation/#/local-dev-setup) in the project documentation.

@@ -1,30 +1,14 @@
-#####################################################
-# activity tracker as a service
-# Copyright 2020 IBM
-#####################################################
-
-/***************************************************
-NOTE: To source a particular version of IBM terraform
-provider version, configure the parameter `version`.
-
 terraform {
-  required_version = ">=0.13"
+  required_version = ">= 1.3.0"
   required_providers {
+    # The below tflint-ignore is required because although the below provider is not directly required by this submodule,
+    # it is required by consuming modules, and if not set here, the top level module calling this module will not be
+    # able to set alternative alias for the provider.
+    # tflint-ignore: terraform_unused_required_providers
     ibm = {
       source = "IBM-Cloud/ibm"
-      version = "1.20.0"
-    }
-  }
-}
-If we dont configure the version parameter,
-it fetches latest provider version.
-****************************************************/
-
-terraform {
-  required_version = ">=0.13"
-  required_providers {
-    ibm = {
-      source = "IBM-Cloud/ibm"
+      # Use "greater than or equal to" range in modules
+      version = ">= 1.64.0, <2.0.0"
     }
   }
 }

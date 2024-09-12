@@ -6,6 +6,7 @@
 variable "create_vpc" {
   description = "True to create new VPC. False if VPC is already existing and subnets or address prefixies are to be added"
   type        = bool
+  default     = true
 }
 
 #####################################################
@@ -27,13 +28,13 @@ variable "resource_group_id" {
 variable "classic_access" {
   description = "Classic Access to the VPC"
   type        = bool
-  default     = null
+  default     = false
 }
 
 variable "default_address_prefix" {
   description = "Default address prefix creation method"
   type        = string
-  default     = null
+  default     = "auto"
 }
 
 variable "default_network_acl_name" {
@@ -89,9 +90,9 @@ variable "number_of_addresses" {
 }
 
 variable "vpc" {
-  description = "Name of the Existing VPC to which subnets, gateways are to be attached"
+  description = "Name of the Existing VPC to which subnets, gateways are to be attached, only used when `var.create_vpc` is false"
   type        = string
-  default     = ""
+  default     = null
 }
 
 variable "create_gateway" {
@@ -108,7 +109,7 @@ variable "public_gateway_name_prefix" {
 
 variable "floating_ip" {
   description = "Floating IP `id`'s or `address`'es that you want to assign to the public gateway"
-  type        = map
+  type        = map(string)
   default     = {}
 }
 
@@ -116,4 +117,10 @@ variable "gateway_tags" {
   description = "List of Tags for the gateway"
   type        = list(string)
   default     = []
+}
+
+variable "clean_default_sg_acl" {
+  description = "Remove all rules from the default VPC security group and VPC ACL (less permissive)"
+  type        = bool
+  default     = false
 }

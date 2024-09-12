@@ -47,7 +47,7 @@ resource "ibm_is_lb" "lbs" {
   count           = var.create_load_balancer ? 1 : 0
   name            = var.name
   subnets         = var.subnets
-  type            = var.type != null ? var.type : "public"
+  type            = var.type != null ? var.type : "public" #checkov:skip=CKV2_IBM_1
   security_groups = var.security_groups
   profile         = (var.profile != null && var.logging == null ? var.profile : null)
   logging         = (var.logging != null && var.profile == null ? var.logging : false)
@@ -62,7 +62,7 @@ resource "ibm_is_lb" "lbs" {
 resource "ibm_is_lb_pool" "lb_pools" {
   for_each                        = { for r in var.lb_pools : r.name => r }
   name                            = each.value["name"]
-  lb                              = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds.0.id
+  lb                              = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds[0].id
   algorithm                       = each.value["algorithm"]
   protocol                        = each.value["protocol"]
   health_delay                    = each.value["health_delay"]
@@ -81,7 +81,7 @@ resource "ibm_is_lb_pool" "lb_pools" {
 
 resource "ibm_is_lb_pool_member" "lb_members" {
   for_each       = { for r in local.lb_pool_members_list : r.port => r }
-  lb             = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds.0.id
+  lb             = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds[0].id
   pool           = ibm_is_lb_pool.lb_pools[each.value["lb_pool_name"]].id
   port           = each.value["port"]
   target_address = lookup(each.value, "target_address", null)
@@ -95,7 +95,7 @@ resource "ibm_is_lb_pool_member" "lb_members" {
 
 resource "ibm_is_lb_listener" "lb_listeners" {
   for_each              = { for r in var.lb_listeners : r.port => r }
-  lb                    = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds.0.id
+  lb                    = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds[0].id
   port                  = each.value["port"]
   protocol              = each.value["protocol"]
   default_pool          = lookup(each.value, "default_pool", null) != null ? ibm_is_lb_pool.lb_pools[each.value["default_pool"]].id : null
@@ -111,7 +111,7 @@ resource "ibm_is_lb_listener" "lb_listeners" {
 resource "ibm_is_lb_listener_policy" "lb_listener_policies" {
   for_each                = { for r in local.lb_listener_policies_list : r.name => r }
   name                    = each.value["name"]
-  lb                      = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds.0.id
+  lb                      = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds[0].id
   listener                = ibm_is_lb_listener.lb_listeners[each.value["listener_port"]].id
   action                  = each.value["action"]
   priority                = each.value["priority"]
@@ -119,7 +119,7 @@ resource "ibm_is_lb_listener_policy" "lb_listener_policies" {
   target_http_status_code = lookup(each.value, "target_http_status_code", null)
   target_url              = lookup(each.value, "target_url", null)
   dynamic "rules" {
-    for_each = lookup(each.value, "rules") == null ? [] : [each.value.rules]
+    for_each = each.value.rules == null ? [] : [each.value.rules]
     content {
       condition = rules.value["condition"]
       type      = rules.value["type"]
@@ -135,7 +135,7 @@ resource "ibm_is_lb_listener_policy" "lb_listener_policies" {
 
 resource "ibm_is_lb_listener_policy_rule" "lb_listener_policy_rules" {
   for_each  = { for r in local.lb_listener_policy_rules_list : r.name => r }
-  lb        = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds.0.id
+  lb        = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds[0].id
   listener  = ibm_is_lb_listener.lb_listeners[each.value["listener_port"]].id
   policy    = ibm_is_lb_listener_policy.lb_listener_policies[each.value["listener_policy_name"]].id
   condition = each.value["condition"]

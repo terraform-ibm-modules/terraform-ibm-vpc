@@ -22,23 +22,38 @@ module "image" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+### Requirements
 
-## Inputs
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.64.0, <2.0.0 |
 
-| Name                              | Description                                           | Type   | Default | Required |
-|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| name | Name of the Image | string | n/a | yes |
-| resource\_group\_id | ID of the resource group | string | n/a | no |
-| href | Image Href value | string | n/a | yes |
-| operating\_system | Image Operating system  | string | n/a | yes |
-| encrypted\_data\_key | A base64-encoded, encrypted representation of the key that was used to encrypt the data for this image  | string | n/a | no |
-| encryption\_key | The CRN of the Key Protect Root Key or Hyper Protect Crypto Service Root Key for this resource | string | n/a | no |
-| tags | List of tags to attach  | list(string) | n/a | no |
+### Modules
 
-## Outputs
+No modules.
+
+### Resources
+
+| Name | Type |
+|------|------|
+| [ibm_is_image.image](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_image) | resource |
+
+### Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_encrypted_data_key"></a> [encrypted\_data\_key](#input\_encrypted\_data\_key) | A base64-encoded, encrypted representation of the key that was used to encrypt the data for this image | `string` | `null` | no |
+| <a name="input_encryption_key"></a> [encryption\_key](#input\_encryption\_key) | The CRN of the Key Protect Root Key or Hyper Protect Crypto Service Root Key for this resource | `string` | `null` | no |
+| <a name="input_href"></a> [href](#input\_href) | Image Href value | `string` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | Name of the Image | `string` | n/a | yes |
+| <a name="input_operating_system"></a> [operating\_system](#input\_operating\_system) | Image Operating system | `string` | n/a | yes |
+| <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the Image | `list(string)` | `null` | no |
+
+### Outputs
 
 | Name | Description |
 |------|-------------|
-| image\_id | The ID of the Image |
-
+| <a name="output_image_id"></a> [image\_id](#output\_image\_id) | The ID of the Image |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

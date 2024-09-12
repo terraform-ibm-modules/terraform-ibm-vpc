@@ -40,24 +40,40 @@ module "security_group" {
 ```
 
 <!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+### Requirements
 
-## Inputs
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.64.0, <2.0.0 |
 
-| Name                              | Description                                           | Type   | Default | Required |
-|-----------------------------------|-------------------------------------------------------|--------|---------|----------|
-| create\_security\_group | True to create new security group. False if security group is already existing and security group rules are to be added | bool | n/a | yes |
-| name | Name of the new Security Group. Required if creating a new sg | string | n/a | no |
-| vpc\_id | VPC ID of the new security group. Required if creating a new sg | string | n/a | no |
-| resource\_group\_id | ID of the resource group | string | n/a | no |
-| security\_group | Existing Security Group's name to which rules are to be attached | string | n/a | no |
-| security\_group\_rules | Security Group rules | list | n/a | no |
+### Modules
 
-## Outputs
+No modules.
+
+### Resources
+
+| Name | Type |
+|------|------|
+| [ibm_is_security_group.sg](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_security_group) | resource |
+| [ibm_is_security_group_rule.sg_rules](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_security_group_rule) | resource |
+| [ibm_is_security_group.sg_ds](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_security_group) | data source |
+
+### Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_create_security_group"></a> [create\_security\_group](#input\_create\_security\_group) | True to create new security group. False if security group is already existing and security group rules are to be added | `bool` | n/a | yes |
+| <a name="input_name"></a> [name](#input\_name) | Name of the new Security Group | `string` | `null` | no |
+| <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
+| <a name="input_security_group"></a> [security\_group](#input\_security\_group) | Existing Security Group's name to which rules are to be attached. | `string` | `null` | no |
+| <a name="input_security_group_rules"></a> [security\_group\_rules](#input\_security\_group\_rules) | Security Group rules | <pre>list(object({<br>    name       = string<br>    direction  = string<br>    remote     = string<br>    ip_version = string<br>    icmp = object({<br>      code = number<br>      type = number<br>    })<br>    tcp = object({<br>      port_max = number<br>      port_min = number<br>    })<br>    udp = object({<br>      port_max = number<br>      port_min = number<br>    })<br>  }))</pre> | `[]` | no |
+| <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID of the new security group | `string` | `null` | no |
+
+### Outputs
 
 | Name | Description |
 |------|-------------|
-| security\_group\_id | The ID of the Security Group |
-| security\_group\_rules | All the Security Group Rule IDs|
-
-
+| <a name="output_security_group_id"></a> [security\_group\_id](#output\_security\_group\_id) | The ID of the Security group |
+| <a name="output_security_group_rules"></a> [security\_group\_rules](#output\_security\_group\_rules) | All the IDs of Security group Rules |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
