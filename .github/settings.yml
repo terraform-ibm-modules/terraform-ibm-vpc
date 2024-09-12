@@ -19,4 +19,4 @@ repository:
   description: "Provisions and configures IBM Cloud VPC resources"
 
   # Use a comma-separated list of topics to set on the repo (ensure not to use any caps in the topic string).
-  topics: core-team, terraform, ibm-cloud, vpc
+  topics: core-team, terraform, ibm-cloud, vpc, terraform-module
