@@ -54,12 +54,12 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_create_endpoint_gateway"></a> [create\_endpoint\_gateway](#input\_create\_endpoint\_gateway) | True to create new endpoint gateway. False if endpoint gateway is already existing and endpoint gateway ips are to be added | `bool` | n/a | yes |
 | <a name="input_endpoint_gateway"></a> [endpoint\_gateway](#input\_endpoint\_gateway) | Existing Enpoint Gateway's Name to which Reserved IPs are to be attached | `string` | `null` | no |
-| <a name="input_ips"></a> [ips](#input\_ips) | Gateway IPs | <pre>list(object({<br>    id     = string<br>    name   = string<br>    subnet = string<br>  }))</pre> | `[]` | no |
+| <a name="input_ips"></a> [ips](#input\_ips) | Gateway IPs | <pre>list(object({<br/>    id     = string<br/>    name   = string<br/>    subnet = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of the new Endpoint Gateway | `string` | `null` | no |
-| <a name="input_reserved_ips"></a> [reserved\_ips](#input\_reserved\_ips) | List of New reserved IPs to the Endpoint Gateway | <pre>list(object({<br>    reserved_ip = string<br>  }))</pre> | `[]` | no |
+| <a name="input_reserved_ips"></a> [reserved\_ips](#input\_reserved\_ips) | List of New reserved IPs to the Endpoint Gateway | <pre>list(object({<br/>    reserved_ip = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the Endpoint Gateway | `list(string)` | `[]` | no |
-| <a name="input_target"></a> [target](#input\_target) | Gateway target | <pre>list(object({<br>    resource_type = string<br>    name          = string<br>    crn           = string<br>  }))</pre> | `[]` | no |
+| <a name="input_target"></a> [target](#input\_target) | Gateway target | <pre>list(object({<br/>    resource_type = string<br/>    name          = string<br/>    crn           = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID of the new Endpoint Gateway | `string` | `null` | no |
 
 ### Outputs
