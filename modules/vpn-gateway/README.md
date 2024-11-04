@@ -62,7 +62,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_connections"></a> [connections](#input\_connections) | List of connections for the VPN Gateway | <pre>list(object({<br>    name           = string<br>    peer_address   = string<br>    preshared_key  = string<br>    local_cidrs    = list(string)<br>    peer_cidrs     = list(string)<br>    admin_state_up = bool<br>    action         = string<br>    interval       = number<br>    timeout        = number<br>    ike_policy     = string<br>    ipsec_policy   = string<br>  }))</pre> | `[]` | no |
+| <a name="input_connections"></a> [connections](#input\_connections) | List of connections for the VPN Gateway | <pre>list(object({<br/>    name           = string<br/>    peer_address   = string<br/>    preshared_key  = string<br/>    local_cidrs    = list(string)<br/>    peer_cidrs     = list(string)<br/>    admin_state_up = bool<br/>    action         = string<br/>    interval       = number<br/>    timeout        = number<br/>    ike_policy     = string<br/>    ipsec_policy   = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_create_vpn_gateway"></a> [create\_vpn\_gateway](#input\_create\_vpn\_gateway) | True to create new VPN Gateway. False if VPN Gateway is already existing and VPN Gateway connections are to be added | `bool` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | Name of the VPN Gateway | `string` | `null` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | ID of resource group. | `string` | `null` | no |

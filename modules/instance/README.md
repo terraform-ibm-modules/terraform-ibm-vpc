@@ -54,14 +54,14 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_boot_volume"></a> [boot\_volume](#input\_boot\_volume) | List of boot volume that are to be attached to the instance | <pre>list(object({<br>    name       = string<br>    encryption = string<br>  }))</pre> | `[]` | no |
+| <a name="input_boot_volume"></a> [boot\_volume](#input\_boot\_volume) | List of boot volume that are to be attached to the instance | <pre>list(object({<br/>    name       = string<br/>    encryption = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_data_volumes"></a> [data\_volumes](#input\_data\_volumes) | List of volume ids that are to be attached to the instance | `list(string)` | `[]` | no |
 | <a name="input_image"></a> [image](#input\_image) | Image ID for the instance | `string` | n/a | yes |
 | <a name="input_location"></a> [location](#input\_location) | Instance zone | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | Name of the Instance | `string` | n/a | yes |
-| <a name="input_network_interfaces"></a> [network\_interfaces](#input\_network\_interfaces) | List of network\_interfaces that are to be attached to the instance | <pre>list(object({<br>    subnet               = string<br>    interface_name       = string<br>    security_groups      = list(string)<br>    primary_ipv4_address = string<br>  }))</pre> | `[]` | no |
+| <a name="input_network_interfaces"></a> [network\_interfaces](#input\_network\_interfaces) | List of network\_interfaces that are to be attached to the instance | <pre>list(object({<br/>    subnet               = string<br/>    interface_name       = string<br/>    security_groups      = list(string)<br/>    primary_ipv4_address = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_no_of_instances"></a> [no\_of\_instances](#input\_no\_of\_instances) | number of Instances | `number` | `1` | no |
-| <a name="input_primary_network_interface"></a> [primary\_network\_interface](#input\_primary\_network\_interface) | List of primary\_network\_interface that are to be attached to the instance | <pre>list(object({<br>    subnet               = string<br>    interface_name       = string<br>    security_groups      = list(string)<br>    primary_ipv4_address = string<br>  }))</pre> | n/a | yes |
+| <a name="input_primary_network_interface"></a> [primary\_network\_interface](#input\_primary\_network\_interface) | List of primary\_network\_interface that are to be attached to the instance | <pre>list(object({<br/>    subnet               = string<br/>    interface_name       = string<br/>    security_groups      = list(string)<br/>    primary_ipv4_address = string<br/>  }))</pre> | n/a | yes |
 | <a name="input_profile"></a> [profile](#input\_profile) | Profile type for the Instance | `string` | n/a | yes |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | List of ssh key IDs the instance | `list(string)` | n/a | yes |

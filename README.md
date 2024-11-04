@@ -121,7 +121,7 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_address_prefixes"></a> [address\_prefixes](#input\_address\_prefixes) | List of Prefixes for the vpc | <pre>list(object({<br>    name     = string<br>    location = string<br>    ip_range = string<br>  }))</pre> | `[]` | no |
+| <a name="input_address_prefixes"></a> [address\_prefixes](#input\_address\_prefixes) | List of Prefixes for the vpc | <pre>list(object({<br/>    name     = string<br/>    location = string<br/>    ip_range = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_auto_assign_address_prefix"></a> [auto\_assign\_address\_prefix](#input\_auto\_assign\_address\_prefix) | Set to true to create a default address prefix automatically for each zone in the VPC. | `bool` | `true` | no |
 | <a name="input_classic_access"></a> [classic\_access](#input\_classic\_access) | Classic Access to the VPC | `bool` | `false` | no |
 | <a name="input_clean_default_sg_acl"></a> [clean\_default\_sg\_acl](#input\_clean\_default\_sg\_acl) | Remove all rules from the default VPC security group and VPC ACL (less permissive) | `bool` | `false` | no |
