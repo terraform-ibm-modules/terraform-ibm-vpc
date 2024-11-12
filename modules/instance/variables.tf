@@ -40,7 +40,13 @@ variable "primary_network_interface" {
     interface_name       = string
     security_groups      = list(string)
     primary_ipv4_address = string
+    allow_ip_spoofing    = optional(bool)
   }))
+
+  validation {
+    condition     = var.no_of_instances == length(var.primary_network_interface)
+    error_message = "Length of `var.primary_network_interface` should be same as number of instances to be created."
+  }
 }
 
 #####################################################
@@ -84,6 +90,7 @@ variable "network_interfaces" {
     interface_name       = string
     security_groups      = list(string)
     primary_ipv4_address = string
+    allow_ip_spoofing    = optional(bool)
   }))
   default = []
 }
@@ -95,4 +102,10 @@ variable "boot_volume" {
     encryption = string
   }))
   default = []
+}
+
+variable "use_legacy_network_interface" {
+  description = "Set this to true to use legacy network interface for the created instances."
+  type        = bool
+  default     = false
 }
