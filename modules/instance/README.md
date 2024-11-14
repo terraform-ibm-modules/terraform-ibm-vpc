@@ -15,7 +15,7 @@ data "ibm_resource_group" "resource_group" {
 module "instance" {
   source = "terraform-ibm-modules/vpc/ibm//modules/instance"
 
-  no_of_instances           = var.no_of_instances
+  number_of_instances           = var.number_of_instances
   name                      = var.name
   vpc_id                    = data.ibm_is_vpc.vpc.id
   resource_group_id         = data.ibm_resource_group.resource_group.id
@@ -62,7 +62,7 @@ No modules.
 | <a name="input_location"></a> [location](#input\_location) | Instance zone | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | Name of the Instance | `string` | n/a | yes |
 | <a name="input_network_interfaces"></a> [network\_interfaces](#input\_network\_interfaces) | List of network\_interfaces that are to be attached to the instance | <pre>list(object({<br/>    subnet               = string<br/>    interface_name       = string<br/>    security_groups      = list(string)<br/>    primary_ipv4_address = string<br/>    allow_ip_spoofing    = optional(bool)<br/>  }))</pre> | `[]` | no |
-| <a name="input_no_of_instances"></a> [no\_of\_instances](#input\_no\_of\_instances) | number of Instances | `number` | `1` | no |
+| <a name="input_number_of_instances"></a> [number\_of\_instances](#input\_number\_of\_instances) | number of Instances | `number` | `1` | no |
 | <a name="input_primary_network_interface"></a> [primary\_network\_interface](#input\_primary\_network\_interface) | List of primary\_network\_interface that are to be attached to the instance | <pre>list(object({<br/>    subnet               = string<br/>    interface_name       = string<br/>    security_groups      = list(string)<br/>    primary_ipv4_address = string<br/>    allow_ip_spoofing    = optional(bool)<br/>  }))</pre> | n/a | yes |
 | <a name="input_profile"></a> [profile](#input\_profile) | Profile type for the Instance | `string` | n/a | yes |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |

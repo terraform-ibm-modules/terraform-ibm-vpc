@@ -44,7 +44,7 @@ variable "primary_network_interface" {
   }))
 
   validation {
-    condition     = var.no_of_instances == length(var.primary_network_interface)
+    condition     = var.number_of_instances == length(var.primary_network_interface)
     error_message = "Length of `var.primary_network_interface` should be same as number of instances to be created."
   }
 }
@@ -53,7 +53,7 @@ variable "primary_network_interface" {
 # Optional Parameters
 #####################################################
 
-variable "no_of_instances" {
+variable "number_of_instances" {
   description = "number of Instances"
   type        = number
   default     = 1
