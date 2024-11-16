@@ -6,7 +6,7 @@ toolchain go1.23.3
 
 require (
 	github.com/stretchr/testify v1.9.0
-	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.41.4
+	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.41.5
 )
 
 require (
