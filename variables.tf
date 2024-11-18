@@ -20,12 +20,6 @@ variable "resource_group_id" {
   default     = null
 }
 
-variable "classic_access" {
-  description = "Classic Access to the VPC"
-  type        = bool
-  default     = false
-}
-
 variable "auto_assign_address_prefix" {
   description = "Set to true to create a default address prefix automatically for each zone in the VPC."
   type        = bool
