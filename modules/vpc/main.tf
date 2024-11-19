@@ -12,7 +12,6 @@ resource "ibm_is_vpc" "vpc" {
   count                       = var.create_vpc ? 1 : 0
   name                        = var.vpc_name
   resource_group              = var.resource_group_id
-  classic_access              = var.classic_access
   address_prefix_management   = var.default_address_prefix
   default_network_acl_name    = var.default_network_acl_name
   default_security_group_name = var.default_security_group_name

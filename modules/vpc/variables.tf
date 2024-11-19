@@ -25,11 +25,6 @@ variable "resource_group_id" {
   default     = null
 }
 
-variable "classic_access" {
-  description = "Classic Access to the VPC"
-  type        = bool
-  default     = false
-}
 
 variable "default_address_prefix" {
   description = "Default address prefix creation method"
