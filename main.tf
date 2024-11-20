@@ -7,7 +7,6 @@ module "vpc" {
   create_vpc                  = var.create_vpc
   vpc_name                    = var.vpc_name
   resource_group_id           = var.resource_group_id
-  classic_access              = var.classic_access
   default_address_prefix      = var.auto_assign_address_prefix ? "auto" : "manual"
   default_network_acl_name    = var.default_network_acl_name
   default_security_group_name = var.default_security_group_name
