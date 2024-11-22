@@ -38,8 +38,8 @@ variable "primary_network_interface" {
   type = list(object({
     subnet               = string
     interface_name       = string
-    security_groups      = list(string)
-    primary_ipv4_address = string
+    security_groups      = optional(list(string))
+    primary_ipv4_address = optional(string)
     allow_ip_spoofing    = optional(bool)
   }))
 
@@ -88,8 +88,8 @@ variable "network_interfaces" {
   type = list(object({
     subnet               = string
     interface_name       = string
-    security_groups      = list(string)
-    primary_ipv4_address = string
+    security_groups      = optional(list(string))
+    primary_ipv4_address = optional(string)
     allow_ip_spoofing    = optional(bool)
   }))
   default = []

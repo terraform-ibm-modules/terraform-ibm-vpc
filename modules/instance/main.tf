@@ -5,8 +5,8 @@
 resource "ibm_is_virtual_network_interface" "primary_vni" {
   count                     = length(var.primary_network_interface) > 0 && !var.use_legacy_network_interface ? length(var.primary_network_interface) : 0
   subnet                    = var.primary_network_interface[count.index].subnet
-  name                      = (var.primary_network_interface[count.index].interface_name != "" ? var.primary_network_interface[count.index].interface_name : null)
-  security_groups           = (var.primary_network_interface[count.index].security_groups != null ? var.primary_network_interface[count.index].security_groups : [])
+  name                      = var.primary_network_interface[count.index].interface_name
+  security_groups           = var.primary_network_interface[count.index].security_groups
   allow_ip_spoofing         = var.primary_network_interface[count.index].allow_ip_spoofing
   auto_delete               = false
   enable_infrastructure_nat = true
@@ -87,8 +87,8 @@ resource "ibm_is_instance" "instances" {
     for_each = var.use_legacy_network_interface ? [1] : []
     content {
       subnet            = var.primary_network_interface[count.index].subnet
-      name              = (var.primary_network_interface[count.index].interface_name != "" ? var.primary_network_interface[count.index].interface_name : null)
-      security_groups   = (var.primary_network_interface[count.index].security_groups != null ? var.primary_network_interface[count.index].security_groups : [])
+      name              = var.primary_network_interface[count.index].interface_name
+      security_groups   = var.primary_network_interface[count.index].security_groups
       allow_ip_spoofing = var.primary_network_interface[count.index].allow_ip_spoofing
       dynamic "primary_ip" {
         for_each = var.primary_network_interface[count.index].primary_ipv4_address != null ? [1] : []
@@ -104,8 +104,8 @@ resource "ibm_is_instance" "instances" {
     for_each = (length(var.network_interfaces) > 0 && var.use_legacy_network_interface ? [1] : [])
     content {
       subnet            = var.network_interfaces[count.index].subnet
-      name              = (var.network_interfaces[count.index].interface_name != "" ? var.network_interfaces[count.index].interface_name : null)
-      security_groups   = (var.network_interfaces[count.index].security_groups != null ? var.network_interfaces[count.index].security_groups : [])
+      name              = var.network_interfaces[count.index].interface_name
+      security_groups   = var.network_interfaces[count.index].security_groups
       allow_ip_spoofing = var.network_interfaces[count.index].allow_ip_spoofing
       dynamic "primary_ip" {
         for_each = var.network_interfaces[count.index].primary_ipv4_address != null ? [1] : []
