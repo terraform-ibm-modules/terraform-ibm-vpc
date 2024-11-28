@@ -82,6 +82,7 @@ No modules.
 |------|-------------|
 | <a name="output_public_gateway_ids"></a> [public\_gateway\_ids](#output\_public\_gateway\_ids) | The IDs of the Public Gateways |
 | <a name="output_subnet_ids"></a> [subnet\_ids](#output\_subnet\_ids) | The IDs of the subnets |
+| <a name="output_subnets"></a> [subnets](#output\_subnets) | Subnets in this tier |
 | <a name="output_vpc_address_prefixes"></a> [vpc\_address\_prefixes](#output\_vpc\_address\_prefixes) | The Address Prefixes of the VPC |
 | <a name="output_vpc_address_prefixes_cidr"></a> [vpc\_address\_prefixes\_cidr](#output\_vpc\_address\_prefixes\_cidr) | The Address Prefix CIDRs of the VPC |
 | <a name="output_vpc_default_network_acl"></a> [vpc\_default\_network\_acl](#output\_vpc\_default\_network\_acl) | The ID of the vpc default network acl |

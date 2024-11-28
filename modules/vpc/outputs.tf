@@ -37,3 +37,8 @@ output "public_gateway_ids" {
   description = "The IDs of the Public Gateways"
   value       = [for pgw in ibm_is_public_gateway.pgws : pgw.id]
 }
+
+output "subnets" {
+  description = "Subnets in this tier"
+  value       = [for v in ibm_is_subnet.subnets[*] : { id = v.id, zone = v.zone, cidr_block = v.ipv4_cidr_block, crn = v.crn }]
+}
