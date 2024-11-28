@@ -39,6 +39,14 @@ output "public_gateway_ids" {
 }
 
 output "subnets" {
-  description = "Subnets in this tier"
-  value       = [for v in ibm_is_subnet.subnets[*] : { id = v.id, zone = v.zone, cidr_block = v.ipv4_cidr_block, crn = v.crn }]
+  description = "List of subnets associated with this VPC"
+  value = {
+    for subnet in ibm_is_subnet.subnets :
+    subnet.name => {
+      id         = subnet.id,
+      zone       = subnet.zone,
+      cidr_block = subnet.ipv4_cidr_block,
+      crn        = subnet.crn
+    }
+  }
 }
