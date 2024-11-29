@@ -5,7 +5,7 @@
 resource "ibm_is_virtual_network_interface" "primary_vni" {
   count                     = length(var.primary_network_interface) > 0 && !var.use_legacy_network_interface ? length(var.primary_network_interface) : 0
   subnet                    = var.primary_network_interface[count.index].subnet
-  name                      = var.primary_network_interface[count.index].interface_name
+  name                      = "${var.primary_network_interface[count.index].interface_name}-${count.index}"
   security_groups           = var.primary_network_interface[count.index].security_groups
   allow_ip_spoofing         = var.primary_network_interface[count.index].allow_ip_spoofing
   auto_delete               = false
@@ -20,7 +20,7 @@ resource "ibm_is_virtual_network_interface" "primary_vni" {
 
 resource "ibm_is_virtual_network_interface" "additional_vnis" {
   count                     = length(var.network_interfaces) > 0 && !var.use_legacy_network_interface ? length(var.network_interfaces) : 0
-  name                      = var.network_interfaces[count.index].interface_name
+  name                      = "${var.network_interfaces[count.index].interface_name}-${count.index}"
   subnet                    = var.network_interfaces[count.index].subnet
   allow_ip_spoofing         = var.network_interfaces[count.index].allow_ip_spoofing
   security_groups           = var.network_interfaces[count.index].security_groups
