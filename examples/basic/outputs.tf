@@ -18,6 +18,11 @@ output "resource_group_name" {
 }
 
 output "vpc" {
-  description = "Configuration of newly created or existing VPC instace."
+  description = "VPC module values"
   value       = module.vpc
+}
+
+output "vsi" {
+  description = "VSI module values"
+  value       = module.vsi
 }
