@@ -144,6 +144,7 @@ No resources.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_subnet"></a> [subnet](#output\_subnet) | List of subnets associated with this VPC |
 | <a name="output_vpc"></a> [vpc](#output\_vpc) | Configuration of newly created or existing VPC instance. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
