@@ -11,4 +11,3 @@ output "subnet" {
   description = "List of subnets associated with this VPC"
   value       = module.vpc.subnets
 }
-
