@@ -32,22 +32,22 @@ variable "rules" {
     source      = string
     destination = string
     direction   = string
-    icmp = object({
+    icmp = optional(object({
       code = number
       type = number
-    })
-    tcp = object({
+    }))
+    tcp = optional(object({
       port_max        = number
       port_min        = number
       source_port_max = number
       source_port_min = number
-    })
-    udp = object({
+    }))
+    udp = optional(object({
       port_max        = number
       port_min        = number
       source_port_max = number
       source_port_min = number
-    })
+    }))
   }))
   default = []
 }
