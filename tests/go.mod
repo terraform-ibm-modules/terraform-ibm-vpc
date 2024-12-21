@@ -6,7 +6,7 @@ toolchain go1.23.4
 
 require (
 	github.com/stretchr/testify v1.10.0
-	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.42.5
+	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.42.7
 )
 
 require (
@@ -52,7 +52,7 @@ require (
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
 	github.com/google/go-cmp v0.6.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
-	github.com/gruntwork-io/terratest v0.48.0 // indirect
+	github.com/gruntwork-io/terratest v0.48.1 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-getter/v2 v2.2.3 // indirect
