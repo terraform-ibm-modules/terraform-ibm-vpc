@@ -70,7 +70,7 @@ output "public_gateway_ids" {
 }
 
 output "subnets" {
-  description = "List of subnets associated with this VPC"
+  description = "List of subnets associated with the VPC"
   value = {
     for subnet in ibm_is_subnet.subnets :
     subnet.name => {

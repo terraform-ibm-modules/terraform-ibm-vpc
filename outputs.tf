@@ -8,6 +8,6 @@ output "vpc" {
 }
 
 output "subnet" {
-  description = "List of subnets associated with this VPC"
+  description = "List of subnets associated with the VPC"
   value       = module.vpc.subnets
 }
