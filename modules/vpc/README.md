@@ -84,6 +84,7 @@ No modules.
 | <a name="output_subnet_detail_list"></a> [subnet\_detail\_list](#output\_subnet\_detail\_list) | A list of subnets containing names, CIDR blocks, and zones. |
 | <a name="output_subnet_ids"></a> [subnet\_ids](#output\_subnet\_ids) | The IDs of the subnets |
 | <a name="output_subnet_zone_list"></a> [subnet\_zone\_list](#output\_subnet\_zone\_list) | A list containing subnet IDs and subnet zones |
+| <a name="output_subnets"></a> [subnets](#output\_subnets) | List of subnets associated with the VPC |
 | <a name="output_vpc_address_prefixes"></a> [vpc\_address\_prefixes](#output\_vpc\_address\_prefixes) | The Address Prefixes of the VPC |
 | <a name="output_vpc_address_prefixes_cidr"></a> [vpc\_address\_prefixes\_cidr](#output\_vpc\_address\_prefixes\_cidr) | The Address Prefix CIDRs of the VPC |
 | <a name="output_vpc_default_network_acl"></a> [vpc\_default\_network\_acl](#output\_vpc\_default\_network\_acl) | The ID of the vpc default network acl |
