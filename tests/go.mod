@@ -2,20 +2,20 @@ module github.com/terraform-ibm-modules/terraform-ibm-vpc
 
 go 1.22.4
 
-toolchain go1.23.6
+toolchain go1.24.0
 
 require (
 	github.com/stretchr/testify v1.10.0
-	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.45.2
+	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.46.1
 )
 
 require (
 	dario.cat/mergo v1.0.0 // indirect
 	github.com/IBM-Cloud/bluemix-go v0.0.0-20240719075425-078fcb3a55be // indirect
-	github.com/IBM-Cloud/power-go-client v1.9.0 // indirect
+	github.com/IBM-Cloud/power-go-client v1.10.0 // indirect
 	github.com/IBM/cloud-databases-go-sdk v0.7.1 // indirect
 	github.com/IBM/go-sdk-core/v5 v5.18.5 // indirect
-	github.com/IBM/platform-services-go-sdk v0.74.0 // indirect
+	github.com/IBM/platform-services-go-sdk v0.75.0 // indirect
 	github.com/IBM/project-go-sdk v0.3.6 // indirect
 	github.com/IBM/schematics-go-sdk v0.4.0 // indirect
 	github.com/IBM/vpc-go-sdk v1.0.2 // indirect
