@@ -44,6 +44,9 @@ resource "ibm_is_subnet" "subnets" {
   zone                     = var.locations[count.index]
   total_ipv4_address_count = var.number_of_addresses
   public_gateway           = (var.create_gateway ? ibm_is_public_gateway.pgws[count.index].id : null)
+  depends_on = [
+    ibm_is_vpc_address_prefix.vpc_address_prefixes
+  ]
 }
 
 #####################################################
