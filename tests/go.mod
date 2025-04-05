@@ -2,11 +2,11 @@ module github.com/terraform-ibm-modules/terraform-ibm-vpc
 
 go 1.23.0
 
-toolchain go1.24.1
+toolchain go1.24.2
 
 require (
 	github.com/stretchr/testify v1.10.0
-	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.47.1
+	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.48.1
 )
 
 require (
