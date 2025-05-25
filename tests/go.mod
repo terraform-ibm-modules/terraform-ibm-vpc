@@ -6,7 +6,7 @@ toolchain go1.24.3
 
 require (
 	github.com/stretchr/testify v1.10.0
-	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.50.1
+	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.51.1
 )
 
 require (
@@ -15,7 +15,7 @@ require (
 	github.com/IBM-Cloud/power-go-client v1.11.0 // indirect
 	github.com/IBM/cloud-databases-go-sdk v0.7.1 // indirect
 	github.com/IBM/go-sdk-core/v5 v5.19.1 // indirect
-	github.com/IBM/platform-services-go-sdk v0.81.1 // indirect
+	github.com/IBM/platform-services-go-sdk v0.82.0 // indirect
 	github.com/IBM/project-go-sdk v0.3.6 // indirect
 	github.com/IBM/schematics-go-sdk v0.4.0 // indirect
 	github.com/IBM/vpc-go-sdk v1.0.2 // indirect
