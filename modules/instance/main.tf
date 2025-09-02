@@ -7,7 +7,6 @@ resource "ibm_is_virtual_network_interface" "primary_vni" {
   subnet                    = var.primary_network_interface[count.index].subnet
   name                      = "${var.primary_network_interface[count.index].interface_name}-${count.index}"
   security_groups           = var.primary_network_interface[count.index].security_groups
-  resource_group            = var.resource_group_id
   allow_ip_spoofing         = var.primary_network_interface[count.index].allow_ip_spoofing
   auto_delete               = false
   enable_infrastructure_nat = true
@@ -24,7 +23,6 @@ resource "ibm_is_virtual_network_interface" "additional_vnis" {
   name                      = "${var.network_interfaces[count.index].interface_name}-${count.index}"
   subnet                    = var.network_interfaces[count.index].subnet
   allow_ip_spoofing         = var.network_interfaces[count.index].allow_ip_spoofing
-  resource_group            = var.resource_group_id
   security_groups           = var.network_interfaces[count.index].security_groups
   auto_delete               = false
   enable_infrastructure_nat = true
