@@ -38,7 +38,7 @@ resource "ibm_is_vpc_address_prefix" "vpc_address_prefixes" {
 
 resource "ibm_is_subnet" "subnets" {
   count                    = length(var.locations)
-  name                     = "default-${var.subnet_name_prefix}-${count.index}"
+  name                     = "${var.subnet_name_prefix}-${count.index}"
   resource_group           = var.resource_group_id
   vpc                      = var.create_vpc ? ibm_is_vpc.vpc[0].id : data.ibm_is_vpc.vpc_ds[0].id
   zone                     = var.locations[count.index]
