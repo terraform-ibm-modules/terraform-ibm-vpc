@@ -44,7 +44,7 @@ module "security_group" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.64.0, <2.0.0 |
 
 ### Modules
@@ -67,7 +67,7 @@ No modules.
 | <a name="input_name"></a> [name](#input\_name) | Name of the new Security Group | `string` | `null` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
 | <a name="input_security_group"></a> [security\_group](#input\_security\_group) | Existing Security Group's name to which rules are to be attached. | `string` | `null` | no |
-| <a name="input_security_group_rules"></a> [security\_group\_rules](#input\_security\_group\_rules) | Security Group rules | <pre>list(object({<br/>    name       = string<br/>    direction  = string<br/>    remote     = string<br/>    ip_version = string<br/>    icmp = object({<br/>      code = number<br/>      type = number<br/>    })<br/>    tcp = object({<br/>      port_max = number<br/>      port_min = number<br/>    })<br/>    udp = object({<br/>      port_max = number<br/>      port_min = number<br/>    })<br/>  }))</pre> | `[]` | no |
+| <a name="input_security_group_rules"></a> [security\_group\_rules](#input\_security\_group\_rules) | Security Group rules | <pre>list(object({<br/>    name       = string<br/>    direction  = string<br/>    remote     = string<br/>    ip_version = optional(string)<br/>    icmp = optional(object({<br/>      code = number<br/>      type = number<br/>    }))<br/>    tcp = optional(object({<br/>      port_max = number<br/>      port_min = number<br/>    }))<br/>    udp = optional(object({<br/>      port_max = number<br/>      port_min = number<br/>    }))<br/>  }))</pre> | `[]` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID of the new security group | `string` | `null` | no |
 
 ### Outputs

@@ -43,7 +43,7 @@ module "network_acl" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.64.0, <2.0.0 |
 
 ### Modules
@@ -62,7 +62,7 @@ No modules.
 |------|-------------|------|---------|:--------:|
 | <a name="input_name"></a> [name](#input\_name) | Name of the Network ACL | `string` | n/a | yes |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
-| <a name="input_rules"></a> [rules](#input\_rules) | List of rules that are to be attached to the Network ACL | <pre>list(object({<br/>    name        = string<br/>    action      = string<br/>    source      = string<br/>    destination = string<br/>    direction   = string<br/>    icmp = object({<br/>      code = number<br/>      type = number<br/>    })<br/>    tcp = object({<br/>      port_max        = number<br/>      port_min        = number<br/>      source_port_max = number<br/>      source_port_min = number<br/>    })<br/>    udp = object({<br/>      port_max        = number<br/>      port_min        = number<br/>      source_port_max = number<br/>      source_port_min = number<br/>    })<br/>  }))</pre> | `[]` | no |
+| <a name="input_rules"></a> [rules](#input\_rules) | List of rules that are to be attached to the Network ACL | <pre>list(object({<br/>    name        = string<br/>    action      = string<br/>    source      = string<br/>    destination = string<br/>    direction   = string<br/>    icmp = optional(object({<br/>      code = number<br/>      type = number<br/>    }))<br/>    tcp = optional(object({<br/>      port_max        = number<br/>      port_min        = number<br/>      source_port_max = number<br/>      source_port_min = number<br/>    }))<br/>    udp = optional(object({<br/>      port_max        = number<br/>      port_min        = number<br/>      source_port_max = number<br/>      source_port_min = number<br/>    }))<br/>  }))</pre> | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the ACL | `list(string)` | `null` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID | `string` | n/a | yes |
 
