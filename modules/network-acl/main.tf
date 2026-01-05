@@ -29,7 +29,7 @@ resource "ibm_is_network_acl" "nwacl" {
           # equal to null and only include rules where one of the values is not null
           # this allows for patterns to include `icmp` blocks for conversion to list
           # while still not creating a rule. default behavior would force the rule to
-          # be included if all indiviual values are set to null
+          # be included if all individual values are set to null
           : length([
             for value in ["code", "type"] :
             true if lookup(rules.value["icmp"], value, null) == null
@@ -52,7 +52,7 @@ resource "ibm_is_network_acl" "nwacl" {
           # equal to null and only include rules where one of the values is not null
           # this allows for patterns to include `tcp` blocks for conversion to list
           # while still not creating a rule. default behavior would force the rule to
-          # be included if all indiviual values are set to null
+          # be included if all individual values are set to null
           : length([
             for value in ["port_min", "port_max", "source_port_min", "source_port_min"] :
             true if lookup(rules.value["tcp"], value, null) == null
@@ -77,7 +77,7 @@ resource "ibm_is_network_acl" "nwacl" {
           # equal to null and only include rules where one of the values is not null
           # this allows for patterns to include `udp` blocks for conversion to list
           # while still not creating a rule. default behavior would force the rule to
-          # be included if all indiviual values are set to null
+          # be included if all individual values are set to null
           : length([
             for value in ["port_min", "port_max", "source_port_min", "source_port_min"] :
             true if lookup(rules.value["udp"], value, null) == null
