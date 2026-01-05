@@ -34,7 +34,7 @@ module "vpe" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.64.0, <2.0.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.79.0, <2.0.0 |
 
 ### Modules
 
@@ -53,7 +53,7 @@ No modules.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_create_endpoint_gateway"></a> [create\_endpoint\_gateway](#input\_create\_endpoint\_gateway) | True to create new endpoint gateway. False if endpoint gateway is already existing and endpoint gateway ips are to be added | `bool` | n/a | yes |
-| <a name="input_endpoint_gateway"></a> [endpoint\_gateway](#input\_endpoint\_gateway) | Existing Enpoint Gateway's Name to which Reserved IPs are to be attached | `string` | `null` | no |
+| <a name="input_endpoint_gateway"></a> [endpoint\_gateway](#input\_endpoint\_gateway) | Existing Endpoint Gateway's Name to which Reserved IPs are to be attached | `string` | `null` | no |
 | <a name="input_ips"></a> [ips](#input\_ips) | Gateway IPs | <pre>list(object({<br/>    id     = string<br/>    name   = string<br/>    subnet = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_name"></a> [name](#input\_name) | Name of the new Endpoint Gateway | `string` | `null` | no |
 | <a name="input_reserved_ips"></a> [reserved\_ips](#input\_reserved\_ips) | List of New reserved IPs to the Endpoint Gateway | <pre>list(object({<br/>    reserved_ip = string<br/>  }))</pre> | `[]` | no |

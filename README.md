@@ -33,7 +33,7 @@ This module is designed to provide a scalable, secure, and flexible VPC environm
     * [vpn-gateway-connection](./modules/vpn-gateway-connection)
     * [vpn-gateway](./modules/vpn-gateway)
 * [Examples](./examples)
-    * [Basic example](./examples/basic)
+    * <div style="display: inline-block;"><a href="./examples/basic">Basic example</a></div> <div style="display: inline-block; vertical-align: middle;"><a href="https://cloud.ibm.com/schematics/workspaces/create?workspace_name=vpc-basic-example&repository=https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/examples/basic" target="_blank"><img src="https://cloud.ibm.com/media/docs/images/icons/Deploy_to_cloud.svg" alt="Deploy to IBM Cloud button"></a></div>
 * [Contributing](#contributing)
 <!-- END OVERVIEW HOOK -->
 
@@ -105,7 +105,7 @@ You need the following permissions to run this module.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
-| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.64.0, <2.0.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.79.0, <2.0.0 |
 
 ### Modules
 
