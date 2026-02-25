@@ -42,17 +42,17 @@ resource "ibm_is_subnet" "subnets" {
   resource_group = var.resource_group_id
   vpc            = var.create_vpc ? ibm_is_vpc.vpc[0].id : data.ibm_is_vpc.vpc_ds[0].id
   zone           = var.locations[count.index]
-  
+
   # Use custom CIDR if provided, otherwise auto-assign
   ipv4_cidr_block = length(var.address_prefixes) > 0 ? [
     for prefix in var.address_prefixes : prefix.ip_range
     if prefix.location == var.locations[count.index]
   ][0] : null
-  
+
   total_ipv4_address_count = length(var.address_prefixes) > 0 ? null : var.number_of_addresses
-  
+
   public_gateway = (var.create_gateway ? ibm_is_public_gateway.pgws[count.index].id : null)
-  
+
   # Ensure address prefixes are created before subnets when using manual mode
   depends_on = [ibm_is_vpc_address_prefix.vpc_address_prefixes]
 }
