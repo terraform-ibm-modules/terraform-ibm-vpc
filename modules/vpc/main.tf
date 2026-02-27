@@ -37,6 +37,9 @@ resource "ibm_is_vpc_address_prefix" "vpc_address_prefixes" {
 #####################################################
 
 resource "ibm_is_subnet" "subnets" {
+  # Ensure address prefixes are created before subnets
+  depends_on = [ibm_is_vpc_address_prefix.vpc_address_prefixes]
+
   count          = length(var.locations)
   name           = "${var.subnet_name_prefix}-${count.index}"
   resource_group = var.resource_group_id
@@ -51,9 +54,6 @@ resource "ibm_is_subnet" "subnets" {
 
   total_ipv4_address_count = length(var.address_prefixes) > 0 ? null : var.number_of_addresses
   public_gateway           = (var.create_gateway ? ibm_is_public_gateway.pgws[count.index].id : null)
-
-  # Ensure address prefixes are created before subnets
-  depends_on = [ibm_is_vpc_address_prefix.vpc_address_prefixes]
 }
 
 #####################################################
