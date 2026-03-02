@@ -46,7 +46,7 @@ resource "ibm_is_subnet" "subnets" {
   vpc            = var.create_vpc ? ibm_is_vpc.vpc[0].id : data.ibm_is_vpc.vpc_ds[0].id
   zone           = var.locations[count.index]
 
-  # Use custom CIDR if provided, otherwise auto-assign
+  # Use custom CIDR if provided, otherwise use total_ipv4_address_count
   ipv4_cidr_block = length(var.address_prefixes) > 0 ? [
     for prefix in var.address_prefixes : prefix.ip_range
     if prefix.location == var.locations[count.index]
