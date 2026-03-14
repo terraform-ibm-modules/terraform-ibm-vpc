@@ -1,10 +1,10 @@
 module github.com/terraform-ibm-modules/terraform-ibm-vpc
 
-go 1.26
+go 1.26.1
 
 require (
 	github.com/stretchr/testify v1.11.1
-	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.69.4
+	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.69.5
 )
 
 require (
