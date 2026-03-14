@@ -64,6 +64,11 @@ variable "address_prefixes" {
     ip_range = string
   }))
   default = []
+
+  validation {
+    condition     = var.default_address_prefix != "auto" || length(var.address_prefixes) == 0
+    error_message = "When using 'auto' mode for address prefixes, the address_prefixes list must be empty. To provide custom address prefixes, set default_address_prefix to 'manual'."
+  }
 }
 
 variable "locations" {

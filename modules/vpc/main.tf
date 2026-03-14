@@ -18,6 +18,13 @@ resource "ibm_is_vpc" "vpc" {
   default_routing_table_name  = var.default_routing_table_name
   tags                        = var.vpc_tags
   no_sg_acl_rules             = var.clean_default_sg_acl
+
+  # Prevent VPC recreation when switching address prefix mode, protecting existing infrastructure from being destroyed.
+  lifecycle {
+    ignore_changes = [
+      address_prefix_management
+    ]
+  }
 }
 
 #####################################################
@@ -37,13 +44,31 @@ resource "ibm_is_vpc_address_prefix" "vpc_address_prefixes" {
 #####################################################
 
 resource "ibm_is_subnet" "subnets" {
-  count                    = length(var.locations)
-  name                     = "${var.subnet_name_prefix}-${count.index}"
-  resource_group           = var.resource_group_id
-  vpc                      = var.create_vpc ? ibm_is_vpc.vpc[0].id : data.ibm_is_vpc.vpc_ds[0].id
-  zone                     = var.locations[count.index]
-  total_ipv4_address_count = var.number_of_addresses
+  # Ensure address prefixes are created before subnets
+  depends_on = [ibm_is_vpc_address_prefix.vpc_address_prefixes]
+
+  count          = length(var.locations)
+  name           = "${var.subnet_name_prefix}-${count.index}"
+  resource_group = var.resource_group_id
+  vpc            = var.create_vpc ? ibm_is_vpc.vpc[0].id : data.ibm_is_vpc.vpc_ds[0].id
+  zone           = var.locations[count.index]
+
+  # Use custom CIDR if provided, otherwise use total_ipv4_address_count
+  ipv4_cidr_block = length(var.address_prefixes) > 0 ? [
+    for prefix in var.address_prefixes : prefix.ip_range
+    if prefix.location == var.locations[count.index]
+  ][0] : null
+
+  total_ipv4_address_count = length(var.address_prefixes) > 0 ? null : var.number_of_addresses
   public_gateway           = (var.create_gateway ? ibm_is_public_gateway.pgws[count.index].id : null)
+
+  # Prevent subnet recreation during CIDR configuration changes when address_prefixes are added or modified.
+  lifecycle {
+    ignore_changes = [
+      ipv4_cidr_block,
+      total_ipv4_address_count
+    ]
+  }
 }
 
 #####################################################
