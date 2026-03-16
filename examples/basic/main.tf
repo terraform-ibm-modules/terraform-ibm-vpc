@@ -46,11 +46,11 @@ data "ibm_is_ssh_key" "existing_ssh_key" {
 ########################################################################################################################
 
 module "vpc" {
-  source                     = "../.."
-  vpc_name                   = "${var.prefix}-vpc"
-  resource_group_id          = module.resource_group.resource_group_id
-  locations                  = ["us-south-1", "us-south-2", "us-south-3"]
-  vpc_tags                   = var.resource_tags
+  source            = "../.."
+  vpc_name          = "${var.prefix}-vpc"
+  resource_group_id = module.resource_group.resource_group_id
+  locations         = ["us-south-1", "us-south-2", "us-south-3"]
+  vpc_tags          = var.resource_tags
   address_prefixes = [
     {
       name     = "${var.prefix}-us-south-1"
