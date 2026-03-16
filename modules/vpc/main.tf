@@ -19,7 +19,6 @@ resource "ibm_is_vpc" "vpc" {
   tags                        = var.vpc_tags
   no_sg_acl_rules             = var.clean_default_sg_acl
 
-  # Prevent VPC recreation when switching address prefix mode, protecting existing infrastructure from being destroyed.
   lifecycle {
     ignore_changes = [
       address_prefix_management
@@ -62,13 +61,6 @@ resource "ibm_is_subnet" "subnets" {
   total_ipv4_address_count = length(var.address_prefixes) > 0 ? null : var.number_of_addresses
   public_gateway           = (var.create_gateway ? ibm_is_public_gateway.pgws[count.index].id : null)
 
-  # Prevent subnet recreation during CIDR configuration changes when address_prefixes are added or modified.
-  lifecycle {
-    ignore_changes = [
-      ipv4_cidr_block,
-      total_ipv4_address_count
-    ]
-  }
 }
 
 #####################################################
