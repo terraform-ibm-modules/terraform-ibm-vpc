@@ -58,6 +58,11 @@ variable "address_prefixes" {
     ip_range = string
   }))
   default = []
+
+  validation {
+    condition     = !var.auto_assign_address_prefix || length(var.address_prefixes) == 0
+    error_message = "When auto_assign_address_prefix is true, the address_prefixes list must be empty. To provide custom address prefixes, set auto_assign_address_prefix to false."
+  }
 }
 
 variable "locations" {
