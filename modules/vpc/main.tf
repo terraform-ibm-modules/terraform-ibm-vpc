@@ -19,11 +19,6 @@ resource "ibm_is_vpc" "vpc" {
   tags                        = var.vpc_tags
   no_sg_acl_rules             = var.clean_default_sg_acl
 
-  lifecycle {
-    ignore_changes = [
-      address_prefix_management
-    ]
-  }
 }
 
 #####################################################
