@@ -51,23 +51,6 @@ module "vpc" {
   resource_group_id = module.resource_group.resource_group_id
   locations         = ["us-south-1", "us-south-2", "us-south-3"]
   vpc_tags          = var.resource_tags
-  address_prefixes = [
-    {
-      name     = "${var.prefix}-us-south-1"
-      location = "us-south-1"
-      ip_range = "10.10.10.0/24"
-    },
-    {
-      name     = "${var.prefix}-us-south-2"
-      location = "us-south-2"
-      ip_range = "10.10.20.0/24"
-    },
-    {
-      name     = "${var.prefix}-us-south-3"
-      location = "us-south-3"
-      ip_range = "10.10.30.0/24"
-    }
-  ]
 
   subnet_name_prefix          = "${var.prefix}-subnet"
   default_network_acl_name    = "${var.prefix}-nacl"

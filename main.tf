@@ -12,7 +12,7 @@ module "vpc" {
   default_security_group_name = var.default_security_group_name
   default_routing_table_name  = var.default_routing_table_name
   vpc_tags                    = var.vpc_tags
-  address_prefixes            = var.address_prefixes
+  address_prefixes            = var.auto_assign_address_prefix ? [] : var.address_prefixes
   locations                   = var.locations
   subnet_name_prefix          = var.subnet_name_prefix
   number_of_addresses         = var.number_of_addresses
