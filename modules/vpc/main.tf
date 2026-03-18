@@ -18,12 +18,6 @@ resource "ibm_is_vpc" "vpc" {
   default_routing_table_name  = var.default_routing_table_name
   tags                        = var.vpc_tags
   no_sg_acl_rules             = var.clean_default_sg_acl
-
-  lifecycle {
-    ignore_changes = [
-      address_prefix_management
-    ]
-  }
 }
 
 #####################################################
