@@ -60,8 +60,8 @@ variable "address_prefixes" {
   default = []
 
   validation {
-    condition     = !var.auto_assign_address_prefix || length(var.address_prefixes) == 0
-    error_message = "When `auto_assign_address_prefix` is true, the `address_prefixes` list must be empty. To provide custom address prefixes, set `auto_assign_address_prefix` to false."
+    condition     = var.auto_assign_address_prefix != false || length(var.address_prefixes) > 0
+    error_message = "When `auto_assign_address_prefix` is false, you must provide at least one address prefix in the `address_prefixes` list. Set `auto_assign_address_prefix` to true to automatically create address prefixes."
   }
 }
 
