@@ -24,6 +24,7 @@ variable "auto_assign_address_prefix" {
   description = "Set to true to create a default address prefix automatically for each zone in the VPC."
   type        = bool
   default     = true
+  nullable    = false
 }
 
 variable "default_network_acl_name" {
