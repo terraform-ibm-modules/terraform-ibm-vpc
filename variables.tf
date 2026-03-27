@@ -24,6 +24,7 @@ variable "auto_assign_address_prefix" {
   description = "Set to true to create a default address prefix automatically for each zone in the VPC."
   type        = bool
   default     = true
+  nullable    = false
 }
 
 variable "default_network_acl_name" {
@@ -58,6 +59,11 @@ variable "address_prefixes" {
     ip_range = string
   }))
   default = []
+
+  validation {
+    condition     = var.auto_assign_address_prefix != false || length(var.address_prefixes) > 0
+    error_message = "When `auto_assign_address_prefix` is false, you must provide at least one address prefix in the `address_prefixes` list. Set `auto_assign_address_prefix` to true to automatically create address prefixes."
+  }
 }
 
 variable "locations" {
