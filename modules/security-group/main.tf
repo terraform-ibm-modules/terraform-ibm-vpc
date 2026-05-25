@@ -26,9 +26,9 @@ resource "ibm_is_security_group_rule" "sg_rules" {
   direction  = each.value.direction
   remote     = each.value.remote != "" ? each.value.remote : null
   ip_version = each.value.ip_version != "" ? each.value.ip_version : "ipv4"
-  protocol = each.value.protocol
-  port_min = each.value.port_min
-  port_max = each.value.port_max
-  type     = each.value.type
-  code     = each.value.code
+  protocol   = each.value.protocol
+  port_min   = each.value.port_min
+  port_max   = each.value.port_max
+  type       = each.value.type
+  code       = each.value.code
 }
