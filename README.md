@@ -18,29 +18,29 @@ This module is designed to provide a scalable, secure, and flexible VPC environm
 ## Overview
 <ul>
   <li><a href="#terraform-ibm-vpc">terraform-ibm-vpc</a></li>
-  <li><a href="./modules">Submodules</a>
+  <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules">Submodules</a>
     <ul>
-      <li><a href="./modules/floatingIP">floatingIP</a></li>
-      <li><a href="./modules/image">image</a></li>
-      <li><a href="./modules/instance">instance</a></li>
-      <li><a href="./modules/load-balancer">load-balancer</a></li>
-      <li><a href="./modules/network-acl">network-acl</a></li>
-      <li><a href="./modules/public-gateway">public-gateway</a></li>
-      <li><a href="./modules/security-group">security-group</a></li>
-      <li><a href="./modules/ssh-key">ssh-key</a></li>
-      <li><a href="./modules/subnet">subnet</a></li>
-      <li><a href="./modules/volume">volume</a></li>
-      <li><a href="./modules/vpc">vpc</a></li>
-      <li><a href="./modules/vpc-address-prefix">vpc-address-prefix</a></li>
-      <li><a href="./modules/vpe">vpe</a></li>
-      <li><a href="./modules/vpn-gateway">vpn-gateway</a></li>
-      <li><a href="./modules/vpn-gateway-connection">vpn-gateway-connection</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/floatingIP">floatingIP</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/image">image</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/instance">instance</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/load-balancer">load-balancer</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/network-acl">network-acl</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/public-gateway">public-gateway</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/security-group">security-group</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/ssh-key">ssh-key</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/subnet">subnet</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/volume">volume</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/vpc">vpc</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/vpc-address-prefix">vpc-address-prefix</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/vpe">vpe</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/vpn-gateway">vpn-gateway</a></li>
+      <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/modules/vpn-gateway-connection">vpn-gateway-connection</a></li>
     </ul>
   </li>
-  <li><a href="./examples">Examples</a>
+  <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/examples">Examples</a>
     <ul>
       <li>
-        <a href="./examples/basic">Basic example</a>
+        <a href="https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/examples/basic">Basic example</a>
         <a href="https://cloud.ibm.com/schematics/workspaces/create?workspace_name=vpc-basic-example&repository=https://github.com/terraform-ibm-modules/terraform-ibm-vpc/tree/main/examples/basic"><img src="https://img.shields.io/badge/Deploy%20with%20IBM%20Cloud%20Schematics-0f62fe?style=flat&logo=ibm&logoColor=white&labelColor=0f62fe" alt="Deploy with IBM Cloud Schematics" style="height: 16px; vertical-align: text-bottom; margin-left: 5px;"></a>
       </li>
     </ul>
