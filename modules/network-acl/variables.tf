@@ -27,27 +27,18 @@ variable "resource_group_id" {
 variable "rules" {
   description = "List of rules that are to be attached to the Network ACL"
   type = list(object({
-    name        = string
-    action      = string
-    source      = string
-    destination = string
-    direction   = string
-    icmp = optional(object({
-      code = number
-      type = number
-    }))
-    tcp = optional(object({
-      port_max        = number
-      port_min        = number
-      source_port_max = number
-      source_port_min = number
-    }))
-    udp = optional(object({
-      port_max        = number
-      port_min        = number
-      source_port_max = number
-      source_port_min = number
-    }))
+    name            = string
+    action          = string
+    source          = string
+    destination     = string
+    direction       = string
+    protocol        = optional(string)
+    port_min        = optional(number)
+    port_max        = optional(number)
+    source_port_min = optional(number)
+    source_port_max = optional(number)
+    type            = optional(number)
+    code            = optional(number)
   }))
   default = []
 }

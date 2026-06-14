@@ -44,18 +44,11 @@ variable "security_group_rules" {
     direction  = string
     remote     = string
     ip_version = optional(string)
-    icmp = optional(object({
-      code = number
-      type = number
-    }))
-    tcp = optional(object({
-      port_max = number
-      port_min = number
-    }))
-    udp = optional(object({
-      port_max = number
-      port_min = number
-    }))
+    protocol   = optional(string)
+    port_min   = optional(number)
+    port_max   = optional(number)
+    type       = optional(number)
+    code       = optional(number)
   }))
   default = []
 }
