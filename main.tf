@@ -11,7 +11,7 @@ module "vpc" {
   default_network_acl_name    = var.default_network_acl_name
   default_security_group_name = var.default_security_group_name
   default_routing_table_name  = var.default_routing_table_name
-  vpc_tags                    = var.vpc_tags
+  vpc_tags                    = var.resource_tags
   address_prefixes            = var.auto_assign_address_prefix ? [] : var.address_prefixes
   locations                   = var.locations
   subnet_name_prefix          = var.subnet_name_prefix
@@ -20,6 +20,6 @@ module "vpc" {
   create_gateway              = var.create_gateway
   public_gateway_name_prefix  = var.public_gateway_name_prefix
   floating_ip                 = var.floating_ip
-  gateway_tags                = var.gateway_tags
+  gateway_tags                = var.resource_tags
   clean_default_sg_acl        = var.clean_default_sg_acl
 }

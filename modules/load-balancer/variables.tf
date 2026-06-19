@@ -54,8 +54,8 @@ variable "resource_group_id" {
   default     = null
 }
 
-variable "tags" {
-  description = "List of Tags for the Load Balancer"
+variable "resource_tags" {
+  description = "Add user resource tags to the Virtual Private Cloud (VPC) instance to organize, track, and manage costs. [Learn more](https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#tag-types)."
   type        = list(string)
   default     = null
 }

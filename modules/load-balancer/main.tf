@@ -52,7 +52,7 @@ resource "ibm_is_lb" "lbs" {
   profile         = (var.profile != null && var.logging == null ? var.profile : null)
   logging         = (var.logging != null && var.profile == null ? var.logging : false)
   resource_group  = var.resource_group_id
-  tags            = var.tags
+  tags            = var.resource_tags
 }
 
 ##############################################################################

@@ -34,7 +34,7 @@ resource "ibm_is_virtual_endpoint_gateway" "endpoint_gateway" {
       subnet = (ips.value.subnet != "" ? ips.value.subnet : null)
     }
   }
-  tags = var.tags
+  tags = var.resource_tags
 }
 
 #####################################################

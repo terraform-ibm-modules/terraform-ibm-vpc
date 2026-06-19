@@ -66,8 +66,8 @@ No modules.
 | <a name="input_create_vpn_gateway"></a> [create\_vpn\_gateway](#input\_create\_vpn\_gateway) | True to create new VPN Gateway. False if VPN Gateway is already existing and VPN Gateway connections are to be added | `bool` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | Name of the VPN Gateway | `string` | `null` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | ID of resource group. | `string` | `null` | no |
+| <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | Add user resource tags to the Virtual Private Cloud (VPC) instance to organize, track, and manage costs. [Learn more](https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#tag-types). | `list(string)` | `[]` | no |
 | <a name="input_subnet"></a> [subnet](#input\_subnet) | Subnet id for the Gateway | `string` | `null` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the VPN Gateway | `list(string)` | `[]` | no |
 | <a name="input_vpn_gateway"></a> [vpn\_gateway](#input\_vpn\_gateway) | Existing Gateway ID to which connections are to be attached | `string` | `null` | no |
 
 ### Outputs

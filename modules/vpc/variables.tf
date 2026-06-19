@@ -50,8 +50,8 @@ variable "default_routing_table_name" {
   default     = null
 }
 
-variable "vpc_tags" {
-  description = "List of Tags for the vpc"
+variable "resource_tags" {
+  description = "Add user resource tags to the Virtual Private Cloud (VPC) instance to organize, track, and manage costs. [Learn more](https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#tag-types)."
   type        = list(string)
   default     = []
 }
@@ -108,7 +108,7 @@ variable "floating_ip" {
   default     = {}
 }
 
-variable "gateway_tags" {
+variable "resource_tags" {
   description = "List of Tags for the gateway"
   type        = list(string)
   default     = []

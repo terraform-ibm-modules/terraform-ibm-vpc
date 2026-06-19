@@ -50,7 +50,7 @@ resource "ibm_is_instance" "instances" {
   resource_group = var.resource_group_id
   user_data      = (var.user_data != null ? var.user_data : null)
   volumes        = (var.data_volumes != null ? var.data_volumes : [])
-  tags           = var.tags
+  tags           = var.resource_tags
 
   dynamic "boot_volume" {
     for_each = (var.boot_volume != null ? var.boot_volume : [])

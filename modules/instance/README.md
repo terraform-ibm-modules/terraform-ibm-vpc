@@ -66,8 +66,8 @@ No modules.
 | <a name="input_primary_network_interface"></a> [primary\_network\_interface](#input\_primary\_network\_interface) | List of primary\_network\_interface that are to be attached to the instance | <pre>list(object({<br/>    subnet               = string<br/>    interface_name       = string<br/>    security_groups      = optional(list(string))<br/>    primary_ipv4_address = optional(string)<br/>    allow_ip_spoofing    = optional(bool)<br/>  }))</pre> | n/a | yes |
 | <a name="input_profile"></a> [profile](#input\_profile) | Profile type for the Instance | `string` | n/a | yes |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
+| <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | Add user resource tags to the Virtual Private Cloud (VPC) instance to organize, track, and manage costs. [Learn more](https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#tag-types). | `list(string)` | `null` | no |
 | <a name="input_ssh_keys"></a> [ssh\_keys](#input\_ssh\_keys) | List of ssh key IDs the instance | `list(string)` | n/a | yes |
-| <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the Instance | `list(string)` | `null` | no |
 | <a name="input_use_legacy_network_interface"></a> [use\_legacy\_network\_interface](#input\_use\_legacy\_network\_interface) | Set this to true to use legacy network interface for the created instances. | `bool` | `false` | no |
 | <a name="input_user_data"></a> [user\_data](#input\_user\_data) | User Data for the instance | `string` | `null` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID | `string` | n/a | yes |

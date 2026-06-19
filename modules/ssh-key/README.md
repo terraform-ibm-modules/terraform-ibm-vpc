@@ -43,7 +43,7 @@ No modules.
 | <a name="input_name"></a> [name](#input\_name) | Name of the SSH Key | `string` | n/a | yes |
 | <a name="input_public_key"></a> [public\_key](#input\_public\_key) | SSH Public key data | `string` | n/a | yes |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | ID of resource group. | `string` | `null` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the SSH Key | `list(string)` | `null` | no |
+| <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | Add user resource tags to the Virtual Private Cloud (VPC) instance to organize, track, and manage costs. [Learn more](https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#tag-types). | `list(string)` | `null` | no |
 
 ### Outputs
 

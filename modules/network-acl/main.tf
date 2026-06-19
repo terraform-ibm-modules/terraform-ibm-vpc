@@ -7,7 +7,7 @@ resource "ibm_is_network_acl" "nwacl" {
   name           = var.name
   vpc            = var.vpc_id
   resource_group = var.resource_group_id
-  tags           = var.tags
+  tags           = var.resource_tags
 
   # Create ACL rules
   dynamic "rules" {

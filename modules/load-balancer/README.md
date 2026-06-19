@@ -65,9 +65,9 @@ No modules.
 | <a name="input_name"></a> [name](#input\_name) | Name of the Load Balancer | `string` | `null` | no |
 | <a name="input_profile"></a> [profile](#input\_profile) | The profile to use for this load balancer. Conflicts with 'logging' | `string` | `null` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
+| <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | Add user resource tags to the Virtual Private Cloud (VPC) instance to organize, track, and manage costs. [Learn more](https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#tag-types). | `list(string)` | `null` | no |
 | <a name="input_security_groups"></a> [security\_groups](#input\_security\_groups) | Load Balancer securitygroups list | `list(string)` | `null` | no |
 | <a name="input_subnets"></a> [subnets](#input\_subnets) | Load Balancer subnets list | `list(string)` | `[]` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the Load Balancer | `list(string)` | `null` | no |
 | <a name="input_type"></a> [type](#input\_type) | Type of Load balancer | `string` | `null` | no |
 
 ### Outputs

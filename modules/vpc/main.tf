@@ -16,7 +16,7 @@ resource "ibm_is_vpc" "vpc" {
   default_network_acl_name    = var.default_network_acl_name
   default_security_group_name = var.default_security_group_name
   default_routing_table_name  = var.default_routing_table_name
-  tags                        = var.vpc_tags
+  tags                        = var.resource_tags
   no_sg_acl_rules             = var.clean_default_sg_acl
 }
 
@@ -68,5 +68,5 @@ resource "ibm_is_public_gateway" "pgws" {
   vpc            = var.create_vpc ? ibm_is_vpc.vpc[0].id : data.ibm_is_vpc.vpc_ds[0].id
   zone           = var.locations[count.index]
   floating_ip    = (length(var.floating_ip) == 1 ? var.floating_ip : {})
-  tags           = var.gateway_tags
+  tags           = var.resource_tags
 }

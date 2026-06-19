@@ -50,7 +50,7 @@ No modules.
 | <a name="input_location"></a> [location](#input\_location) | location of the Public Gateway | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | Name of the Public Gateway | `string` | n/a | yes |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | Resource group ID | `string` | `null` | no |
-| <a name="input_tags"></a> [tags](#input\_tags) | List of Tags for the Public Gateway | `list(string)` | `null` | no |
+| <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | Add user resource tags to the Virtual Private Cloud (VPC) instance to organize, track, and manage costs. [Learn more](https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#tag-types). | `list(string)` | `null` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | VPC ID | `string` | n/a | yes |
 
 ### Outputs

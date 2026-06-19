@@ -50,7 +50,7 @@ module "vpc" {
   vpc_name                    = "${var.prefix}-vpc"
   resource_group_id           = module.resource_group.resource_group_id
   locations                   = ["us-south-1", "us-south-2", "us-south-3"]
-  vpc_tags                    = var.resource_tags
+  resource_tags               = var.resource_tags
   subnet_name_prefix          = "${var.prefix}-subnet"
   default_network_acl_name    = "${var.prefix}-nacl"
   default_routing_table_name  = "${var.prefix}-routing-table"
