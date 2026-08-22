@@ -73,6 +73,7 @@ resource "ibm_is_lb_pool" "lb_pools" {
   health_monitor_port             = lookup(each.value, "health_monitor_port", null)
   session_persistence_type        = lookup(each.value, "session_persistence_type", null)
   session_persistence_cookie_name = lookup(each.value, "session_persistence_cookie_name", null)
+  proxy_protocol                  = lookup(each.value, "proxy_protocol", null)
 }
 
 ##############################################################################
@@ -102,6 +103,14 @@ resource "ibm_is_lb_listener" "lb_listeners" {
   certificate_instance  = lookup(each.value, "certificate_instance", null)
   connection_limit      = lookup(each.value, "connection_limit", null)
   accept_proxy_protocol = lookup(each.value, "accept_proxy_protocol", null)
+
+  dynamic "client_authentication" {
+    for_each = lookup(each.value, "client_authentication", null) != null ? [each.value["client_authentication"]] : []
+    content {
+      certificate_authority       = client_authentication.value["certificate_authority"]
+      certificate_revocation_list = lookup(client_authentication.value, "certificate_revocation_list", null)
+    }
+  }
 }
 
 ##############################################################################

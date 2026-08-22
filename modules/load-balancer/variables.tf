@@ -81,6 +81,7 @@ variable "lb_pools" {
     health_monitor_port             = number
     session_persistence_type        = string
     session_persistence_cookie_name = string
+    proxy_protocol                  = optional(string)
     lb_pool_members = list(object({
       port           = number
       target_address = string
@@ -101,6 +102,10 @@ variable "lb_listeners" {
     certificate_instance  = string
     connection_limit      = number
     accept_proxy_protocol = bool
+    client_authentication = optional(object({
+      certificate_authority       = string
+      certificate_revocation_list = optional(string)
+    }))
     lb_listener_policies = list(object({
       name                    = string
       action                  = string
