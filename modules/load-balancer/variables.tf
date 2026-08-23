@@ -82,6 +82,13 @@ variable "lb_pools" {
     session_persistence_type        = string
     session_persistence_cookie_name = string
     proxy_protocol                  = optional(string)
+    client_authentication = optional(object({
+      certificate_instance = string
+    }))
+    server_authentication = optional(object({
+      certificate_authority = optional(string)
+      verify_certificate    = optional(bool)
+    }))
     lb_pool_members = list(object({
       port           = number
       target_address = string

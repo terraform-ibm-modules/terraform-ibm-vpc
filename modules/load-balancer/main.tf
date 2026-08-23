@@ -74,6 +74,21 @@ resource "ibm_is_lb_pool" "lb_pools" {
   session_persistence_type        = lookup(each.value, "session_persistence_type", null)
   session_persistence_cookie_name = lookup(each.value, "session_persistence_cookie_name", null)
   proxy_protocol                  = lookup(each.value, "proxy_protocol", null)
+
+  dynamic "client_authentication" {
+    for_each = lookup(each.value, "client_authentication", null) != null ? [each.value["client_authentication"]] : []
+    content {
+      certificate_instance = client_authentication.value["certificate_instance"]
+    }
+  }
+
+  dynamic "server_authentication" {
+    for_each = lookup(each.value, "server_authentication", null) != null ? [each.value["server_authentication"]] : []
+    content {
+      certificate_authority = lookup(server_authentication.value, "certificate_authority", null)
+      verify_certificate    = lookup(server_authentication.value, "verify_certificate", null)
+    }
+  }
 }
 
 ##############################################################################
