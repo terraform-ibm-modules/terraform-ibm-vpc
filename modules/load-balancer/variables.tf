@@ -70,18 +70,18 @@ variable "load_balancer" {
 variable "lb_pools" {
   description = "List of Load Balancer Pool"
   type = list(object({
-    name                            = string
-    algorithm                       = string
-    protocol                        = string
-    health_delay                    = number
-    health_retries                  = number
-    health_timeout                  = number
-    health_type                     = string
-    health_monitor_url              = string
-    health_monitor_port             = number
-    session_persistence_type        = string
-    session_persistence_cookie_name = string
-    proxy_protocol                  = optional(string)
+    name                                = string
+    algorithm                           = string
+    protocol                            = string
+    health_delay                        = number
+    health_retries                      = number
+    health_timeout                      = number
+    health_type                         = string
+    health_monitor_url                  = string
+    health_monitor_port                 = number
+    session_persistence_type            = string
+    session_persistence_app_cookie_name = optional(string)
+    proxy_protocol                      = optional(string)
     client_authentication = optional(object({
       certificate_instance = string
     }))
