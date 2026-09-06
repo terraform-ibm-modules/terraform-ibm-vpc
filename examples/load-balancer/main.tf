@@ -37,18 +37,6 @@ module "vpc" {
   number_of_addresses         = 16
 }
 
-########################################################################################################################
-# Certificates
-#
-# - server_cert: a private leaf certificate issued from the existing SM private cert engine.
-#     Used as the LB listener TLS certificate (certificate_instance) and as the client
-#     certificate pool members present to the LB (pool client_authentication.certificate_instance).
-#
-# - ca_cert (data source): looks up an existing imported CA certificate in SM by secret ID.
-#     Used as the certificate_authority for mTLS — both on the listener (client_authentication)
-#     and on the pool (server_authentication). Must be a CA certificate, not a leaf cert.
-########################################################################################################################
-
 module "server_cert" {
   source                 = "terraform-ibm-modules/secrets-manager-private-cert/ibm"
   version                = "1.12.8"
