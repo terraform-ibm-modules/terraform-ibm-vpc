@@ -40,5 +40,5 @@ variable "existing_sm_instance_region" {
 
 variable "existing_sm_cert_template" {
   type        = string
-  description = "Name of the private certificate template to use when issuing mTLS certificates from the Secrets Manager instance"
+  description = "Name of the private certificate template to use when issuing the server certificate from the Secrets Manager instance"
 }
