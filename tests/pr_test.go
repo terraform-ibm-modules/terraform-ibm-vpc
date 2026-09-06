@@ -74,6 +74,7 @@ func TestRunLBExample(t *testing.T) {
 		TerraformVars: map[string]interface{}{
 			"existing_sm_instance_guid":   permanentResources["secretsManagerGuid"],
 			"existing_sm_instance_region": permanentResources["secretsManagerRegion"],
+			"existing_sm_cert_template":   permanentResources["privateCertTemplateName"],
 		},
 	})
 

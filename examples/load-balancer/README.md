@@ -12,8 +12,9 @@
 An example that demonstrates mTLS support for a VPC Application Load Balancer. It creates the following infrastructure:
 - A resource group, if one is not passed in.
 - A new VPC instance with subnets across three zones.
-- A self-signed CA certificate and a server certificate (signed by the CA), generated locally with the `tls` provider.
-- Both certificates imported into an existing Secrets Manager instance.
+- Two private certificates issued from an existing Secrets Manager instance (requires a private certificate engine and template to already be configured):
+  - A CA certificate — used for mTLS client/server authentication on the pool and listener.
+  - A server certificate — presented by the LB listener to connecting clients.
 - A public Application Load Balancer with:
   - A pool configured with `proxy_protocol`, `client_authentication` (mTLS client cert), and `server_authentication` (backend cert verification).
   - An HTTPS listener with `client_authentication` (mTLS — requires clients to present a certificate signed by the CA).

@@ -38,85 +38,32 @@ module "vpc" {
 }
 
 ########################################################################################################################
-# Self-signed TLS certificate (CA) for mTLS testing
+# Private certificates (mTLS)
+# Uses an existing Secrets Manager instance that already has a private cert engine configured.
 ########################################################################################################################
 
-resource "tls_private_key" "ca_key" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
+# CA certificate — used for mTLS client authentication on the listener and pool
+module "ca_cert" {
+  source                 = "terraform-ibm-modules/secrets-manager-private-cert/ibm"
+  version                = "1.12.8"
+  cert_name              = "${var.prefix}-ca-cert"
+  cert_description       = "CA certificate for mTLS testing"
+  cert_common_name       = "${var.prefix}.example.com"
+  cert_template          = var.existing_sm_cert_template
+  secrets_manager_guid   = var.existing_sm_instance_guid
+  secrets_manager_region = var.existing_sm_instance_region
 }
 
-resource "tls_self_signed_cert" "ca_cert" {
-  private_key_pem = tls_private_key.ca_key.private_key_pem
-
-  subject {
-    common_name  = "${var.prefix}-ca"
-    organization = "Example Org"
-  }
-
-  validity_period_hours = 8760 # 1 year
-  is_ca_certificate     = true
-
-  allowed_uses = [
-    "cert_signing",
-    "crl_signing",
-    "key_encipherment",
-    "digital_signature",
-  ]
-}
-
-# Server certificate signed by the CA above (used as the LB TLS certificate)
-resource "tls_private_key" "server_key" {
-  algorithm = "RSA"
-  rsa_bits  = 4096
-}
-
-resource "tls_cert_request" "server_csr" {
-  private_key_pem = tls_private_key.server_key.private_key_pem
-
-  subject {
-    common_name  = "${var.prefix}-server"
-    organization = "Example Org"
-  }
-}
-
-resource "tls_locally_signed_cert" "server_cert" {
-  cert_request_pem   = tls_cert_request.server_csr.cert_request_pem
-  ca_private_key_pem = tls_private_key.ca_key.private_key_pem
-  ca_cert_pem        = tls_self_signed_cert.ca_cert.cert_pem
-
-  validity_period_hours = 8760
-
-  allowed_uses = [
-    "key_encipherment",
-    "digital_signature",
-    "server_auth",
-  ]
-}
-
-########################################################################################################################
-# Import certificates into the existing Secrets Manager instance
-########################################################################################################################
-
-# Import the CA certificate — used for mTLS client/server authentication
-resource "ibm_sm_imported_certificate" "ca_cert" {
-  instance_id     = var.existing_sm_instance_guid
-  region          = var.existing_sm_instance_region
-  name            = "${var.prefix}-ca-cert"
-  certificate     = tls_self_signed_cert.ca_cert.cert_pem
-  private_key     = tls_private_key.ca_key.private_key_pem
-  secret_group_id = "default"
-}
-
-# Import the server certificate — used as the LB listener TLS certificate
-resource "ibm_sm_imported_certificate" "server_cert" {
-  instance_id     = var.existing_sm_instance_guid
-  region          = var.existing_sm_instance_region
-  name            = "${var.prefix}-server-cert"
-  certificate     = tls_locally_signed_cert.server_cert.cert_pem
-  intermediate    = tls_self_signed_cert.ca_cert.cert_pem
-  private_key     = tls_private_key.server_key.private_key_pem
-  secret_group_id = "default"
+# Server certificate — presented by the LB listener to connecting clients
+module "server_cert" {
+  source                 = "terraform-ibm-modules/secrets-manager-private-cert/ibm"
+  version                = "1.12.8"
+  cert_name              = "${var.prefix}-server-cert"
+  cert_description       = "Server certificate for LB listener TLS"
+  cert_common_name       = "${var.prefix}-server.example.com"
+  cert_template          = var.existing_sm_cert_template
+  secrets_manager_guid   = var.existing_sm_instance_guid
+  secrets_manager_region = var.existing_sm_instance_region
 }
 
 ########################################################################################################################
@@ -146,14 +93,14 @@ module "load_balancer" {
       session_persistence_type = null
       # Forward client connection metadata (including TLS info) to backends
       proxy_protocol = "v2"
-      # Verify backend server certificates using the imported CA
+      # Verify backend server certificates using the CA cert
       server_authentication = {
-        certificate_authority = ibm_sm_imported_certificate.ca_cert.crn
+        certificate_authority = module.ca_cert.secret_crn
         verify_certificate    = true
       }
       # Require clients connecting to the pool to present a certificate
       client_authentication = {
-        certificate_instance = ibm_sm_imported_certificate.ca_cert.crn
+        certificate_instance = module.ca_cert.secret_crn
       }
       lb_pool_members = []
     }
@@ -165,12 +112,12 @@ module "load_balancer" {
       protocol     = "https"
       default_pool = "${var.prefix}-pool"
       # Server certificate presented by the LB to connecting clients
-      certificate_instance  = ibm_sm_imported_certificate.server_cert.crn
+      certificate_instance  = module.server_cert.secret_crn
       connection_limit      = null
       accept_proxy_protocol = null
       # Require clients to present a certificate signed by the CA (mTLS)
       client_authentication = {
-        certificate_authority       = ibm_sm_imported_certificate.ca_cert.crn
+        certificate_authority       = module.ca_cert.secret_crn
         certificate_revocation_list = null
       }
       lb_listener_policies = []

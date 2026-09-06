@@ -30,10 +30,15 @@ variable "resource_tags" {
 
 variable "existing_sm_instance_guid" {
   type        = string
-  description = "GUID of an existing Secrets Manager instance used to store mTLS certificates"
+  description = "GUID of an existing Secrets Manager instance that has a private certificate engine configured"
 }
 
 variable "existing_sm_instance_region" {
   type        = string
   description = "Region of the existing Secrets Manager instance"
+}
+
+variable "existing_sm_cert_template" {
+  type        = string
+  description = "Name of the private certificate template to use when issuing mTLS certificates from the Secrets Manager instance"
 }
