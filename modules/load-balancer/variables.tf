@@ -97,6 +97,14 @@ variable "lb_pools" {
     }))
   }))
   default = []
+
+  validation {
+    error_message = "lb_pools: client_authentication and server_authentication require pool protocol to be 'https'."
+    condition = alltrue([
+      for p in var.lb_pools :
+      (p.client_authentication == null && p.server_authentication == null) || p.protocol == "https"
+    ])
+  }
 }
 
 
@@ -136,4 +144,12 @@ variable "lb_listeners" {
     }))
   }))
   default = []
+
+  validation {
+    error_message = "lb_listeners: client_authentication requires listener protocol to be 'https'."
+    condition = alltrue([
+      for l in var.lb_listeners :
+      l.client_authentication == null || l.protocol == "https"
+    ])
+  }
 }
