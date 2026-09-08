@@ -9,6 +9,16 @@
 
 locals {
 
+  # Derived directly from the IBM Cloud API after the LB is created/read.
+  # ALBs (no profile set) → true; NLBs (network-fixed / network-private-path) → false.
+  # Pools and listeners are downstream resources so this value is always known
+  # by the time Terraform evaluates their attributes.
+  lb_mtls_supported = (
+    var.create_load_balancer
+    ? ibm_is_lb.lbs[0].mtls_supported
+    : data.ibm_is_lb.lb_ds[0].mtls_supported
+  )
+
   lb_pool_members_list = flatten([
     for pool in var.lb_pools : [
       for member in pool["lb_pool_members"] : [
@@ -73,17 +83,17 @@ resource "ibm_is_lb_pool" "lb_pools" {
   health_monitor_port                 = lookup(each.value, "health_monitor_port", null)
   session_persistence_type            = lookup(each.value, "session_persistence_type", null)
   session_persistence_app_cookie_name = lookup(each.value, "session_persistence_app_cookie_name", null)
-  proxy_protocol                      = lookup(each.value, "proxy_protocol", null)
+  proxy_protocol                      = local.lb_mtls_supported ? lookup(each.value, "proxy_protocol", null) : null
 
   dynamic "client_authentication" {
-    for_each = lookup(each.value, "client_authentication", null) != null ? [each.value["client_authentication"]] : []
+    for_each = local.lb_mtls_supported && lookup(each.value, "client_authentication", null) != null ? [each.value["client_authentication"]] : []
     content {
       certificate_instance = client_authentication.value["certificate_instance"]
     }
   }
 
   dynamic "server_authentication" {
-    for_each = lookup(each.value, "server_authentication", null) != null ? [each.value["server_authentication"]] : []
+    for_each = local.lb_mtls_supported && lookup(each.value, "server_authentication", null) != null ? [each.value["server_authentication"]] : []
     content {
       certificate_authority = lookup(server_authentication.value, "certificate_authority", null)
       verify_certificate    = lookup(server_authentication.value, "verify_certificate", null)
@@ -120,7 +130,7 @@ resource "ibm_is_lb_listener" "lb_listeners" {
   accept_proxy_protocol = lookup(each.value, "accept_proxy_protocol", null)
 
   dynamic "client_authentication" {
-    for_each = lookup(each.value, "client_authentication", null) != null ? [each.value["client_authentication"]] : []
+    for_each = local.lb_mtls_supported && lookup(each.value, "client_authentication", null) != null ? [each.value["client_authentication"]] : []
     content {
       certificate_authority       = client_authentication.value["certificate_authority"]
       certificate_revocation_list = lookup(client_authentication.value, "certificate_revocation_list", null)

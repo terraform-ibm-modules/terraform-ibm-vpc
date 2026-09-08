@@ -78,6 +78,7 @@ No modules.
 | <a name="output_lb_listener_policies"></a> [lb\_listener\_policies](#output\_lb\_listener\_policies) | All IDs of Load balancer Listener Policies |
 | <a name="output_lb_listener_policy_rules"></a> [lb\_listener\_policy\_rules](#output\_lb\_listener\_policy\_rules) | All IDs of Load balancer Listener Policy Rules |
 | <a name="output_lb_listeners"></a> [lb\_listeners](#output\_lb\_listeners) | All IDs of Load balancer Listeners |
+| <a name="output_lb_mtls_supported"></a> [lb\_mtls\_supported](#output\_lb\_mtls\_supported) | Whether the load balancer supports mTLS, as reported by the IBM Cloud API |
 | <a name="output_lb_pool_members"></a> [lb\_pool\_members](#output\_lb\_pool\_members) | All IDs of Load balancer Pool Members |
 | <a name="output_lb_pools"></a> [lb\_pools](#output\_lb\_pools) | All IDs of Load balancer Pools |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
