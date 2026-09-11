@@ -70,17 +70,25 @@ variable "load_balancer" {
 variable "lb_pools" {
   description = "List of Load Balancer Pool"
   type = list(object({
-    name                            = string
-    algorithm                       = string
-    protocol                        = string
-    health_delay                    = number
-    health_retries                  = number
-    health_timeout                  = number
-    health_type                     = string
-    health_monitor_url              = string
-    health_monitor_port             = number
-    session_persistence_type        = string
-    session_persistence_cookie_name = string
+    name                                = string
+    algorithm                           = string
+    protocol                            = string
+    health_delay                        = number
+    health_retries                      = number
+    health_timeout                      = number
+    health_type                         = string
+    health_monitor_url                  = string
+    health_monitor_port                 = number
+    session_persistence_type            = string
+    session_persistence_app_cookie_name = optional(string)
+    proxy_protocol                      = optional(string)
+    client_authentication = optional(object({
+      certificate_instance = string
+    }))
+    server_authentication = optional(object({
+      certificate_authority = optional(string)
+      verify_certificate    = optional(bool)
+    }))
     lb_pool_members = list(object({
       port           = number
       target_address = string
@@ -89,6 +97,14 @@ variable "lb_pools" {
     }))
   }))
   default = []
+
+  validation {
+    error_message = "lb_pools: client_authentication and server_authentication require pool protocol to be 'https'."
+    condition = alltrue([
+      for p in var.lb_pools :
+      (p.client_authentication == null && p.server_authentication == null) || p.protocol == "https"
+    ])
+  }
 }
 
 
@@ -101,6 +117,10 @@ variable "lb_listeners" {
     certificate_instance  = string
     connection_limit      = number
     accept_proxy_protocol = bool
+    client_authentication = optional(object({
+      certificate_authority       = string
+      certificate_revocation_list = optional(string)
+    }))
     lb_listener_policies = list(object({
       name                    = string
       action                  = string
@@ -124,4 +144,12 @@ variable "lb_listeners" {
     }))
   }))
   default = []
+
+  validation {
+    error_message = "lb_listeners: client_authentication requires listener protocol to be 'https'."
+    condition = alltrue([
+      for l in var.lb_listeners :
+      l.client_authentication == null || l.protocol == "https"
+    ])
+  }
 }

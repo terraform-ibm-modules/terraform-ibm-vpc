@@ -8,6 +8,11 @@ output "lb_id" {
   value       = var.create_load_balancer ? ibm_is_lb.lbs[0].id : data.ibm_is_lb.lb_ds[0].id
 }
 
+output "lb_mtls_supported" {
+  description = "Whether the load balancer supports mTLS, as reported by the IBM Cloud API"
+  value       = var.create_load_balancer ? ibm_is_lb.lbs[0].mtls_supported : data.ibm_is_lb.lb_ds[0].mtls_supported
+}
+
 output "lb_pools" {
   description = "All IDs of Load balancer Pools"
   value       = [for pool in ibm_is_lb_pool.lb_pools : pool.id]
