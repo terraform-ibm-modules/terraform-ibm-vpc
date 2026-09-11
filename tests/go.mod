@@ -4,7 +4,7 @@ go 1.26.1
 
 require (
 	github.com/stretchr/testify v1.12.1
-	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.77.6
+	github.com/terraform-ibm-modules/ibmcloud-terratest-wrapper v1.78.0
 )
 
 require (
