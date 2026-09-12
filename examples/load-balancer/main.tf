@@ -39,7 +39,7 @@ module "vpc" {
 
 module "server_cert" {
   source                 = "terraform-ibm-modules/secrets-manager-private-cert/ibm"
-  version                = "1.12.8"
+  version                = "1.12.9"
   cert_name              = "${var.prefix}-server-cert"
   cert_description       = "Server certificate for LB listener TLS and pool client auth"
   cert_common_name       = "${var.prefix}-server.example.com"
