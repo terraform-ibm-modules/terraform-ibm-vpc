@@ -36,7 +36,7 @@ module "instance" {
 ### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.79.0, < 3.0.0 |
 
@@ -47,7 +47,7 @@ No modules.
 ### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [ibm_is_instance.instances](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_instance) | resource |
 | [ibm_is_virtual_network_interface.additional_vnis](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_virtual_network_interface) | resource |
 | [ibm_is_virtual_network_interface.primary_vni](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_virtual_network_interface) | resource |
@@ -55,7 +55,7 @@ No modules.
 ### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_boot_volume"></a> [boot\_volume](#input\_boot\_volume) | List of boot volume that are to be attached to the instance | <pre>list(object({<br/>    name       = string<br/>    encryption = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_data_volumes"></a> [data\_volumes](#input\_data\_volumes) | List of volume ids that are to be attached to the instance | `list(string)` | `[]` | no |
 | <a name="input_image"></a> [image](#input\_image) | Image ID for the instance | `string` | n/a | yes |
@@ -75,7 +75,7 @@ No modules.
 ### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_instance_data"></a> [instance\_data](#output\_instance\_data) | Data of all the instances created. |
 | <a name="output_instance_ids"></a> [instance\_ids](#output\_instance\_ids) | The ID of the Instances |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

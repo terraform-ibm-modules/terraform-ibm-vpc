@@ -33,7 +33,7 @@ module "load-balancer" {
 ### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.79.0, < 3.0.0 |
 
@@ -44,7 +44,7 @@ No modules.
 ### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [ibm_is_lb.lbs](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_lb) | resource |
 | [ibm_is_lb_listener.lb_listeners](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_lb_listener) | resource |
 | [ibm_is_lb_listener_policy.lb_listener_policies](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_lb_listener_policy) | resource |
@@ -56,7 +56,7 @@ No modules.
 ### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_create_load_balancer"></a> [create\_load\_balancer](#input\_create\_load\_balancer) | True to create new Load Balancer. False if Load Balancer is already existing and Load Balancer pools/listeners are to be added | `bool` | n/a | yes |
 | <a name="input_lb_listeners"></a> [lb\_listeners](#input\_lb\_listeners) | List of Load Balancer Listeners | <pre>list(object({<br/>    port                  = number<br/>    protocol              = string<br/>    default_pool          = string<br/>    certificate_instance  = string<br/>    connection_limit      = number<br/>    accept_proxy_protocol = bool<br/>    client_authentication = optional(object({<br/>      certificate_authority       = string<br/>      certificate_revocation_list = optional(string)<br/>    }))<br/>    lb_listener_policies = list(object({<br/>      name                    = string<br/>      action                  = string<br/>      priority                = number<br/>      target_id               = string<br/>      target_http_status_code = number<br/>      target_url              = string<br/>      rules = object({<br/>        condition = string<br/>        type      = string<br/>        field     = string<br/>        value     = string<br/>      })<br/>      lb_listener_policy_rules = list(object({<br/>        name      = string<br/>        condition = string<br/>        type      = string<br/>        field     = string<br/>        value     = string<br/>      }))<br/>    }))<br/>  }))</pre> | `[]` | no |
 | <a name="input_lb_pools"></a> [lb\_pools](#input\_lb\_pools) | List of Load Balancer Pool | <pre>list(object({<br/>    name                                = string<br/>    algorithm                           = string<br/>    protocol                            = string<br/>    health_delay                        = number<br/>    health_retries                      = number<br/>    health_timeout                      = number<br/>    health_type                         = string<br/>    health_monitor_url                  = string<br/>    health_monitor_port                 = number<br/>    session_persistence_type            = string<br/>    session_persistence_app_cookie_name = optional(string)<br/>    proxy_protocol                      = optional(string)<br/>    client_authentication = optional(object({<br/>      certificate_instance = string<br/>    }))<br/>    server_authentication = optional(object({<br/>      certificate_authority = optional(string)<br/>      verify_certificate    = optional(bool)<br/>    }))<br/>    lb_pool_members = list(object({<br/>      port           = number<br/>      target_address = string<br/>      target_id      = string<br/>      weight         = number<br/>    }))<br/>  }))</pre> | `[]` | no |
@@ -73,7 +73,7 @@ No modules.
 ### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_lb_id"></a> [lb\_id](#output\_lb\_id) | The ID of the Load balancer |
 | <a name="output_lb_listener_policies"></a> [lb\_listener\_policies](#output\_lb\_listener\_policies) | All IDs of Load balancer Listener Policies |
 | <a name="output_lb_listener_policy_rules"></a> [lb\_listener\_policy\_rules](#output\_lb\_listener\_policy\_rules) | All IDs of Load balancer Listener Policy Rules |
