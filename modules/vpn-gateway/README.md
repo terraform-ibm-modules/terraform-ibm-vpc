@@ -43,7 +43,7 @@ module "vpn_gateway" {
 ### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.79.0, < 3.0.0 |
 
@@ -54,14 +54,14 @@ No modules.
 ### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [ibm_is_vpn_gateway.vpngw](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway) | resource |
 | [ibm_is_vpn_gateway_connection.vpngw_connections](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway_connection) | resource |
 
 ### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_connections"></a> [connections](#input\_connections) | List of connections for the VPN Gateway | <pre>list(object({<br/>    name           = string<br/>    peer_address   = string<br/>    preshared_key  = string<br/>    local_cidrs    = list(string)<br/>    peer_cidrs     = list(string)<br/>    admin_state_up = bool<br/>    action         = string<br/>    interval       = number<br/>    timeout        = number<br/>    ike_policy     = string<br/>    ipsec_policy   = string<br/>  }))</pre> | `[]` | no |
 | <a name="input_create_vpn_gateway"></a> [create\_vpn\_gateway](#input\_create\_vpn\_gateway) | True to create new VPN Gateway. False if VPN Gateway is already existing and VPN Gateway connections are to be added | `bool` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | Name of the VPN Gateway | `string` | `null` | no |
@@ -73,7 +73,7 @@ No modules.
 ### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_vpn_gateway_connections"></a> [vpn\_gateway\_connections](#output\_vpn\_gateway\_connections) | The VPN Gateway Connections |
 | <a name="output_vpn_gateway_id"></a> [vpn\_gateway\_id](#output\_vpn\_gateway\_id) | The ID of the VPN Gateway |
 | <a name="output_vpn_gateway_public_ip"></a> [vpn\_gateway\_public\_ip](#output\_vpn\_gateway\_public\_ip) | The public IP address assigned to the VPN gateway |
