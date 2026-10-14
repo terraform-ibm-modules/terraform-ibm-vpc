@@ -27,7 +27,7 @@ module "volume" {
 ### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.79.0, < 3.0.0 |
 
@@ -38,13 +38,13 @@ No modules.
 ### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [ibm_is_volume.volume](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_volume) | resource |
 
 ### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_encryption"></a> [encryption](#input\_encryption) | The encryption key to use for encrypting this volume | `string` | `null` | no |
 | <a name="input_iops"></a> [iops](#input\_iops) | The total i/o operations per sec for the storage. This value is required for custom volume\_profile only. | `number` | `null` | no |
 | <a name="input_location"></a> [location](#input\_location) | Volume Zone | `string` | n/a | yes |
@@ -57,6 +57,6 @@ No modules.
 ### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_volume_id"></a> [volume\_id](#output\_volume\_id) | The ID of the volume |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

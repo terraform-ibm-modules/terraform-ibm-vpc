@@ -31,7 +31,7 @@ module "subnet" {
 ### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.79.0, < 3.0.0 |
 
@@ -42,13 +42,13 @@ No modules.
 ### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [ibm_is_subnet.subnet](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_subnet) | resource |
 
 ### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_ip_range"></a> [ip\_range](#input\_ip\_range) | IP range or CIDR block | `string` | `null` | no |
 | <a name="input_location"></a> [location](#input\_location) | location of the subnet | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | Name of the subnet | `string` | n/a | yes |
@@ -62,7 +62,7 @@ No modules.
 ### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_subnet_id"></a> [subnet\_id](#output\_subnet\_id) | The ID of the subnet |
 | <a name="output_subnet_ipv4_cidr"></a> [subnet\_ipv4\_cidr](#output\_subnet\_ipv4\_cidr) | IPV4 subnet CIDR block |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

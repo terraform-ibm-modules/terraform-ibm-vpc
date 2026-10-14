@@ -28,7 +28,7 @@ module "vpc_gateway_connection" {
 ### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.79.0, < 3.0.0 |
 
@@ -39,13 +39,13 @@ No modules.
 ### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [ibm_is_vpn_gateway_connection.vpngw_connection](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_vpn_gateway_connection) | resource |
 
 ### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_action"></a> [action](#input\_action) | Dead peer detection actions | `string` | `null` | no |
 | <a name="input_admin_state_up"></a> [admin\_state\_up](#input\_admin\_state\_up) | The VPN gateway connection status | `bool` | `null` | no |
 | <a name="input_ike_policy"></a> [ike\_policy](#input\_ike\_policy) | The ID of the IKE policy | `string` | `null` | no |
@@ -62,6 +62,6 @@ No modules.
 ### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_vpn_gateway_connection_id"></a> [vpn\_gateway\_connection\_id](#output\_vpn\_gateway\_connection\_id) | The ID of the VPN Gateway Connection |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->

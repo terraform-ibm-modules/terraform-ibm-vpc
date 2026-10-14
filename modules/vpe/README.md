@@ -32,7 +32,7 @@ module "vpe" {
 ### Requirements
 
 | Name | Version |
-|------|---------|
+| ---- | ------- |
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.0 |
 | <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.79.0, < 3.0.0 |
 
@@ -43,7 +43,7 @@ No modules.
 ### Resources
 
 | Name | Type |
-|------|------|
+| ---- | ---- |
 | [ibm_is_virtual_endpoint_gateway.endpoint_gateway](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_virtual_endpoint_gateway) | resource |
 | [ibm_is_virtual_endpoint_gateway_ip.virtual_endpoint_gateway_ips](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/is_virtual_endpoint_gateway_ip) | resource |
 | [ibm_is_virtual_endpoint_gateway.vpe_ds](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/is_virtual_endpoint_gateway) | data source |
@@ -51,7 +51,7 @@ No modules.
 ### Inputs
 
 | Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
+| ---- | ----------- | ---- | ------- | :------: |
 | <a name="input_create_endpoint_gateway"></a> [create\_endpoint\_gateway](#input\_create\_endpoint\_gateway) | True to create new endpoint gateway. False if endpoint gateway is already existing and endpoint gateway ips are to be added | `bool` | n/a | yes |
 | <a name="input_endpoint_gateway"></a> [endpoint\_gateway](#input\_endpoint\_gateway) | Existing Endpoint Gateway's Name to which Reserved IPs are to be attached | `string` | `null` | no |
 | <a name="input_ips"></a> [ips](#input\_ips) | Gateway IPs | <pre>list(object({<br/>    id     = string<br/>    name   = string<br/>    subnet = string<br/>  }))</pre> | `[]` | no |
@@ -65,7 +65,7 @@ No modules.
 ### Outputs
 
 | Name | Description |
-|------|-------------|
+| ---- | ----------- |
 | <a name="output_endpoint_gateway_id"></a> [endpoint\_gateway\_id](#output\_endpoint\_gateway\_id) | The ID of the endpoint gateway |
 | <a name="output_endpoint_gateway_ips"></a> [endpoint\_gateway\_ips](#output\_endpoint\_gateway\_ips) | The ID of the endpoint gateway IPs |
 | <a name="output_endpoint_gateway_target"></a> [endpoint\_gateway\_target](#output\_endpoint\_gateway\_target) | The ID of the endpoint gateway target |
